@@ -318,6 +318,188 @@ $[0.609, 0.644]$ & 13 & 1.06\% & 1,231 & 100.00\% \\ \bottomrule
 \caption{TDEF para FG\_PCT}
 \end{table}
 
+
+% --- Análisis Gráfico de Distribuciones ---
+\section{Análisis Gráfico de Distribuciones}
+\label{sec:analisis-grafico}
+
+Este apartado presenta un análisis visual de las distribuciones de las principales variables cuantitativas mediante histogramas, boxplots y medidas de asimetría y curtosis. Los gráficos permiten evaluar la forma, dispersión, presencia de valores atípicos y desviaciones de la normalidad.
+
+\subsection{Histogramas y Polígonos de Frecuencia Acumulada}
+
+Los histogramas muestran la distribución de frecuencias de las variables, complementados con polígonos de frecuencias acumuladas que ilustran la progresión de los datos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{histograma_pts.png}
+    \caption{Histograma y polígono de frecuencias acumuladas para PTS (puntos).}
+    \label{fig:hist_pts}
+\end{figure}
+
+\textbf{Análisis de PTS (Figura \ref{fig:hist_pts}):} 
+La distribución de puntos por partido presenta una forma aproximadamente simétrica, con media (106.04) y mediana (106.00) casi idénticas. La concentración central está entre 97 y 115 puntos (IQR=18). El polígono acumulado muestra una progresión suave, indicando una distribución continua sin saltos abruptos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{histograma_ast.png}
+    \caption{Histograma y polígono de frecuencias acumuladas para AST (asistencias).}
+    \label{fig:hist_ast}
+\end{figure}
+
+\textbf{Análisis de AST (Figura \ref{fig:hist_ast}):} 
+Las asistencias muestran una distribución ligeramente asimétrica hacia la derecha, con media (23.38) ligeramente superior a la mediana (23.00). La mayoría de los valores se concentran entre 20 y 27 asistencias (IQR=7).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{histograma_reb.png}
+    \caption{Histograma y polígono de frecuencias acumuladas para REB (rebotes).}
+    \label{fig:hist_reb}
+\end{figure}
+
+\textbf{Análisis de REB (Figura \ref{fig:hist_reb}):} 
+La distribución de rebotes es aproximadamente simétrica (media=43.44, mediana=43.00). El rango intercuartílico (IQR=9) indica una dispersión moderada alrededor de la mediana.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{histograma_fgpct.png}
+    \caption{Histograma y polígono de frecuencias acumuladas para FG\_PCT (porcentaje de tiros de campo).}
+    \label{fig:hist_fgpct}
+\end{figure}
+
+\textbf{Análisis de FG\_PCT (Figura \ref{fig:hist_fgpct}):} 
+El porcentaje de tiro presenta una distribución casi simétrica con media y mediana en 0.46. La concentración central es notable, con la mayoría de valores entre 0.42 y 0.50 (IQR=0.08). La forma sugiere una distribución normal.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{histograma_plusminus.png}
+    \caption{Histograma para PLUS\_MINUS (diferencial de puntos).}
+    \label{fig:hist_plusminus}
+\end{figure}
+
+\textbf{Análisis de PLUS\_MINUS (Figura \ref{fig:hist_plusminus}):} 
+Esta variable presenta una distribución simétrica centrada en cero (media=0.00, mediana=0.00), como era esperable dado que representa el balance entre equipos. Sin embargo, muestra colas más pesadas que una normal, indicando presencia de partidos con diferenciales extremos.
+
+\subsection{Boxplots y Detección de Valores Atípicos}
+
+Los diagramas de caja (boxplots) resumen la distribución mediante cuartiles y permiten identificar valores atípicos (outliers) de manera visual.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{boxplots.png}
+    \caption{Boxplots de las principales variables del dataset.}
+    \label{fig:boxplots}
+\end{figure}
+
+\textbf{Análisis de Boxplots (Figura \ref{fig:boxplots}):}
+
+\begin{itemize}
+    \item \textbf{PTS}: La caja está centrada alrededor de 106 puntos. Se identifican 231 outliers (0.7\% del total), correspondientes a partidos con puntuaciones excepcionalmente altas o bajas.
+    \item \textbf{AST}: Distribución relativamente simétrica con mediana en 23 asistencias. 260 outliers (0.8\%) representan partidos con volumen extremo de asistencias.
+    \item \textbf{FG\_PCT}: La caja muestra poca dispersión (IQR=0.14), confirmando la consistencia en el porcentaje de tiro. Los 275 outliers (0.8\%) corresponden a partidos con eficiencia de tiro atípica.
+    \item \textbf{REB}: Distribución simétrica con mediana en 43 rebotes. 229 outliers (0.7\%) identifican partidos con volumen anormal de rebotes.
+    \item \textbf{PLUS\_MINUS}: Aunque centrado en cero, presenta el mayor porcentaje de outliers (1.4\%, 460 casos), indicando partidos con diferenciales extremadamente positivos o negativos.
+\end{itemize}
+
+\subsection{Asimetría y Curtosis}
+
+Las medidas de asimetría y curtosis cuantifican desviaciones de la distribución normal.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{asimetria_curtosis.png}
+    \caption{Medidas de asimetría y curtosis para las variables principales.}
+    \label{fig:asimetria-curtosis}
+\end{figure}
+
+\textbf{Análisis de Asimetría y Curtosis (Figura \ref{fig:asimetria-curtosis}):}
+
+\begin{itemize}
+    \item \textbf{Asimetría (Skewness)}: 
+    \begin{itemize}
+        \item Valores cercanos a cero indican distribuciones simétricas.
+        \item PTS, REB y FG\_PCT muestran asimetría mínima (próxima a 0).
+        \item PLUS\_MINUS tiene asimetría cercana a cero, confirmando su distribución balanceada.
+        \item AST presenta ligera asimetría positiva (cola derecha más larga).
+    \end{itemize}
+    
+    \item \textbf{Curtosis}: 
+    \begin{itemize}
+        \item Mide el "apuntamiento" de la distribución respecto a la normal.
+        \item Valores cercanos a 0 indican curtosis similar a la normal.
+        \item PLUS\_MINUS muestra mayor curtosis, indicando colas más pesadas y pico más pronunciado.
+        \item FG\_PCT tiene curtosis negativa, sugiriendo distribución más aplanada que la normal.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Síntesis del Análisis Gráfico}
+
+\begin{itemize}
+    \item \textbf{Normalidad}: La mayoría de variables (PTS, REB, AST, FG\_PCT) presentan distribuciones aproximadamente normales, con asimetría y curtosis cercanas a cero.
+    
+    \item \textbf{Outliers}: Todas las variables presentan valores atípicos, siendo PLUS\_MINUS la que mayor porcentaje muestra (1.4\%). Estos outliers representan partidos con desempeños estadísticamente excepcionales.
+    
+    \item \textbf{Consistencia}: FG\_PCT muestra la menor dispersión relativa, indicando que el porcentaje de tiro es una métrica más estable que otras como asistencias o rebotes.
+    
+    \item \textbf{Simetría}: La simetría general de las distribuciones valida el uso de estadísticos paramétricos para análisis posteriores.
+    
+    \item \textbf{Balance competitivo}: La distribución simétrica de PLUS\_MINUS alrededor de cero refleja el equilibrio competitivo de la NBA en el período analizado.
+\end{itemize}
+
+
+% ------------------- DISTRIBUCIONES Y NORMALIDAD -------------------
+\section{Distribución de Variables y Evaluación de Normalidad}
+
+\subsection{Gráficas de Distribución – Estadísticas Principales}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{distribucion.png}
+    \caption{Diagramas de caja (Boxplots) para PTS, AST, REB, FG\_PCT y PLUS\_MINUS}
+\end{figure}
+
+\textbf{Análisis de Boxplots:}
+\begin{itemize}
+    \item Las distribuciones muestran cola derecha moderada en variables como \texttt{PTS} y \texttt{REB}, sugiriendo presencia de valores extremos por encima del promedio.
+    \item La variable \texttt{PLUS\_MINUS} presenta alta dispersión y outliers tanto en extremos superiores como inferiores, lo que indica diferencias inusuales en algunos partidos.
+    \item \texttt{FG\_PCT} muestra menor dispersión relativa y menos outliers, reflejando una mayor concentración alrededor de la media.
+\end{itemize}
+
+\subsection{Histogramas y Curvas de Densidad (KDE)}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{Figure_1.png}
+    \caption{Histogramas con curvas KDE, medias, medianas y desviaciones estándar para variables clave}
+\end{figure}
+
+\textbf{Análisis de Histogramas y KDE:}
+\begin{itemize}
+    \item Las distribuciones de \texttt{PTS}, \texttt{AST} y \texttt{REB} muestran formas aproximadamente simétricas, aunque con cierta asimetría positiva (sesgo derecho).
+    \item El histograma de \texttt{STL} y otras variables discretas presenta más variabilidad y picos, lo que se asocia a la naturaleza de conteo de estos registros.
+    \item En general, las curvas KDE refuerzan la observación de que \texttt{FG\_PCT} tiene menor variabilidad relativa.
+\end{itemize}
+
+\subsection{Gráficos QQ – Verificación de Normalidad}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{graficoQQ.png}
+    \caption{Gráficos QQ para PTS, AST, REB y FG\_PCT con pruebas de normalidad}
+\end{figure}
+
+\textbf{Análisis de Normalidad:}
+\begin{itemize}
+    \item En los gráficos QQ se observa que los puntos se desvían de la línea teórica en los extremos para todas las variables principales (\texttt{PTS}, \texttt{AST}, \texttt{REB}, \texttt{FG\_PCT}).
+    \item Las pruebas estadísticas (Shapiro–Wilk y Kolmogorov–Smirnov con p < 0.05) rechazan la hipótesis nula de normalidad para estas variables.
+    \item Aunque algunas variables se aproximan a una distribución normal en la parte central, los extremos y colas muestran desviaciones significativas.
+\end{itemize}
+
+\paragraph{Conclusión sobre Normalidad:}
+Si bien varias estadísticas presentan distribuciones cercanas a normal en la parte central, el conjunto completo de datos no sigue estrictamente una distribución normal. Esto debe tenerse en cuenta al aplicar métodos que asumen normalidad estricta.
+
+
+
+
 % Sección: Análisis de Correlaciones
 \section{Análisis de Correlaciones}
 
