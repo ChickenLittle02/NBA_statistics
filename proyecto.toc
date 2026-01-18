@@ -20,4 +20,13 @@
 \contentsline {section}{\numberline {7}Análisis de Outliers (Método IQR)}{7}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Partidos Extremos Identificados}{7}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Análisis de Outliers (Método IQR)}{8}{subsection.7.2}%
-\contentsline {section}{Conclusiones Finales}{8}{section*.16}%
+\contentsline {section}{\numberline {8}Análisis Estadístico de Preguntas de Investigación}{8}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Pregunta 1: Correlación FG3M vs Victoria}{8}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}Análisis Chi-Cuadrado}{8}{subsubsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.2}Regresión Logística}{8}{subsubsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.2}Pregunta 2: Evolución Temporal de PTS y Triples}{9}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Regresión Lineal Simple}{9}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}ANOVA por Temporada}{9}{subsubsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.3}Pregunta 3: Predictores de PLUS\_MINUS}{9}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}Regresión Lineal Múltiple}{9}{subsubsection.8.3.1}%
+\contentsline {section}{Conclusiones Finales}{10}{section*.23}%

@@ -1,0 +1,38 @@
+% AUTO-GENERADO por pregunta3_multiple.py
+\subsection{Pregunta 3: Predictores de PLUS\_MINUS}
+
+\subsubsection{Regresión Lineal Múltiple}
+
+\textbf{Objetivo:} Identificar qué estadísticas predicen mejor PLUS\_MINUS.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Variable} & \textbf{$\beta$} & \textbf{Error} & \textbf{t} & \textbf{p-valor} \\
+\hline
+AST & 0.809 & 0.040 & 20.17 & $<$0.001$^{***}$ \\
+REB & 0.490 & 0.035 & 14.15 & $<$0.001$^{***}$ \\
+STL & 1.483 & 0.116 & 12.75 & $<$0.001$^{***}$ \\
+TOV & -1.562 & 0.080 & -19.62 & $<$0.001$^{***}$ \\
+FG\_PCT & 85.228 & 4.715 & 18.08 & $<$0.001$^{***}$ \\
+\hline
+\end{tabular}
+\caption{Coeficientes de regresión. $^{***}$p$<$0.001}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Estadístico} & \textbf{Valor} \\
+\hline
+$R^2$ & 0.549 \\
+$R^2$ ajustado & 0.547 \\
+F-estadístico & 298.36 \\
+\hline
+\end{tabular}
+\caption{Bondad de ajuste}
+\end{table}
+
+\textbf{Conclusión:} El modelo explica el 54.9\% de la variabilidad. FG\_PCT es el predictor más fuerte.

@@ -1,0 +1,54 @@
+% AUTO-GENERADO por pregunta1_logistica.py
+\subsection{Pregunta 1: Correlación FG3M vs Victoria}
+
+\subsubsection{Análisis Chi-Cuadrado}
+
+\textbf{Objetivo:} Determinar si existe asociación significativa entre FG3M y WL.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{FG3M} & \textbf{Derrota} & \textbf{Victoria} & \textbf{Total} \\
+\hline
+Bajo & 115 & 82 & 197 \\
+Medio & 362 & 507 & 869 \\
+Alto & 29 & 136 & 165 \\
+\hline
+\end{tabular}
+\caption{Tabla de contingencia FG3M vs WL}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Estadístico} & \textbf{Valor} \\
+\hline
+$\chi^2$ & 62.12 \\
+Grados de libertad & 2 \\
+Valor p & $<$0.001 \\
+V de Cramér & 0.225 \\
+\hline
+\end{tabular}
+\caption{Resultados Chi-Cuadrado ($\alpha$ = 0.05)}
+\end{table}
+
+\subsubsection{Regresión Logística}
+
+\textbf{Modelo:} $\log\left(\frac{P(Win)}{1-P(Win)}\right) = \beta_0 + \beta_1 \cdot FG3M + \beta_2 \cdot FG\_PCT$
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Variable} & \textbf{Coeficiente} & \textbf{Odds Ratio} \\
+\hline
+FG3M & 0.64 & 1.90 \\
+FG\_PCT & 0.45 & 1.56 \\
+\hline
+\end{tabular}
+\caption{Coeficientes de regresión logística}
+\end{table}
+
+\textbf{Conclusión:} La filosofía de vivir o morir por el triple tiene respaldo estadístico.
