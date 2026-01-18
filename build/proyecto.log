@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.18)  18 JAN 2026 11:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.18)  18 JAN 2026 13:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -461,12 +461,8 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 31.
 tex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count329
-) (proyecto.aux
-LaTeX Info: Redefining \. on input line 11.
-LaTeX Info: Redefining \% on input line 11.
-Package babel Info: 'spanish' activates 'spanish' shorthands.
-(babel)             Reported on input line 11.
 )
+No file proyecto.aux.
 \openout1 = `proyecto.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
@@ -489,6 +485,8 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 39.
 LaTeX Font Info:    ... okay on input line 39.
 LaTeX Info: Redefining \. on input line 39.
 LaTeX Info: Redefining \% on input line 39.
+Package babel Info: 'spanish' activates 'spanish' shorthands.
+(babel)             Reported on input line 39.
 
 (C:\Users\SAMMY\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
@@ -550,13 +548,11 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring ON on input line 39.
-(proyecto.out) (proyecto.out)
 \@outlinefile=\write3
 \openout3 = `proyecto.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: longtable package is loaded.
-
 (C:\Users\SAMMY\AppData\Local\Programs\MiKTeX\tex/latex/caption\ltcaption.sty
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
@@ -565,19 +561,7 @@ Package caption Info: End \AtBeginDocument code.
 [1
 
 {C:/Users/SAMMY/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-(proyecto.toc
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 5.
-
-(C:\Users\SAMMY\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 5.
-
-(C:\Users\SAMMY\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
+No file proyecto.toc.
 \tf@toc=\write4
 \openout4 = `proyecto.toc'.
 
@@ -594,6 +578,17 @@ Overfull \hbox (14.9615pt too wide) in paragraph at lines 140--141
  []
 
 [3]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 168
+.
+ (C:\Users\SAMMY\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 168
+.
+
+(C:\Users\SAMMY\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 Overfull \hbox (29.16302pt too wide) in paragraph at lines 185--186
 []\OT1/cmr/bx/n/12 Identificaci^^Son\OT1/cmr/m/n/12 : SEA-SON[]YEAR, TEAM[]ID, 
 TEAM[]ABBREVIATION, TEAM[]NAME 
@@ -608,14 +603,21 @@ LaTeX Info: Redefining \% on input line 11.
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
-Package rerunfilecheck Info: File `proyecto.out' has not changed.
-(rerunfilecheck)             Checksum: 1612C67AE2E2D750CDC9A3C0928AD532;6652.
+
+
+Package rerunfilecheck Warning: File `proyecto.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `proyecto.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  1612C67AE2E2D750CDC9A3C0928AD532;6652.
  ) 
 Here is how much of TeX's memory you used:
- 14261 strings out of 467871
- 227108 string characters out of 5418376
- 673749 words of memory out of 5000000
- 42887 multiletter control sequences out of 15000+600000
+ 14218 strings out of 467871
+ 226233 string characters out of 5418376
+ 673647 words of memory out of 5000000
+ 42852 multiletter control sequences out of 15000+600000
  638521 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,10n,79p,456b,555s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -633,9 +635,9 @@ C:/Users/SAMMY/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cms
 y10.pfb><C:/Users/SAMMY/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmsy8.pfb><C:/Users/SAMMY/AppData/Local/Programs/MiKTeX/fonts/type1/publi
 c/amsfonts/cm/cmtt10.pfb>
-Output written on proyecto.pdf (11 pages, 217098 bytes).
+Output written on proyecto.pdf (11 pages, 197480 bytes).
 PDF statistics:
- 302 PDF objects out of 1000 (max. 8388607)
+ 177 PDF objects out of 1000 (max. 8388607)
  63 named destinations out of 1000 (max. 500000)
- 249 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
