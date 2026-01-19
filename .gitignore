@@ -1,2 +1,9 @@
 /.history
 /.venv
+/build/proyecto.aux
+/build/proyecto.fdb_latexmk
+/build/proyecto.fls
+/build/proyecto.log
+/build/proyecto.out
+/build/proyecto.synctex.gz
+/build/proyecto.toc

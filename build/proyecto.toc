@@ -1,32 +1,39 @@
 \babel@toc {spanish}{}\relax 
-\contentsline {section}{Introducción}{2}{section*.2}%
-\contentsline {section}{\numberline {1}Información General del Dataset}{4}{section.1}%
-\contentsline {section}{\numberline {2}Clasificación de Variables}{4}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Variables Cualitativas}{4}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Variables Cuantitativas Discretas}{4}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Variables Cuantitativas Continuas}{5}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Estadísticos Descriptivos}{5}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Medidas de Tendencia Central y Dispersión}{5}{subsection.3.1}%
-\contentsline {section}{\numberline {4}Distribución de Variables Cualitativas}{5}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Resultados de Partidos (WL)}{5}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Equipos con Más Registros}{6}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Tablas de Distribución Empírica de Frecuencia (TDEF)}{6}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Distribución de PUNTOS (PTS)}{6}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}TDEF para PORCENTAJE DE TIROS (FG\_PCT)}{6}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Análisis de Correlaciones}{7}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Matriz de Correlación}{7}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Correlaciones Significativas}{7}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Conclusiones}{7}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Análisis de Outliers (Método IQR)}{7}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Partidos Extremos Identificados}{7}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Análisis de Outliers (Método IQR)}{8}{subsection.7.2}%
-\contentsline {section}{\numberline {8}Análisis Estadístico de Preguntas de Investigación}{8}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Pregunta 1: Correlación FG3M vs Victoria}{8}{subsection.8.1}%
-\contentsline {subsubsection}{\numberline {8.1.1}Análisis Chi-Cuadrado}{8}{subsubsection.8.1.1}%
-\contentsline {subsubsection}{\numberline {8.1.2}Regresión Logística}{8}{subsubsection.8.1.2}%
-\contentsline {subsection}{\numberline {8.2}Pregunta 2: Evolución Temporal de PTS y Triples}{9}{subsection.8.2}%
-\contentsline {subsubsection}{\numberline {8.2.1}Regresión Lineal Simple}{9}{subsubsection.8.2.1}%
-\contentsline {subsubsection}{\numberline {8.2.2}ANOVA por Temporada}{9}{subsubsection.8.2.2}%
-\contentsline {subsection}{\numberline {8.3}Pregunta 3: Predictores de PLUS\_MINUS}{9}{subsection.8.3}%
-\contentsline {subsubsection}{\numberline {8.3.1}Regresión Lineal Múltiple}{9}{subsubsection.8.3.1}%
-\contentsline {section}{Conclusiones Finales}{10}{section*.23}%
+\contentsline {section}{Introducción}{3}{section*.2}%
+\contentsline {section}{\numberline {1}Información General del Dataset}{5}{section.1}%
+\contentsline {section}{\numberline {2}Clasificación de Variables Utilizadas}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Variables Cualitativas}{6}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Variables Cuantitativas Discretas}{6}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Variables Cuantitativas Continuas}{7}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Variables Seleccionadas para el Análisis Estadístico}{7}{section.3}%
+\contentsline {section}{\numberline {4}Estadísticos Descriptivos}{8}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Medidas de Tendencia Central y Dispersión}{8}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Análisis e Interpretación de los Estadísticos Descriptivos}{8}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Distribución Gráfica de las Variables}{11}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Boxplots y Detección de Valores Atípicos}{14}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Asimetría y Curtosis}{15}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Síntesis del Análisis Gráfico}{16}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Conclusión sobre la Distribución y Normalidad}{16}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Análisis de Correlaciones}{17}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Matriz de Correlación}{17}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Correlaciones Significativas}{17}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Conclusiones}{17}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Análisis de Outliers (Método IQR)}{18}{section.7}%
+\contentsline {section}{\numberline {8}Transformaciones y Preprocesamiento de Datos}{18}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Manejo de Valores Faltantes}{18}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Codificación de Variables Categóricas}{19}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Estandarización y Normalización de Variables Numéricas}{19}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}Diagnóstico de Escalas Diferentes}{19}{subsubsection.8.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.2}Transformaciones Aplicadas}{20}{subsubsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.4}Tratamiento de Valores Atípicos}{20}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Creación de Variables Derivadas Avanzadas}{21}{subsection.8.5}%
+\contentsline {section}{\numberline {9}Análisis Estadístico de Preguntas de Investigación}{22}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Pregunta 1: Correlación FG3M vs Victoria}{22}{subsection.9.1}%
+\contentsline {subsubsection}{\numberline {9.1.1}Análisis Chi-Cuadrado}{22}{subsubsection.9.1.1}%
+\contentsline {subsubsection}{\numberline {9.1.2}Regresión Logística}{22}{subsubsection.9.1.2}%
+\contentsline {subsection}{\numberline {9.2}Pregunta 2: Evolución Temporal de PTS y Triples}{23}{subsection.9.2}%
+\contentsline {subsubsection}{\numberline {9.2.1}Regresión Lineal Simple}{23}{subsubsection.9.2.1}%
+\contentsline {subsubsection}{\numberline {9.2.2}ANOVA por Temporada}{23}{subsubsection.9.2.2}%
+\contentsline {subsection}{\numberline {9.3}Pregunta 3: Predictores de PLUS\_MINUS}{23}{subsection.9.3}%
+\contentsline {subsubsection}{\numberline {9.3.1}Regresión Lineal Múltiple}{23}{subsubsection.9.3.1}%
+\contentsline {section}{Conclusiones Finales}{24}{section*.41}%
