@@ -1,0 +1,1443 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel} 
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{booktabs}
+
+% Configuración de márgenes
+\geometry{a4paper, margin=1in}
+
+% Configuración de hipervínculos
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Análisis Estadístico NBA},
+    pdfpagemode=FullScreen,
+}
+
+% Comando personalizado para preguntas
+\newcommand{\pregunta}[1]{\textbf{\large #1}}
+
+% Configuración de espaciado
+\onehalfspacing
+
+\begin{document}
+
+% --- Portada ---
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    \LARGE\textbf{Análisis Estadístico de la NBA: Reporte Completo}\\
+    \vspace{0.5cm}
+    \large\textbf{Análisis Exploratorio de Datos y Estadísticos Descriptivos}\\
+    \vspace{1.5cm}
+    \normalsize Dataset: Estadísticas Temporada Regular NBA (2010-2024)\\
+    \vspace{2cm}
+    \textbf{Autores:}\\
+    Daniela De La Caridad Guerrero Álvarez (C311)\\
+    Sammy Raul Sosa Justiz (C312)\\
+    Rubén Martínez Rojas (C311)\\
+    \vfill
+    \today
+\end{titlepage}
+
+% --- Índice ---
+\tableofcontents
+\newpage
+
+% --- Introducción ---
+\section*{Introducción}
+\addcontentsline{toc}{section}{Introducción}
+
+El presente estudio se basa en el análisis de un conjunto de datos estadísticos oficiales de la National Basketball Association (NBA), correspondientes exclusivamente a partidos de \textbf{temporada regular} desde la temporada 2010 hasta la 2024. El dataset recoge información a nivel de equipo por partido, lo que permite evaluar el rendimiento colectivo y analizar patrones asociados al éxito competitivo en la liga a lo largo del tiempo, evitando los sesgos propios de los encuentros de postemporada.
+
+Los datos utilizados provienen de un archivo en formato \texttt{.csv}, específicamente:
+\begin{itemize}
+    \item \textbf{regular\_season\_totals\_2010\_2024.csv}
+\end{itemize}
+
+Este archivo puede descargarse desde repositorios públicos de estadísticas deportivas basados en la API oficial de la NBA, como \textit{NBA Stats}, así como desde plataformas académicas y repositorios de ciencia de datos utilizados para análisis estadístico y analítica avanzada.
+
+El dataset almacena información detallada de cada partido de temporada regular, incluyendo variables de identificación (temporada, equipo y partido), el resultado del encuentro, estadísticas tradicionales de box score (puntos, rebotes, asistencias, tiros de campo, triples, pérdidas, robos, bloqueos y faltas), métricas de eficiencia (porcentajes de tiro) y estadísticas derivadas como el diferencial de puntos (\texttt{PLUS\_MINUS}). Además, incorpora rankings relativos por temporada para múltiples categorías estadísticas, lo que permite realizar comparaciones relativas entre equipos durante el período analizado.
+
+El análisis se estructura en torno a \textbf{tres preguntas de investigación principales}, las cuales guían la selección de variables y la aplicación de técnicas estadísticas, con el objetivo de estudiar tendencias del baloncesto moderno y determinar los factores más influyentes en el rendimiento de los equipos durante la temporada regular.
+
+% --- Preguntas de Investigación ---
+\section{Preguntas de Investigación}
+\label{sec:preguntas}
+
+\subsection{Pregunta 1}
+\label{subsec:pregunta1}
+
+\textbf{¿Existe una correlación significativa entre el número de triples anotados (FG3M) y la victoria (WL) de un equipo en un partido, controlando por la efectividad general de tiro (FG\_PCT)?}
+
+\vspace{0.3cm}
+
+\textbf{Relevancia:}  
+El baloncesto moderno ha evolucionado hacia un mayor énfasis en el tiro de tres puntos. Entender si un mayor volumen de triples está asociado con mayores probabilidades de victoria, independientemente de la efectividad general de tiro, es clave para evaluar estrategias ofensivas y determinar si la filosofía de ``vivir o morir por el triple'' tiene un sustento estadístico sólido.
+
+\vspace{0.3cm}
+
+\textbf{Variables involucradas:}
+\begin{itemize}
+    \setlength\itemsep{0.1em}
+    \item \textbf{Variable respuesta:}
+    \begin{itemize}
+        \item \texttt{WL}: Resultado del partido (Win/Loss).
+    \end{itemize}
+    \item \textbf{Variables predictoras:}
+    \begin{itemize}
+        \item \texttt{FG3M}: Triples anotados (Field Goals 3 Made).
+        \item \texttt{FG\_PCT}: Porcentaje total de tiros de campo convertidos (Field Goal Percentage).
+    \end{itemize}
+\end{itemize}
+
+\subsection{Pregunta 2}
+\label{subsec:pregunta2}
+
+\textbf{¿Cómo ha cambiado la media de puntos por partido (PTS) y el porcentaje de tiros de tres puntos intentados (FG3A/FGA) a lo largo de las temporadas (SEASON\_YEAR), y existe una relación temporal significativa entre ambas variables?}
+
+\vspace{0.3cm}
+
+\textbf{Relevancia:}  
+La NBA ha experimentado una marcada ``revolución del triple'' en la última década. Analizar la evolución temporal de los puntos anotados y del uso del tiro de tres puntos permite cuantificar la transformación ofensiva de la liga y contextualizar el incremento en la producción anotadora observado en temporadas recientes.
+
+\vspace{0.3cm}
+
+\textbf{Variables involucradas:}
+\begin{itemize}
+    \setlength\itemsep{0.1em}
+    \item \textbf{Variable temporal:}
+    \begin{itemize}
+        \item \texttt{SEASON\_YEAR}: Año de la temporada de la NBA.
+    \end{itemize}
+    \item \textbf{Variables de interés:}
+    \begin{itemize}
+        \item \texttt{PTS}: Puntos totales anotados por el equipo.
+        \item \texttt{FG3A}: Intentos de tiro de tres puntos (Field Goals 3 Attempted).
+        \item \texttt{FGA}: Intentos totales de tiro de campo (Field Goals Attempted).
+    \end{itemize}
+\end{itemize}
+
+\subsection{Pregunta 3}
+\label{subsec:pregunta3}
+
+\textbf{¿Qué combinación de estadísticas de juego (por ejemplo, asistencias AST, rebotes REB, robos STL, porcentaje de tiros FG\_PCT) predice de manera más robusta la diferencia de puntos (PLUS\_MINUS) en un partido?}
+
+\vspace{0.3cm}
+
+\textbf{Relevancia:}  
+El estadístico plus-minus refleja el impacto neto de un equipo durante un partido. Identificar qué estadísticas de box score contribuyen de manera más significativa a un plus-minus positivo permite priorizar métricas de rendimiento colectivo y comprender mejor los factores asociados a la dominancia en el marcador.
+
+\vspace{0.3cm}
+
+\textbf{Variables involucradas:}
+\begin{itemize}
+    \setlength\itemsep{0.1em}
+    \item \textbf{Variable respuesta:}
+    \begin{itemize}
+        \item \texttt{PLUS\_MINUS}: Diferencial de puntos del equipo en el partido.
+    \end{itemize}
+    \item \textbf{Variables predictoras:}
+    \begin{itemize}
+        \item \texttt{AST}: Asistencias (Assists).
+        \item \texttt{REB}: Rebotes totales (Total Rebounds).
+        \item \texttt{STL}: Robos de balón (Steals).
+        \item \texttt{BLK}: Bloqueos realizados (Blocks).
+        \item \texttt{TOV}: Pérdidas de balón (Turnovers).
+        \item \texttt{FG\_PCT}: Porcentaje de tiros de campo.
+        \item \texttt{FG3\_PCT}: Porcentaje de triples.
+        \item \texttt{FT\_PCT}: Porcentaje de tiros libres.
+    \end{itemize}
+\end{itemize}
+
+\section{Información General del Dataset}
+
+El conjunto de datos utilizado corresponde a estadísticas por partido a nivel de equipo
+de la NBA, abarcando las temporadas desde 2010 hasta 2024. En la Tabla~1 se resumen
+las principales características del dataset.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Característica} & \textbf{Valor} \\ \midrule
+Total de registros & 1,231 \\
+Total de variables & 52 \\
+Período cubierto & 2010--2024 \\
+Equipos representados & 30 equipos de la NBA \\
+Valores nulos totales & 202 (0.31\%) \\ \bottomrule
+\end{tabular}
+\caption{Características generales del dataset}
+\end{table}
+
+\vspace{0.3cm}
+
+Dado el amplio número de variables disponibles, para responder de manera precisa
+las preguntas de investigación se trabajará con un \textbf{subconjunto de variables relevantes}.
+Estas variables se seleccionan en función de su relación directa con el rendimiento ofensivo,
+defensivo y el resultado de los partidos, y se clasifican a continuación según su naturaleza
+estadística.
+
+% -------------------------------------------------
+\section{Clasificación de Variables Utilizadas}
+\label{sec:clasificacion-variables}
+
+\subsection{Variables Cualitativas}
+\label{subsec:variables-cualitativas}
+
+Estas variables describen características categóricas del partido o del equipo y se utilizan
+principalmente para identificación, segmentación de datos y análisis comparativos.
+
+\begin{itemize}
+    \item \textbf{SEASON\_YEAR}: Temporada de la NBA en la que se disputó el partido.
+    \item \textbf{TEAM\_ID}: Identificador numérico único del equipo.
+    \item \textbf{TEAM\_ABBREVIATION}: Abreviatura oficial del nombre del equipo.
+    \item \textbf{TEAM\_NAME}: Nombre completo del equipo.
+    \item \textbf{GAME\_ID}: Identificador único del partido.
+    \item \textbf{GAME\_DATE}: Fecha en la que se jugó el partido.
+    \item \textbf{MATCHUP}: Información del enfrentamiento (local/visitante y rival).
+    \item \textbf{WL}: Resultado del partido (Win/Loss).
+\end{itemize}
+
+Estas variables permiten estructurar el análisis temporal, identificar equipos y diferenciar
+entre partidos ganados y perdidos, siendo fundamentales para las pruebas de hipótesis
+y modelos de clasificación.
+
+% -------------------------------------------------
+\subsection{Variables Cuantitativas Discretas}
+\label{subsec:variables-discretas}
+
+Corresponden a conteos de eventos que ocurren durante un partido y reflejan el volumen
+de acciones de juego.
+
+\begin{itemize}
+    \item \textbf{PTS}: Puntos totales anotados por el equipo en el partido.
+    \item \textbf{AST}: Asistencias totales del equipo.
+    \item \textbf{REB}: Rebotes totales del equipo (suma de ofensivos y defensivos).
+    \item \textbf{FGM}: Tiros de campo convertidos.
+    \item \textbf{FGA}: Tiros de campo intentados.
+    \item \textbf{FG3M}: Triples convertidos.
+    \item \textbf{FG3A}: Triples intentados.
+    \item \textbf{TOV}: Pérdidas de balón.
+    \item \textbf{STL}: Robos de balón.
+    \item \textbf{BLK}: Tapones realizados.
+\end{itemize}
+
+Estas variables permiten cuantificar el volumen ofensivo y defensivo del equipo, y son clave
+para explicar diferencias en el marcador y el impacto global del desempeño colectivo.
+
+% -------------------------------------------------
+\subsection{Variables Cuantitativas Continuas}
+\label{subsec:variables-continuas}
+
+Estas variables representan proporciones, promedios o métricas con escala continua,
+y reflejan la eficiencia y el impacto neto del equipo.
+
+\begin{itemize}
+    \item \textbf{FG\_PCT}: Porcentaje de tiros de campo convertidos.
+    \item \textbf{FG3\_PCT}: Porcentaje de triples convertidos.
+    \item \textbf{FT\_PCT}: Porcentaje de tiros libres convertidos.
+    \item \textbf{PLUS\_MINUS}: Diferencia de puntos mientras el equipo estuvo en cancha.
+\end{itemize}
+
+Estas variables son fundamentales para evaluar la eficiencia ofensiva y el impacto real
+del equipo más allá del simple volumen de anotación.
+
+% -------------------------------------------------
+\section{Variables Seleccionadas para el Análisis Estadístico}
+\label{sec:variables-seleccionadas}
+
+A partir de la clasificación anterior, el análisis estadístico se centrará en las siguientes
+variables:
+
+\begin{itemize}
+    \item \textbf{PTS}: para analizar la evolución ofensiva y su relación con otras métricas.
+    \item \textbf{REB y AST}: como indicadores del control del juego y del juego colectivo.
+    \item \textbf{FG\_PCT}: para evaluar la eficiencia general de tiro.
+    \item \textbf{PLUS\_MINUS}: como medida del impacto neto del equipo en el partido.
+    \item \textbf{FG3M y FG3A}: para estudiar la influencia del tiro de tres puntos en la victoria.
+    \item \textbf{WL}: como variable respuesta en modelos de clasificación y pruebas de hipótesis.
+\end{itemize}
+
+Estas variables se seleccionan porque permiten responder directamente las preguntas
+de investigación planteadas, combinando volumen de juego, eficiencia y resultado final,
+y son adecuadas para la aplicación de técnicas estadísticas como regresión, pruebas de
+hipótesis y análisis multivariado.
+
+% -------------------------------------------------
+\section{Estadísticos Descriptivos}
+\label{sec:estadisticos-descriptivos}
+
+\subsection{Medidas de Tendencia Central y Dispersión}
+\label{subsec:medidas-tendencia}
+
+La Tabla~\ref{tab:estadisticos_descriptivos} presenta los principales estadísticos descriptivos
+de las variables seleccionadas, calculados a partir del conjunto de datos completo.
+
+\begin{table}[H]
+\centering
+\small
+\caption{Estadísticos descriptivos principales}
+\label{tab:estadisticos_descriptivos}
+\begin{tabular}{|l|c|c|c|c|c|}
+\toprule
+ & \textbf{PTS} & \textbf{REB} & \textbf{AST} & \textbf{FG\_PCT} & \textbf{PLUS\_MINUS} \\
+\midrule
+Media & 106.04 & 43.44 & 23.38 & 0.46 & 0.00 \\
+Mediana & 106.00 & 43.00 & 23.00 & 0.459 & 0.00 \\
+Moda & 104.00 & 43.00 & 24.00 & 0.500 & -7.00 \\
+Desv. Estándar & 13.59 & 6.60 & 5.27 & 0.056 & 14.17 \\
+Varianza & 184.60 & 43.55 & 27.74 & 0.003 & 200.82 \\
+Coef. Variación & 12.81\% & 15.19\% & 22.52\% & 12.07\% & -- \\
+Mínimo & 56.00 & 17.00 & 4.00 & 0.246 & -73.00 \\
+Máximo & 176.00 & 81.00 & 50.00 & 0.687 & 73.00 \\
+Rango & 120.00 & 64.00 & 46.00 & 0.441 & 146.00 \\
+Q1 & 97.00 & 39.00 & 20.00 & 0.422 & -9.00 \\
+Q3 & 115.00 & 48.00 & 27.00 & 0.500 & 9.00 \\
+IQR & 18.00 & 9.00 & 7.00 & 0.078 & 18.00 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+% Sección: Distribución de Variables Cualitativas
+\subsection{Análisis e Interpretación de los Estadísticos Descriptivos}
+\label{subsec:analisis-estadisticos}
+
+A partir de los estadísticos descriptivos presentados en la Tabla~\ref{tab:estadisticos_descriptivos},
+se realiza a continuación un análisis detallado del comportamiento de cada variable seleccionada,
+con el objetivo de interpretar su significado estadístico y sus implicaciones en el contexto del
+rendimiento de los equipos en la NBA.
+
+\subsubsection*{Puntos por partido (PTS)}
+
+La media de puntos por partido es de 106.04, con una mediana prácticamente idéntica (106.00),
+lo que indica una distribución aproximadamente simétrica de la anotación ofensiva. La moda,
+ubicada en 104 puntos, refuerza la idea de que la mayoría de los partidos se concentran alrededor
+de este valor.
+
+La desviación estándar de 13.59 puntos y un rango amplio de 120 puntos (desde 56 hasta 176)
+evidencian una elevada variabilidad ofensiva entre partidos. Esta dispersión puede explicarse
+por diferencias en el ritmo de juego, el nivel del rival y el contexto competitivo de cada encuentro.
+
+Desde un punto de vista analítico, esta variabilidad justifica el estudio de factores explicativos
+del rendimiento ofensivo y respalda la aplicación de modelos estadísticos para identificar qué
+variables influyen de manera significativa en la producción de puntos.
+
+\subsubsection*{Rebotes totales (REB)}
+
+El número medio de rebotes por partido es de 43.44, con valores de mediana y moda iguales a 43,
+lo que refleja una distribución muy estable y centrada. La desviación estándar es relativamente
+baja (6.60), indicando una menor dispersión en comparación con la anotación.
+
+El coeficiente de variación del 15.19\% sugiere que, aunque existen diferencias entre partidos,
+el rebote es una métrica consistente y menos sujeta a extremos. Esto indica que el control del
+rebote es una característica estructural del juego, más estable que otras métricas ofensivas.
+
+Como consecuencia, los rebotes resultan especialmente útiles como variable explicativa en modelos
+que buscan analizar el impacto global del rendimiento del equipo, como el diferencial de puntos.
+
+\subsubsection*{Asistencias (AST)}
+
+Las asistencias presentan una media de 23.38, con una mediana de 23 y una moda de 24, lo que
+indica que la mayoría de los equipos generan entre 20 y 25 asistencias por partido. Sin embargo,
+la desviación estándar de 5.27 y el coeficiente de variación del 22.52\% revelan una alta variabilidad
+relativa.
+
+Esta dispersión refleja diferencias notables en los estilos de juego de los equipos, distinguiendo
+entre ofensivas más colectivas y otras más dependientes de acciones individuales. Por ello, AST
+captura no solo volumen de juego, sino también calidad del movimiento del balón.
+
+En términos analíticos, esta variable es clave para explicar el rendimiento colectivo y resulta
+especialmente relevante en modelos multivariados que buscan predecir el diferencial de puntos.
+
+\subsubsection*{Porcentaje de tiros de campo (FG\_PCT)}
+
+El porcentaje medio de tiros de campo convertidos es de 0.46 (46\%), con una mediana muy cercana
+(45.9\%), lo que indica una eficiencia ofensiva relativamente estable en la liga. La desviación
+estándar es baja (0.056), confirmando que esta variable presenta una menor dispersión que las
+métricas de volumen.
+
+El rango observado, que va desde 24.6\% hasta 68.7\%, corresponde a partidos atípicos, en los
+que se producen rendimientos excepcionalmente bajos o altos, generalmente asociados a
+encuentros muy desequilibrados.
+
+FG\_PCT constituye una variable fundamental para controlar la eficiencia ofensiva en los análisis
+estadísticos, permitiendo aislar el efecto de otras métricas como el tiro de tres puntos o las
+asistencias.
+
+\subsubsection*{Diferencial de puntos (PLUS\_MINUS)}
+
+El diferencial de puntos presenta una media y mediana iguales a 0.00, lo cual es coherente con un
+conjunto de datos que incluye tanto victorias como derrotas. Sin embargo, la desviación estándar
+es elevada (14.17) y el rango es extremadamente amplio, con valores entre -73 y 73 puntos.
+
+Esta alta dispersión indica la coexistencia de partidos muy igualados con otros claramente
+desequilibrados. Debido a que la media es cero, el coeficiente de variación no resulta interpretable,
+por lo que el análisis de esta variable debe centrarse en su variabilidad absoluta.
+
+Desde el punto de vista metodológico, la elevada dispersión de PLUS\_MINUS justifica su elección
+como variable respuesta en modelos de regresión múltiple, ya que existe suficiente variabilidad
+para identificar relaciones significativas con otras estadísticas del juego.
+
+\subsubsection*{Conclusión del análisis descriptivo}
+
+En conjunto, los resultados muestran que las variables de volumen ofensivo, como puntos y
+asistencias, presentan una mayor variabilidad, mientras que las métricas de eficiencia, como
+FG\_PCT, son más estables. El diferencial de puntos es la variable con mayor dispersión, lo que la
+convierte en un indicador idóneo para analizar el impacto combinado de múltiples estadísticas.
+
+Este análisis descriptivo proporciona una base sólida para la aplicación de técnicas estadísticas
+inferenciales y modelos multivariados en las siguientes secciones del estudio.
+
+\subsection{Análisis de la Distribución de Resultados}
+\label{subsec:distribucion-resultados}
+
+La variable \texttt{WL} representa el resultado final de cada partido, clasificándolo como
+victoria (W) o derrota (L). El análisis de su distribución es fundamental para evaluar el
+equilibrio del conjunto de datos y la posible presencia de sesgos en la variable objetivo.
+
+\begin{table}[H]
+\centering
+\caption{Distribución de resultados de partidos}
+\label{tab:distribucion_wl}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Resultado} & \textbf{Frecuencia} & \textbf{Porcentaje} \\
+\hline
+Derrota (L) & 16658 & 50.00\% \\
+Victoria (W) & 16658 & 50.00\% \\
+\hline
+\end{tabular}
+\end{table}
+
+Los resultados muestran una distribución perfectamente balanceada, con 16,658 victorias
+y 16,658 derrotas, lo que corresponde exactamente al 50\% de los registros para cada
+categoría. Este equilibrio indica que el dataset no presenta predominancia de un resultado
+sobre otro, lo cual es deseable desde el punto de vista estadístico.
+
+La ausencia de desbalance en la variable \texttt{WL} valida el uso posterior de técnicas
+inferenciales y de clasificación, como pruebas de hipótesis o regresión logística, sin
+necesidad de aplicar métodos de corrección por desbalance de clases. Asimismo, refuerza la
+representatividad del conjunto de datos para el análisis del rendimiento competitivo de
+los equipos.
+
+% -------------------------------------------------
+
+\section{Distribución Gráfica de las Variables}
+\label{sec:distribucion-grafica}
+
+A continuación se presentan los histogramas y polígonos de frecuencias acumuladas de las variables 
+cuantitativas más relevantes, que permiten visualizar la distribución de los datos y complementar
+el análisis estadístico descriptivo.
+
+\subsubsection*{Distribución de Puntos (PTS)}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{images/histograma_pts.png}
+\caption{Histograma de Puntos (PTS). Media: 106.04, Mediana: 106.00}
+\label{fig:hist_pts}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{images/poligono_acumulado_pts.png}
+\caption{Polígono acumulado de Puntos (PTS)}
+\label{fig:pol_pts}
+\end{minipage}
+\end{figure}
+
+La distribución de puntos por partido muestra una forma aproximadamente normal con centro alrededor
+de 106 puntos. El histograma revela una simetría en la distribución, confirmada por la proximidad
+entre media (106.04) y mediana (106.00). El polígono acumulado muestra que aproximadamente el 50\%
+de los partidos tienen menos de 106 puntos, con una progresión suave que indica ausencia de
+valores extremadamente concentrados.
+
+\subsubsection*{Distribución de Rebotes (REB)}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{images/histograma_reb.png}
+\caption{Histograma de Rebotes (REB). Media: 43.44, Mediana: 43.00}
+\label{fig:hist_reb}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{images/poligono_acumulado_reb.png}
+\caption{Polígono acumulado de Rebotes (REB)}
+\label{fig:pol_reb}
+\end{minipage}
+\end{figure}
+
+La distribución de rebotes presenta una forma aproximadamente normal con ligera asimetría hacia
+la derecha. La mayoría de los partidos se concentran entre 40 y 50 rebotes, siendo 43 el valor
+más frecuente. El polígono acumulado muestra una curva de crecimiento uniforme, indicando una
+distribución equilibrada sin agrupamientos anómalos.
+
+\subsubsection*{Distribución de Asistencias (AST)}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{images/histograma_ast.png}
+\caption{Histograma de Asistencias (AST). Media: 23.38, Mediana: 23.00}
+\label{fig:hist_ast}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{images/poligono_acumulado_ast.png}
+\caption{Polígono acumulado de Asistencias (AST)}
+\label{fig:pol_ast}
+\end{minipage}
+\end{figure}
+
+Las asistencias muestran una distribución ligeramente asimétrica hacia la derecha, con valores
+típicos entre 20 y 27 asistencias por partido. La proximidad entre media (23.38) y mediana (23.00)
+sugiere una distribución razonablemente simétrica. El polígono acumulado presenta una curva
+suave, indicando una transición gradual entre los diferentes niveles de asistencia.
+
+\subsubsection*{Distribución del Porcentaje de Tiro (FG\_PCT)}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{images/histograma_fg_pct.png}
+\caption{Histograma de FG\%. Media: 0.46, Mediana: 0.46}
+\label{fig:hist_fg_pct}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{images/poligono_acumulado_fg_pct.png}
+\caption{Polígono acumulado de FG\%}
+\label{fig:pol_fg_pct}
+\end{minipage}
+\end{figure}
+
+El porcentaje de tiro presenta una distribución aproximadamente normal centrada en 0.46 (46\%),
+con coincidencia exacta entre media y mediana. La distribución es relativamente compacta,
+indicando consistencia en la eficiencia de tiro entre partidos. El polígono acumulado muestra
+una progresión uniforme, confirmando la homogeneidad de esta métrica.
+
+\subsubsection*{Distribución del Diferencial de Puntos (PLUS\_MINUS)}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{images/histograma_plus_minus.png}
+\caption{Histograma de PLUS\_MINUS. Media: 0.00, Mediana: 0.00}
+\label{fig:hist_plus_minus}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{images/poligono_acumulado_plus_minus.png}
+\caption{Polígono acumulado de PLUS\_MINUS}
+\label{fig:pol_plus_minus}
+\end{minipage}
+\end{figure}
+
+El diferencial de puntos muestra una distribución simétrica centrada en cero, como era de
+esperar en un conjunto de datos balanceado (igual número de victorias y derrotas). La forma
+aproximadamente normal con colas extendidas indica presencia de partidos con diferencias
+extremas. El polígono acumulado presenta una curva en forma de S invertida, típica de
+distribuciones simétricas, con punto de inflexión en el 50\% correspondiente al valor cero.
+
+% -------------------------------------------------
+\subsection{Boxplots y Detección de Valores Atípicos}
+\label{subsec:boxplots}
+
+Los diagramas de caja (boxplots) resumen la distribución mediante cuartiles y permiten identificar valores atípicos (outliers) de manera visual.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{images/boxplots.png}
+    \caption{Boxplots de las principales variables del dataset.}
+    \label{fig:boxplots}
+\end{figure}
+
+\textbf{Análisis de Boxplots (Figura \ref{fig:boxplots}):}
+
+\begin{itemize}
+    \item \textbf{PTS}: La distribución se centra alrededor de 106 puntos, con un rango intercuartílico aproximado entre 100 y 115. Se observan valores atípicos tanto por debajo como por encima del rango típico, correspondientes a partidos con anotaciones excepcionalmente bajas o altas.
+    
+    \item \textbf{AST}: Presenta una mediana cercana a 23 asistencias y una dispersión moderada. Los outliers reflejan partidos con volúmenes inusuales de generación ofensiva.
+    
+    \item \textbf{REB}: La mediana se sitúa alrededor de 43 rebotes, con una distribución relativamente simétrica. Los valores atípicos corresponden a partidos con dominio o déficit extremo en el rebote.
+    
+    \item \textbf{FG\_PCT}: Muestra la menor dispersión relativa, con mediana cercana a 0.46. Los pocos outliers indican partidos con eficiencias de tiro excepcionalmente altas o bajas.
+    
+    \item \textbf{PLUS\_MINUS}: Está centrado en cero, con una dispersión amplia y presencia de outliers en ambos extremos, reflejando partidos con diferenciales de puntos muy marcados.
+\end{itemize}
+
+
+\subsection{Asimetría y Curtosis}
+\label{subsec:asimetria-curtosis}
+
+Las medidas de asimetría y curtosis cuantifican desviaciones de la distribución normal.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/asimetria_curtosis.png}
+    \caption{Medidas de asimetría y curtosis para las variables principales.}
+    \label{fig:asimetria-curtosis}
+\end{figure}
+
+\textbf{Análisis de Asimetría y Curtosis (Figura \ref{fig:asimetria-curtosis}):}
+
+\begin{itemize}
+    \item \textbf{Asimetría (Skewness)}:
+    \begin{itemize}
+        \item La mayoría de las variables presentan asimetría positiva leve, mientras que \texttt{FG\_PCT} y \texttt{PLUS\_MINUS} muestran distribuciones cercanas a la simetría.
+        \item \texttt{PLUS\_MINUS} presenta la mayor asimetría ($\text{skew} = 0.32$), seguido de \texttt{AST} ($0.235$) y \texttt{REB} ($0.195$).
+        \item \texttt{FG\_PCT} exhibe la menor asimetría ($0.095$), siendo la variable más cercana a una distribución simétrica.
+    \end{itemize}
+
+    
+    \item \textbf{Curtosis}: 
+    \begin{itemize}
+        \item Mide el "apuntamiento" de la distribución respecto a la normal.
+        \item PLUS\_MINUS presenta la mayor curtosis (0.32), indicando distribución más puntiaguda con colas más pesadas.
+        \item PTS y FG\_PCT tienen curtosis cercana a cero (0.015 y -0.03 respectivamente), sugiriendo formas similares a la normal.
+        \item AST y REB muestran curtosis positiva moderada (0.06 y 0.09), con distribuciones ligeramente más apuntadas.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Síntesis del Análisis Gráfico}
+\label{subsec:sintesis-grafico}
+
+\begin{itemize}
+    \item \textbf{Normalidad}: Las variables PTS y FG\_PCT muestran distribuciones más cercanas a la normal, con asimetría y curtosis mínimas. AST, REB y PLUS\_MINUS presentan desviaciones notables de la normalidad.
+    
+    \item \textbf{Outliers}: Todas las variables exhiben valores atípicos significativos, especialmente en los extremos superiores. Esto sugiere la presencia frecuente de partidos con desempeños estadísticamente excepcionales.
+    
+    \item \textbf{Asimetría general}: La asimetría positiva predominante indica que, en general, las distribuciones tienen colas más largas hacia valores altos, reflejando la ocurrencia de partidos con estadísticas excepcionalmente buenas.
+    
+    \item \textbf{Consistencia métrica}: FG\_PCT muestra el comportamiento más estable y simétrico, confirmando que el porcentaje de tiro es una métrica más consistente que las de volumen.
+    
+    \item \textbf{Consideraciones analíticas}: La presencia de asimetría y outliers justifica considerar transformaciones de datos o métodos robustos en análisis inferenciales posteriores.
+\end{itemize}
+
+% -------------------------------------------------
+\subsection{Conclusión sobre la Distribución y Normalidad}
+\label{subsec:conclusion-normalidad}
+
+El análisis gráfico y de medidas de forma revela que las variables presentan diferentes grados de aproximación a la distribución normal. Mientras PTS y FG\_PCT muestran distribuciones razonablemente simétricas con curtosis cercana a cero (compatibles con normalidad), AST, REB y PLUS\_MINUS exhiben asimetría positiva y mayor curtosis, desviándose significativamente del supuesto de normalidad. La presencia generalizada de valores atípicos en todas las variables indica la ocurrencia frecuente de partidos con desempeños extremos. Estas características distribucionales sugieren que, para análisis inferenciales rigurosos, deberían considerarse técnicas robustas o transformaciones de datos, especialmente para las variables con mayor asimetría y curtosis. No obstante, para muestras grandes como la analizada, muchos procedimientos estadísticos son relativamente robustos a estas desviaciones de normalidad.
+
+\section{Análisis de Correlaciones}
+\label{sec:analisis-correlaciones}
+
+\begin{table}[H]
+\centering
+\caption{Matriz de correlación entre variables principales}
+\label{tab:correlacion}
+\begin{tabular}{lccccc}
+\toprule
+ & PTS & REB & AST & FG\_PCT & PLUS\_MINUS \\
+\midrule
+\textbf{PTS} & 1.000000 & 0.149700 & 0.618600 & 0.685500 & 0.521500 \\
+\textbf{REB} & 0.149700 & 1.000000 & 0.051600 & -0.170700 & 0.340200 \\
+\textbf{AST} & 0.618600 & 0.051600 & 1.000000 & 0.559100 & 0.396200 \\
+\textbf{FG\_PCT} & 0.685500 & -0.170700 & 0.559100 & 1.000000 & 0.546900 \\
+\textbf{PLUS\_MINUS} & 0.521500 & 0.340200 & 0.396200 & 0.546900 & 1.000000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsection{Matriz de Correlación}
+\label{subsec:matriz-correlacion}
+
+La Tabla~\ref{tab:correlacion} presenta la matriz de correlación entre las principales variables estadísticas analizadas, permitiendo identificar la intensidad y dirección de las relaciones lineales entre ellas.
+
+\subsection{Correlaciones Significativas}
+\label{subsec:correlaciones-significativas}
+
+\begin{itemize}
+    \item \textbf{PTS -- FG\_PCT}: $r = 0.6855$ (correlación alta positiva).  
+    Existe una relación fuerte entre el porcentaje de tiro y los puntos anotados, lo que confirma que la eficiencia ofensiva es un factor clave en la producción anotadora.
+
+    \item \textbf{PTS -- AST}: $r = 0.6186$ (correlación moderada-alta positiva).  
+    Las asistencias muestran una asociación significativa con los puntos, reflejando la importancia del juego colectivo en la generación de anotaciones.
+
+    \item \textbf{PTS -- PLUS\_MINUS}: $r = 0.5215$ (correlación moderada positiva).  
+    Un mayor volumen de puntos se relaciona con un diferencial positivo, indicando impacto directo del rendimiento ofensivo en el resultado del partido.
+
+    \item \textbf{FG\_PCT -- PLUS\_MINUS}: $r = 0.5469$ (correlación moderada positiva).  
+    La efectividad en el tiro contribuye de forma consistente a mejores diferenciales de puntos.
+
+    \item \textbf{REB -- FG\_PCT}: $r = -0.1707$ (correlación débil negativa).  
+    Esta relación sugiere que un mayor volumen de rebotes no está necesariamente asociado con una mayor eficiencia de tiro, posiblemente reflejando diferencias de rol o estilo de juego.
+\end{itemize}
+
+\subsection{Conclusiones}
+\label{subsec:conclusiones-correlaciones}
+
+El análisis de correlaciones confirma que la NBA actual está fuertemente influenciada por la eficiencia ofensiva. La relación elevada entre \texttt{FG\_PCT} y \texttt{PTS} ($r = 0.69$) consolida al porcentaje de tiro como el principal predictor del volumen anotador, superando la influencia de variables como los rebotes. Asimismo, las correlaciones moderadas con \texttt{PLUS\_MINUS} indican que el rendimiento ofensivo tiene un impacto directo en el diferencial final de puntos, reforzando la relevancia estratégica de la eficiencia en el baloncesto moderno.
+
+\section{Análisis de Outliers (Método IQR)}
+\label{sec:analisis-outliers}
+
+\begin{table}[H]
+\centering
+\caption{Detección de outliers usando el método IQR}
+\label{tab:outliers_iqr}
+\begin{tabular}{lccccc}
+\toprule
+Variable & Total & Outliers & \% & Límite Inf. & Límite Sup. \\
+\midrule
+PTS & 33316 & 231 & 0.69 & 70.0 & 142.0 \\
+REB & 33316 & 229 & 0.69 & 25.5 & 61.5 \\
+AST & 33316 & 260 & 0.78 & 9.5 & 37.5 \\
+PLUS\_MINUS & 33316 & 460 & 1.38 & -36.0 & 36.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+La Tabla~\ref{tab:outliers_iqr} presenta la detección de valores atípicos utilizando el método del rango intercuartílico (IQR), definido por los límites $Q_1 - 1.5 \cdot IQR$ y $Q_3 + 1.5 \cdot IQR$.
+
+Los resultados muestran que el porcentaje de outliers es reducido en todas las variables analizadas, con valores inferiores al 1.5\% incluso en un conjunto de datos de gran tamaño ($n = 33{,}316$), lo que indica una alta estabilidad estadística del dataset.
+
+La variable \texttt{PLUS\_MINUS} presenta la mayor proporción de valores atípicos (1.38\%), lo cual es consistente con su naturaleza altamente dependiente del contexto del partido y de diferencias extremas de anotación. Sin embargo, esta proporción sigue siendo baja en términos absolutos, por lo que no compromete la validez del análisis global.
+
+En conjunto, la baja incidencia de outliers confirma la calidad del conjunto de datos y respalda el uso de técnicas estadísticas paramétricas en los análisis posteriores.
+
+\section{Transformaciones y Preprocesamiento de Datos}
+\label{sec:transformaciones}
+
+El preprocesamiento de datos constituye una etapa fundamental para garantizar la consistencia y
+calidad del análisis estadístico posterior. En esta sección se describen las transformaciones
+aplicadas al conjunto de datos NBA correspondiente al período 2010--2024, enfocándose únicamente
+en las variables utilizadas en los análisis posteriores.
+
+\subsection{Manejo de Valores Faltantes}
+\label{subsec:valores-faltantes}
+
+Se realizó un análisis sistemático de valores faltantes sobre las variables seleccionadas para el
+estudio: \texttt{PTS}, \texttt{REB}, \texttt{AST}, \texttt{FG\_PCT} y \texttt{PLUS\_MINUS}.
+Los resultados se resumen en la Tabla~\ref{tab:valores_faltantes}.
+
+\begin{table}[H]
+\centering
+\caption{Tratamiento de valores faltantes en las variables analizadas}
+\label{tab:valores_faltantes}
+\begin{tabular}{lccc}
+\toprule
+Variable & Valores Faltantes & Porcentaje (\%) & Tratamiento Aplicado \\
+\midrule
+PTS & 0 & 0.000 & No requiere tratamiento \\
+REB & 0 & 0.000 & No requiere tratamiento \\
+AST & 0 & 0.000 & No requiere tratamiento \\
+FG\_PCT & 0 & 0.000 & No requiere tratamiento \\
+PLUS\_MINUS & 0 & 0.000 & No requiere tratamiento \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Dado que no se detectaron valores faltantes en ninguna de las variables analizadas, no fue necesario
+aplicar técnicas de imputación ni realizar transformaciones adicionales en esta etapa. Este resultado
+garantiza la integridad de los datos y permite proceder directamente con las etapas de escalado y
+modelado estadístico.
+
+\subsection{Codificación de Variables Categóricas}
+\label{subsec:codificacion}
+
+Las variables categóricas contienen información cualitativa que debe transformarse a formato
+numérico para su uso en modelos estadísticos. En este estudio, únicamente se consideró necesaria
+la codificación de la variable objetivo \texttt{WL}, correspondiente al resultado del partido.
+
+La variable \texttt{WL} es de naturaleza dicotómica, tomando los valores \texttt{W} (victoria) y
+\texttt{L} (derrota). Para su incorporación en modelos de regresión y clasificación, se realizó
+una codificación binaria estándar, definida como:
+
+\[
+\text{WL\_bin} =
+\begin{cases}
+1 & \text{si el partido termina en victoria (W)} \\
+0 & \text{si el partido termina en derrota (L)}
+\end{cases}
+\]
+
+Esta codificación es ampliamente utilizada en regresión logística y otros modelos lineales
+generalizados, ya que permite interpretar los coeficientes estimados en términos de cambios en
+probabilidad u \textit{odds ratio}.
+
+\subsection{Estandarización y Normalización de Variables Numéricas}
+\label{subsec:estandarizacion}
+
+\subsubsection{Diagnóstico de Escalas Diferentes}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Variable} & \textbf{Media} & \textbf{Desviación Estándar} & \textbf{Rango} \\
+\hline
+\texttt{PTS} & 106.04 & 13.59 & 120.00 \\
+\texttt{AST} & 23.38 & 5.27 & 46.00 \\
+\texttt{REB} & 43.44 & 6.60 & 64.00 \\
+\texttt{FG\_PCT} & 0.46 & 0.056 & 0.441 \\
+\texttt{PLUS\_MINUS} & 0.00 & 14.17 & 146.00 \\
+\hline
+\end{tabular}
+\caption{Estadísticos que evidencian escalas diferentes (valores reales)}
+\label{tab:escalas-variables-reales}
+\end{table}
+
+\textbf{Problema identificado}: Las variables están en unidades incomparables, por ejemplo:
+
+\begin{itemize}
+    \item Puntos en escala ~100 (106 ± 13.59)
+    \item Porcentajes en escala ~0.5 (0.46 ± 0.056)
+    \item Diferenciales centrados en 0 con gran rango (0 ± 14.17)
+\end{itemize}
+
+\textbf{Consecuencias de no estandarizar}:
+
+\begin{enumerate}
+\item Algoritmos basados en distancias (K-Means, K-NN, PCA) se verían dominados por variables de mayor rango.
+\item Coeficientes de regresión múltiple y logística no serían comparables.
+\item Algoritmos de optimización numérica (gradiente descendente) convergerían más lentamente.
+\end{enumerate}
+
+\subsubsection{Transformaciones Aplicadas}
+
+\begin{enumerate}
+\item \textbf{Estandarización Z-score}: aplicada a PTS, AST, REB, STL, BLK, TOV para centrar en 0 y escala 1.
+
+\item \textbf{Normalización Min-Max}: aplicada a FG\_PCT, FG3\_PCT y FT\_PCT para reescalar en [0,1].
+
+\end{enumerate}
+
+\textit{Nota}: Transformaciones adicionales como Box-Cox o log no se aplicaron de forma generalizada, dado que las desviaciones de normalidad y outliers observados fueron leves, y el tamaño de muestra grande garantiza robustez suficiente para las pruebas posteriores.
+
+\subsection{Tratamiento de Valores Atípicos}
+\label{subsec:tratamiento-outliers}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|p{0.4\textwidth}|}
+\hline
+\textbf{Variable} & \textbf{Outliers} & \textbf{Porcentaje} & \textbf{Tratamiento y Justificación} \\
+\hline
+\texttt{PLUS\_MINUS} & 460 & 1.4\% & \textbf{Winsorizing al 5\%-95\%}: Partidos extremadamente desbalanceados distorsionan varianza.\\
+\hline
+\texttt{PTS} & 231 & 0.7\% & \textbf{Mantenidos}: Partidos históricos de alta puntuación son eventos válidos e informativos.\\
+\hline
+\texttt{AST} & 260 & 0.8\% & \textbf{Mantenidos}: Récords de asistencias representan desempeños excepcionales reales.\\
+\hline
+\texttt{FG\_PCT} & 275 & 0.8\% & \textbf{Mantenidos}: Eficiencias extremas son métricas legítimas de rendimiento.\\
+\hline
+\end{tabular}
+\caption{Estrategia de tratamiento de outliers}
+\label{tab:tratamiento-outliers}
+\end{table}
+
+\textbf{Método de Winsorizing aplicado}:
+\[
+X_{\text{winsor}} = \begin{cases}
+Q_{0.05} & \text{si } X < Q_{0.05} \\
+Q_{0.95} & \text{si } X > Q_{0.95} \\
+X & \text{en otro caso}
+\end{cases}
+\]
+
+\textbf{Justificación del tratamiento diferencial}:
+\begin{itemize}
+\item \texttt{PLUS\_MINUS}: Los valores extremos representan partidos anómalos que pueden distorsionar análisis de varianza y correlación. Winsorizing preserva el tamaño muestral mientras mitiga su influencia.
+
+\item \texttt{PTS}, \texttt{AST}, \texttt{FG\_PCT}: Los outliers en estas variables representan récords y desempeños históricos legítimos que contienen información valiosa sobre el límite superior del rendimiento humano en baloncesto.
+
+\item \textbf{Enfoque robusto}: Para análisis sensibles a outliers, se utilizarán métodos robustos (medianas, regresión robusta) complementariamente.
+\end{itemize}
+
+\subsection{Creación de Variables Derivadas Avanzadas}
+\label{subsec:variables-derivadas}
+
+Las variables originales del dataset capturan estadísticas básicas, pero no necesariamente métricas avanzadas de rendimiento. Se crearon las siguientes variables derivadas:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{0.25\textwidth}|p{0.35\textwidth}|p{0.3\textwidth}|}
+\hline
+\textbf{Variable Derivada} & \textbf{Fórmula y Cálculo} & \textbf{Propósito Analítico} \\
+\hline
+\texttt{POSS} (Posesiones) & $ \text{FGA} - \text{OREB} + \text{TOV} + 0.4 \times \text{FTA} $ & Estimación estándar NBA de posesiones por partido\\
+\hline
+\texttt{PACE} (Ritmo) & $ \dfrac{\text{POSS}}{\text{MIN}} \times 48 $ & Ritmo de juego ajustado a 48 minutos\\
+\hline
+\texttt{OFF\_EFF} (Eficiencia Ofensiva) & $ \dfrac{\text{PTS}}{\text{POSS}} \times 100 $ & Puntos por 100 posesiones (métrica estándar NBA)\\
+\hline
+\texttt{AST\_TO\_RATIO} (Ratio Asist/Pérdida) & $ \dfrac{\text{AST}}{\text{TOV}} $ & Eficiencia en distribución del balón\\
+\hline
+\texttt{FG3A\_RATE} (Tasa de Triples) & $ \dfrac{\text{FG3A}}{\text{FGA}} $ & Porcentaje de tiros que son de tres puntos\\
+\hline
+\texttt{EFFICIENT\_SCORING} & $ \text{FG\_PCT} + 0.5 \times \text{FG3\_PCT} $ & Métrica ponderada que valora más los triples\\
+\hline
+\end{tabular}
+\caption{Variables derivadas creadas para análisis avanzado}
+\label{tab:variables-derivadas}
+\end{table}
+
+\textbf{Justificación de cada variable derivada}:
+
+\begin{itemize}
+\item \texttt{POSS} y \texttt{PACE}: Permiten comparar equipos independientemente del ritmo de juego, controlando por diferencias en posesiones.
+
+\item \texttt{OFF\_EFF}: Considerada la métrica más importante de eficiencia ofensiva en baloncesto moderno, ya que controla por oportunidades de anotación.
+
+\item \texttt{AST\_TO\_RATIO}: Combina creatividad ofensiva (asistencias) con cuidado del balón (pérdidas) en una sola métrica.
+
+\item \texttt{FG3A\_RATE}: Cuantifica directamente la "revolución del triple" que motiva la Pregunta 1 de investigación.
+
+\item \texttt{EFFICIENT\_SCORING}: Reconoce que un triple anotado al 40\% es equivalente a un tiro de 2 anotado al 60\%, capturando la eficiencia real de anotación.
+\end{itemize}
+
+% --- Conclusiones Finales de la primera parte ---
+\subsection*{Conclusiones Finales del Análisis Exploratorio}
+\addcontentsline{toc}{section}{Conclusiones Finales del Análisis Exploratorio}
+
+\begin{itemize}
+\item El análisis exploratorio revela distribuciones normales para la mayoría de las variables estadísticas principales.
+\item Las correlaciones más fuertes se observan entre puntos y porcentaje de tiro, confirmando la importancia de la eficiencia en el baloncesto moderno.
+\item La detección de outliers indica partidos extremos que podrían merecer análisis más detallado.
+\item El dataset presenta alta calidad de datos con valores nulos mínimos y consistencia en las relaciones entre variables.
+\end{itemize}
+
+\section{Análisis Estadístico de las Preguntas de Investigación}
+\label{sec:analisis-estadistico}
+
+En esta sección se presentan los análisis estadísticos realizados para responder a las tres preguntas de investigación planteadas. Cada análisis incluye justificación metodológica, implementación, resultados e interpretación en el contexto del baloncesto moderno.
+
+\subsection{Pregunta 1: Análisis de la Relación entre Triples y Victoria}
+\label{subsec:pregunta1-analisis}
+
+\subsubsection{Metodología Aplicada: Regresión Logística Binaria}
+\label{subsubsec:metodologia-pregunta1}
+
+Para abordar la pregunta sobre si el número de triples anotados está asociado significativamente con la probabilidad de ganar, se implementó un modelo de regresión logística. Esta técnica es apropiada porque:
+
+\begin{itemize}
+\item La variable respuesta es binaria (Victoria/Derrota)
+\item Permite controlar por múltiples variables predictoras
+\item Proporciona coeficientes interpretables como odds ratios
+\item Permite evaluar significancia estadística de cada predictor
+\end{itemize}
+
+El modelo especificado fue:
+\[
+\log\left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 \cdot \text{FG3M\_LOG} + \beta_2 \cdot \text{FG\_PCT\_MM} + \beta_3 \cdot \text{IS\_HOME}
+\]
+donde $p$ representa la probabilidad de victoria.
+
+\subsection{Resultados del Modelo (Pregunta 1)}
+\label{subsec:resultados-pregunta1}
+
+\subsubsection{Coeficientes y Significancia}
+\label{subsubsec:coeficientes-significancia}
+\begin{table}[H]
+\centering
+\caption{Coeficientes del Modelo de Regresión Logística}
+\label{tab:coeficientes}
+\begin{tabular}{lrrrrrr}
+\toprule
+\textbf{Variable} & \textbf{Coef.} & \textbf{Std. Err.} & \textbf{z} & \textbf{P$>|$z$|$} & \textbf{[0.025} & \textbf{0.975]} \\
+\midrule
+const & -4.6357 & 0.063 & -73.259 & 0.000 & -4.760 & -4.512 \\
+FG3M & 0.0496 & 0.003 & 16.144 & 0.000 & 0.044 & 0.056 \\
+FG\_PCT & 8.5432 & 0.123 & 69.513 & 0.000 & 8.302 & 8.784 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Odds Ratios}
+\label{subsubsec:odds-ratios}
+\begin{table}[H]
+\centering
+\caption{Odds Ratios del Modelo}
+\label{tab:oddsratios}
+\begin{tabular}{lr}
+\toprule
+\textbf{Variable} & \textbf{Odds Ratio} \\
+\midrule
+const & 0.0097 \\
+FG3M & 1.0508 \\
+FG\_PCT & 5131.7316 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Interpretación de Resultados (Pregunta 1)}
+\label{subsec:interpretacion-pregunta1}
+
+\subsubsection{Efecto Marginal de los Triples (FG3M)}
+\label{subsubsec:efecto-fg3m}
+
+Cada triple adicional anotado aumenta las odds de victoria en aproximadamente 5.08\%, manteniendo constante el porcentaje de tiro:
+\[
+\text{Odds Ratio} = e^{0.0496} \approx 1.0508
+\]
+\[
+\text{Incremento porcentual} = (1.0508 - 1) \times 100\% = 5.08\%
+\]
+
+\subsubsection{Efecto Marginal del Porcentaje de Tiro (FG\_PCT)}
+\label{subsubsec:efecto-fg-pct}
+
+Dado que FG\_PCT está en escala 0-1, el efecto marginal por punto porcentual es:
+\[
+\text{Odds Ratio por 0.01 unidades} = e^{8.5432 \times 0.01} \approx 1.089
+\]
+\[
+\text{Incremento porcentual por 1\%} = 8.9\%
+\]
+
+Los resultados indican que el coeficiente asociado al número de triples anotados (FG3M) es positivo y estadísticamente significativo, incluso al controlar por la efectividad general de tiro. Esto sugiere que anotar más triples incrementa la probabilidad de ganar un partido.
+
+Por su parte, la variable FG\_PCT presenta un coeficiente positivo de mayor magnitud, lo que indica que la eficiencia general de tiro tiene un impacto más fuerte sobre la probabilidad de victoria que el volumen de triples por sí solo.
+
+\subsubsection{Interpretación de los Coeficientes}
+\label{subsubsec:interpretacion-coeficientes}
+
+La interpretación de los \textit{odds ratios} permite cuantificar el impacto de cada variable. En particular:
+
+\begin{itemize}
+    \item Un incremento de una unidad en FG3M multiplica las probabilidades relativas de victoria por $e^{\beta_1}$, manteniendo constante la efectividad de tiro.
+    \item Un aumento en FG\_PCT produce un incremento aún mayor en las probabilidades de victoria, reflejando la importancia de la eficiencia ofensiva.
+\end{itemize}
+
+Estos resultados confirman que el tiro de tres puntos es un factor relevante, pero no sustituye la necesidad de una alta eficiencia general.
+
+\subsubsection{Análisis Gráfico}
+\label{subsubsec:analisis-grafico-p1}
+
+La Figura \ref{fig:probabilidad-fg3m} muestra la probabilidad predicha de victoria en función del número de triples anotados, manteniendo constante la efectividad de tiro en su valor promedio. Se observa una relación creciente, lo cual es consistente con el signo positivo del coeficiente estimado para FG3M.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{images/probabilidad_vs_fg3m.png}
+\caption{Probabilidad de victoria en función de los triples anotados (FG3M)}
+\label{fig:probabilidad-fg3m}
+\end{figure}
+
+Adicionalmente, la Figura \ref{fig:distribucion-probabilidades} presenta la distribución de las probabilidades predichas para victorias y derrotas. Las victorias tienden a concentrarse en probabilidades más altas, mientras que las derrotas se agrupan en valores menores, aunque con cierto solapamiento esperado en contextos deportivos.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{images/distribucion_probabilidades.png}
+\caption{Distribución de probabilidades predichas por el modelo}
+\label{fig:distribucion-probabilidades}
+\end{figure}
+
+\subsubsection{Conclusión (Pregunta 1)}
+\label{subsubsec:conclusion-pregunta1}
+
+En conclusión, los resultados de la regresión logística binaria indican que existe una relación positiva y estadísticamente significativa entre el número de triples anotados y la probabilidad de victoria en un partido de la NBA, incluso al controlar por la efectividad general de tiro. No obstante, la eficiencia ofensiva emerge como el factor más influyente, lo que sugiere que la estrategia óptima combina un volumen adecuado de triples con altos niveles de eficiencia.
+
+\subsection{Pregunta 2: Análisis de la Evolución Temporal del Juego}
+\label{subsec:pregunta2-analisis}
+
+\subsubsection{Metodología Aplicada: ANOVA y Regresión Lineal}
+\label{subsubsec:metodologia-pregunta2}
+
+Para analizar la evolución temporal se utilizaron dos técnicas complementarias:
+
+\begin{enumerate}
+\item \textbf{ANOVA de una vía}: Para determinar si existen diferencias significativas entre temporadas.
+\item \textbf{Regresión lineal}: Para cuantificar la tendencia temporal y tasa de cambio anual.
+\end{enumerate}
+
+\subsubsection{Justificación Metodológica}
+\label{subsubsec:justificacion-metodologica}
+
+Se emplean dos técnicas estadísticas complementarias:
+\begin{itemize}
+    \item \textbf{Regresión Lineal Simple}: Para cuantificar la tendencia temporal y medir la tasa de cambio anual.
+    \item \textbf{ANOVA}: Para verificar diferencias significativas entre temporadas y validar los resultados de regresión.
+\end{itemize}
+
+\subsection{Resultados (Pregunta 2)}
+\label{subsec:resultados-pregunta2}
+
+\subsubsection{Regresión Lineal Simple}
+\label{subsubsec:regresion-lineal}
+
+\begin{table}[H]
+\centering
+\caption{Resultados de Regresión Lineal}
+\label{tab:regresion}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Variable} & \textbf{Pendiente ($\beta_1$)} & \textbf{Intercepto} & \textbf{R$^2$} & \textbf{p-valor} & \textbf{Ecuación} \\
+\midrule
+Puntos (PTS) & 0.108 pts/temp & -218.04 & 0.9222 & $5.17 \times 10^{-8}$ & PTS = 0.108 x AÑO - 218.04 \\
+FG3A/FGA (\%) & 1.58\%/temp & -31.5471 & 0.9520 & $2.80 \times 10^{-9}$ & FG3A/FGA = 0.01580 x AÑO - 31.5471 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Medias por Temporada (Valores Estandarizados)}
+\label{subsubsec:medias-temporada}
+
+\begin{table}[H]
+\centering
+\caption{Medias por Temporada en Puntuaciones Z}
+\label{tab:medias}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Temporada} & \textbf{PTS (Z-score)} & \textbf{FG3A/FGA} \\
+\midrule
+2010-11 & -0.477615 & 0.222135 \\
+2011-12 & -0.719827 & 0.226304 \\
+2012-13 & -0.581578 & 0.243928 \\
+2013-14 & -0.370264 & 0.260029 \\
+2014-15 & -0.443477 & 0.268483 \\
+2015-16 & -0.247892 & 0.285100 \\
+2016-17 & -0.033039 & 0.316778 \\
+2017-18 & 0.021625 & 0.337869 \\
+2018-19 & 0.380451 & 0.359177 \\
+2019-20 & 0.423832 & 0.384487 \\
+2020-21 & 0.445418 & 0.392786 \\
+2021-22 & 0.336829 & 0.400175 \\
+2022-23 & 0.636385 & 0.388301 \\
+2023-24 & 0.601468 & 0.395183 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Resultados ANOVA}
+\label{subsubsec:resultados-anova}
+
+\begin{table}[H]
+\centering
+\caption{Resultados del Análisis de Varianza (ANOVA)}
+\label{tab:anova}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Variable} & \textbf{Estadístico F} & \textbf{p-valor} & \textbf{Significativo ($\alpha$ =0.05)} \\
+\midrule
+Puntos por Partido (PTS) & 647.8556 & $<0.001$ & Sí \\
+Proporción de Triples (FG3A/FGA) & 1950.5527 & $<0.001$ & Sí \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Análisis e Interpretación (Pregunta 2)}
+\label{subsec:analisis-pregunta2}
+
+\subsubsection{Tendencias Temporales}
+\label{subsubsec:tendencias-temporales}
+
+\paragraph{Puntos por Partido (PTS)} \label{par:puntos-partido}
+\begin{itemize}
+    \item \textbf{Tasa de cambio}: 0.108 puntos por temporada
+    \item \textbf{Explicación de varianza}: 92.22\% (R² = 0.9222)
+    \item \textbf{Significancia}: p < 0.001
+    \item \textbf{Interpretación}: Existe un aumento significativo y consistente en los puntos anotados por partido a lo largo del período estudiado.
+\end{itemize}
+
+\paragraph{Proporción de Tiros de Tres (FG3A/FGA)} \label{par:proporcion-triples}
+\begin{itemize}
+    \item \textbf{Tasa de cambio}: 1.58\% por temporada
+    \item \textbf{Explicación de varianza}: 95.20\% (R² = 0.9520)
+    \item \textbf{Significancia}: p < 0.001
+    \item \textbf{Interpretación}: La NBA ha experimentado una transformación radical en su estrategia ofensiva, con un aumento constante en la dependencia del tiro de tres puntos.
+\end{itemize}
+
+\subsubsection{Diferencias entre Temporadas (ANOVA)}
+\label{subsubsec:diferencias-temporadas}
+
+\begin{table}[H]
+\centering
+\caption{Períodos Clave de Transformación}
+\label{tab:periodos}
+\begin{tabular}{p{0.2\linewidth}p{0.25\linewidth}p{0.25\linewidth}p{0.2\linewidth}}
+\toprule
+\textbf{Período} & \textbf{Características} & \textbf{Cambio en PTS} & \textbf{Cambio en FG3A/FGA} \\
+\midrule
+2010-2015 & Era tradicional & Moderado & Inicio de la transición \\
+2015-2018 & Revolución del triple & Acelerado & Rápida adopción \\
+2018-2024 & Nueva normalidad & Consolidación & Estabilización en niveles altos \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Pregunta 3: Análisis de Predictores del Diferencial de Puntos}
+\label{subsec:pregunta3-analisis}
+
+\subsubsection{Justificación de la Regresión Múltiple}
+\label{subsubsec:justificacion-regresion}
+
+La regresión múltiple es la técnica estadística apropiada para este análisis porque:
+
+\begin{itemize}
+    \item Permite evaluar el efecto simultáneo de múltiples variables predictoras.
+    \item Controla las interrelaciones entre las variables independientes.
+    \item Cuantifica la contribución única de cada predictor al modelo.
+    \item Proporciona estimaciones de la magnitud y dirección de las relaciones.
+    \item Permite evaluar la robustez del modelo mediante métricas como R² y estadístico F.
+\end{itemize}
+
+\subsubsection{Modelo Estadístico}
+\label{subsubsec:modelo-estadistico}
+
+El modelo de regresión múltiple se especifica como:
+\[
+\text{PLUS\_MINUS} = \beta_0 + \beta_1 \cdot \text{AST} + \beta_2 \cdot \text{REB} + \beta_3 \cdot \text{STL} + \beta_4 \cdot \text{TOV} + \beta_5 \cdot \text{FG\_PCT} + \epsilon
+\]
+donde:
+\begin{itemize}
+    \item $\beta_0$ es el intercepto
+    \item $\beta_1, \beta_2, \beta_3, \beta_4, \beta_5$ son los coeficientes de regresión
+    \item $\epsilon$ es el término de error
+\end{itemize}
+
+\subsubsection{Hipótesis Estadísticas}
+\label{subsubsec:hipotesis-estadisticas}
+
+\begin{itemize}
+    \item $H_0$: $\beta_1 = \beta_2 = \beta_3 = \beta_4 = \beta_5 = 0$ (ningún predictor afecta PLUS\_MINUS)
+    \item $H_1$: Al menos un $\beta_i \neq 0$ (al menos un predictor afecta PLUS\_MINUS)
+\end{itemize}
+
+\subsection{Resultados (Pregunta 3)}
+\label{subsec:resultados-pregunta3}
+
+\subsubsection{Métricas Globales del Modelo}
+\label{subsubsec:metricas-modelo}
+
+\begin{table}[H]
+\centering
+\caption{Métricas de Ajuste del Modelo}
+\label{tab:metricas}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Métrica} & \textbf{Valor} & \textbf{Interpretación} \\
+\midrule
+Coeficiente de determinación (R²) & 0.5852 & 58.52\% de varianza explicada \\
+R² ajustado & 0.5852 & Ajuste óptimo del modelo \\
+Estadístico F & 9400.220 & Relación señal-ruido alta \\
+Grados de libertad (modelo) & 5 & 5 variables predictoras \\
+Grados de libertad (residuo) & 33310 & 33,316 observaciones - 6 parámetros \\
+p-valor (F) & < 0.001 & Modelo altamente significativo \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Coeficientes de Regresión}
+\label{subsubsec:coeficientes-regresion}
+
+\begin{table}[H]
+\centering
+\caption{Coeficientes del Modelo de Regresión Múltiple}
+\label{tab:coeficientes-multiples}
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Variable} & \textbf{Coeficiente ($\beta$)} & \textbf{Error Estándar} & \textbf{t-valor} & \textbf{p-valor} & \textbf{95\% IC Inferior} & \textbf{95\% IC Superior} \\
+\midrule
+Intercepto & -35.683 & 0.247 & -144.34 & < 0.001 & -36.167 & -35.199 \\
+AST & -0.371 & 0.062 & -5.97 & $2.46 \times 10^{-9}$ & -0.492 & -0.250 \\
+REB & 7.180 & 0.053 & 136.15 & < 0.001 & 7.076 & 7.284 \\
+STL & 3.384 & 0.051 & 66.38 & < 0.001 & 3.284 & 3.484 \\
+TOV & -3.184 & 0.051 & -62.17 & < 0.001 & -3.284 & -3.084 \\
+FG\_PCT & 73.388 & 0.498 & 147.39 & < 0.001 & 72.411 & 74.365 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Análisis e Interpretación (Pregunta 3)}
+\label{subsec:analisis-pregunta3}
+
+\subsubsection{Interpretación de los Coeficientes}
+\label{subsubsec:interpretacion-coeficientes-p3}
+
+\begin{table}[H]
+\centering
+\caption{Influencia Relativa de los Predictores}
+\label{tab:influencia}
+\begin{tabular}{p{0.3\linewidth}cp{0.5\linewidth}}
+\toprule
+\textbf{Predictor} & \textbf{Dirección} & \textbf{Interpretación Práctica} \\
+\midrule
+\textbf{FG\_PCT} & Positiva ($\beta$=73.388) & \textbf{Predictor más fuerte}. Un aumento de 0.01 (1\%) en el porcentaje de tiro incrementa PLUS\_MINUS en 0.73 puntos, manteniendo otras variables constantes. \\
+\textbf{REB} & Positiva ($\beta$=7.180) & \textbf{Segundo predictor más importante}. Cada rebote adicional incrementa PLUS\_MINUS en 7.18 puntos, controlando por otras variables. \\
+\textbf{STL} & Positiva ($\beta$=3.384) & Cada robo adicional incrementa PLUS\_MINUS en 3.38 puntos, indicando la importancia de la defensa agresiva. \\
+\textbf{TOV} & Negativa ($\beta$=-3.184) & Cada pérdida adicional disminuye PLUS\_MINUS en 3.18 puntos, destacando el costo de las posesiones perdidas. \\
+\textbf{AST} & Negativa ($\beta$=-0.371) & \textbf{Resultado contraintuitivo}. Posiblemente debido a multicolinealidad o a que, controlando por eficiencia de tiro, más asistencias no siempre se traducen en mejor PLUS\_MINUS. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Análisis de Significancia Estadística}
+\label{subsubsec:significancia-estadistica}
+
+\paragraph{Significancia Individual} \label{par:significancia-individual}
+\begin{itemize}
+    \item \textbf{FG\_PCT}: t = 147.39, p < 0.001 - Altamente significativo
+    \item \textbf{REB}: t = 136.15, p < 0.001 - Altamente significativo
+    \item \textbf{STL}: t = 66.38, p < 0.001 - Altamente significativo
+    \item \textbf{TOV}: t = -62.17, p < 0.001 - Altamente significativo
+    \item \textbf{AST}: t = -5.97, p = $2.46 \times 10^{-9}$ - Significativo
+\end{itemize}
+
+\paragraph{Significancia Global} \label{par:significancia-global}
+\begin{itemize}
+    \item \textbf{Estadístico F} = 9400.220, p < 0.001
+    \item El modelo en conjunto es altamente significativo
+    \item Rechazamos $H_0$: al menos un predictor afecta significativamente PLUS\_MINUS
+\end{itemize}
+
+\subsubsection{Poder Explicativo del Modelo}
+\label{subsubsec:poder-explicativo}
+
+\begin{itemize}
+    \item \textbf{R² = 0.5852}: El modelo explica el 58.52\% de la variabilidad en PLUS\_MINUS
+    \item \textbf{R² ajustado = 0.5852}: Indica que el número de predictores es apropiado
+    \item El 41.48\% restante de variabilidad es explicado por factores no incluidos en el modelo
+\end{itemize}
+
+\section{Hallazgos Principales por Pregunta de Investigación}
+\label{sec:hallazgos-principales}
+
+\subsection{Pregunta 1: Relación entre triples y victoria}
+\label{subsec:hallazgos-pregunta1}
+
+\begin{itemize}
+    \item \textbf{Método}: Regresión logística binaria controlando por FG\_PCT
+    \item \textbf{Resultado}: Cada triple adicional anotado (FG3M) aumenta las \textit{odds} de victoria en un \textbf{5.08\%} ($\beta = 0.0496$, $p < 0.001$)
+    \item \textbf{Hallazgo clave}: El porcentaje de tiro (FG\_PCT) es el predictor más fuerte (OR = 5131.73 por unidad)
+    \item \textbf{Conclusión}: El volumen de triples contribuye a ganar, pero la eficiencia general es aún más determinante
+\end{itemize}
+
+\subsection{Pregunta 2: Evolución temporal del juego (2010-2024)}
+\label{subsec:hallazgos-pregunta2}
+
+\begin{itemize}
+    \item \textbf{Método}: Regresión lineal + ANOVA
+    \item \textbf{Tendencias significativas}:
+    \begin{itemize}
+        \item Puntos por partido: $+0.108$ pts/temporada ($R^2 = 0.922$, $p < 0.001$)
+        \item Proporción de triples: $+1.58\%$/temporada ($R^2 = 0.952$, $p < 0.001$)
+    \end{itemize}
+    \item \textbf{Periodos clave}: Aceleración post-2015 ("revolución del triple"), estabilización post-2018
+    \item \textbf{Conclusión}: Transformación ofensiva verificada estadísticamente hacia mayor anotación y dependencia del triple
+\end{itemize}
+
+\subsection{Pregunta 3: Predictores del diferencial de puntos (PLUS\_MINUS)}
+\label{subsec:hallazgos-pregunta3}
+
+\begin{itemize}
+    \item \textbf{Método}: Regresión múltiple ($R^2 = 0.585$, $p < 0.001$)
+    \item \textbf{Predictores por importancia}:
+    \begin{enumerate}
+        \item FG\_PCT ($\beta = 73.39$): Un 1\% de aumento $\approx +0.73$ en PLUS\_MINUS
+        \item REB ($\beta = 7.18$): Cada rebote adicional $\approx +7.18$ puntos
+        \item STL ($\beta = 3.38$) positivo, TOV ($\beta = -3.18$) negativo
+        \item AST mostró relación negativa débil ($\beta = -0.37$), posiblemente por multicolinealidad
+    \end{enumerate}
+    \item \textbf{Conclusión}: Eficiencia de tiro y rebotes son los determinantes principales del éxito neto
+\end{itemize}
+
+\section{Síntesis General}
+\label{sec:sintesis-general}
+
+\subsection{Patrones identificados}
+\label{subsec:patrones-identificados}
+
+\begin{itemize}
+    \item \textbf{Primacía de la eficiencia}: FG\_PCT emergió como variable más influyente en ambos modelos (victoria y diferencial)
+    \item \textbf{Transformación verificada}: Cambio estructural hacia juego ofensivo y basado en triples (2015-2018 como punto de inflexión)
+    \item \textbf{Balance volumen-eficiencia}: Triples importantes pero no sustitutos de buen porcentaje de tiro
+    \item \textbf{Variables defensivas}: STL y REB mostraron impacto significativo en PLUS\_MINUS
+\end{itemize}
+
+\subsection{Implicaciones estratégicas}
+\label{subsec:implicaciones-estrategicas}
+
+\begin{itemize}
+    \item Equilibrio óptimo: Alto FG\_PCT + volumen moderado de triples + dominio del rebote
+    \item Estrategias extremas (sólo triples o sólo eficiencia) son subóptimas
+    \item Defensa agresiva (robos) y cuidado del balón son diferenciadores clave
+\end{itemize}
+
+\section{Limitaciones del Estudio}
+\label{sec:limitaciones}
+
+\begin{itemize}
+    \item \textbf{Nivel de análisis}: Datos a nivel de equipo, no consideran dinámicas individuales
+    \item \textbf{Variables omitidas}: Contexto (lesiones, viajes), métricas avanzadas (defensa ajustada, tracking)
+    \item \textbf{Multicolinealidad}: Algunas variables predictoras correlacionadas (ej. AST-FG\_PCT)
+    \item \textbf{Causalidad}: Asociaciones identificadas, no causalidad demostrada
+    \item \textbf{Periodo}: 2010-2024 puede no capturar tendencias anteriores o futuras
+\end{itemize}
+
+\section{Extensiones y Mejoras Futuras}
+\label{sec:extensiones}
+
+\subsection{Mejoras metodológicas}
+\label{subsec:mejoras-metodologicas}
+
+\begin{itemize}
+    \item Modelos multinivel para efectos anidados (partidos $\rightarrow$ equipos $\rightarrow$ temporadas)
+    \item Técnicas de regularización (Lasso/Ridge) para manejar multicolinealidad
+    \item Modelos de aprendizaje automático para capturar interacciones no lineales
+\end{itemize}
+
+\subsection{Variables adicionales}
+\label{subsec:variables-adicionales}
+
+\begin{itemize}
+    \item Métricas de tracking: velocidad, distancia, tiros contestados
+    \item Contexto: back-to-back, viajes, lesiones de jugadores estelares
+    \item Eficiencia ajustada (ofensiva/defensiva) y ritmo de juego (PACE)
+\end{itemize}
+
+\subsection{Análisis comparativos}
+\label{subsec:analisis-comparativos}
+
+\begin{itemize}
+    \item Diferencias playoffs vs. temporada regular
+    \item Segmentación por nivel de equipo (élite, medio, bajo)
+    \item Comparación con otras ligas (Euroliga, NCAA)
+    \item Extensión temporal: incluir datos pre-2010 y proyecciones futuras
+\end{itemize}
+
+\section{Conclusiones Finales}
+\label{sec:conclusiones-finales}
+
+\begin{enumerate}
+    \item La \textbf{eficiencia de tiro (FG\_PCT)} es el factor estadísticamente más determinante para el éxito en la NBA contemporánea
+    \item La \textbf{revolución del triple} (2015-2018) transformó cuantificablemente el juego, aumentando tanto la anotación como la proporción de intentos de tres
+    \item Estrategias óptimas combinan \textbf{volumen controlado de triples} con \textbf{alta eficiencia general} y \textbf{dominio del rebote}
+    \item El modelo explicó el 58.5\% de la varianza en PLUS\_MINUS, sugiriendo espacio para variables adicionales en análisis futuros
+    \item Los hallazgos proporcionan \textbf{evidencia cuantitativa sólida} para decisiones estratégicas en baloncesto profesional
+\end{enumerate}
+
+\end{document}
