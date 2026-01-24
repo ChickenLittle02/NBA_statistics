@@ -5,7 +5,6 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{geometry}
-\usepackage{hyperref}
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{xcolor}
@@ -16,7 +15,11 @@
 \usepackage{longtable}
 \usepackage{multirow}
 \usepackage{makecell}
-\usepackage{booktabs}
+\usepackage[colorlinks=true, urlcolor=blue]{hyperref}
+\usepackage{enumitem}
+
+
+
 
 % Configuración de márgenes
 \geometry{a4paper, margin=1in}
@@ -63,114 +66,113 @@
 
 % --- Introducción ---
 \section*{Introducción}
+
 \addcontentsline{toc}{section}{Introducción}
 
-El presente estudio se basa en el análisis de un conjunto de datos estadísticos oficiales de la National Basketball Association (NBA), correspondientes exclusivamente a partidos de \textbf{temporada regular} desde la temporada 2010 hasta la 2024. El dataset recoge información a nivel de equipo por partido, lo que permite evaluar el rendimiento colectivo y analizar patrones asociados al éxito competitivo en la liga a lo largo del tiempo, evitando los sesgos propios de los encuentros de postemporada.
+El presente estudio se basa en el análisis de un conjunto de datos estadísticos oficiales de la National Basketball Association (NBA), correspondientes exclusivamente a partidos de temporada regular desde la temporada 2010 hasta la 2024. El dataset recoge información a nivel de equipo por partido, lo que permite evaluar el rendimiento colectivo y analizar patrones asociados al éxito competitivo en la liga a lo largo del tiempo, evitando los sesgos propios de los encuentros de postemporada.
 
-Los datos utilizados provienen de un archivo en formato \texttt{.csv}, específicamente:
-\begin{itemize}
-    \item \textbf{regular\_season\_totals\_2010\_2024.csv}
-\end{itemize}
+Los datos utilizados provienen del archivo en formato .csv: regular\_season\_totals\_2010\_2024.csv, el cual puede descargarse desde el repositorio de GitHub \href{https://github.com/NocturneBear/NBA-Data-2010-2024}{Repositorio NBA Data 2010--2024}.
 
-Este archivo puede descargarse desde repositorios públicos de estadísticas deportivas basados en la API oficial de la NBA, como \textit{NBA Stats}, así como desde plataformas académicas y repositorios de ciencia de datos utilizados para análisis estadístico y analítica avanzada.
 
 El dataset almacena información detallada de cada partido de temporada regular, incluyendo variables de identificación (temporada, equipo y partido), el resultado del encuentro, estadísticas tradicionales de box score (puntos, rebotes, asistencias, tiros de campo, triples, pérdidas, robos, bloqueos y faltas), métricas de eficiencia (porcentajes de tiro) y estadísticas derivadas como el diferencial de puntos (\texttt{PLUS\_MINUS}). Además, incorpora rankings relativos por temporada para múltiples categorías estadísticas, lo que permite realizar comparaciones relativas entre equipos durante el período analizado.
 
-El análisis se estructura en torno a \textbf{tres preguntas de investigación principales}, las cuales guían la selección de variables y la aplicación de técnicas estadísticas, con el objetivo de estudiar tendencias del baloncesto moderno y determinar los factores más influyentes en el rendimiento de los equipos durante la temporada regular.
+El análisis se estructura en torno a tres preguntas de investigación principales, las cuales guían la selección de variables y la aplicación de técnicas estadísticas, con el objetivo de estudiar tendencias del baloncesto moderno y determinar los factores más influyentes en el rendimiento de los equipos durante la temporada regular.
 
 % --- Preguntas de Investigación ---
-\section{Preguntas de Investigación}
+
+\section*{Preguntas de Investigación}
 \label{sec:preguntas}
 
-\subsection{Pregunta 1}
+\subsection*{Pregunta 1}
 \label{subsec:pregunta1}
 
-\textbf{¿Existe una correlación significativa entre el número de triples anotados (FG3M) y la victoria (WL) de un equipo en un partido, controlando por la efectividad general de tiro (FG\_PCT)?}
-
 \vspace{0.3cm}
 
-\textbf{Relevancia:}  
-El baloncesto moderno ha evolucionado hacia un mayor énfasis en el tiro de tres puntos. Entender si un mayor volumen de triples está asociado con mayores probabilidades de victoria, independientemente de la efectividad general de tiro, es clave para evaluar estrategias ofensivas y determinar si la filosofía de ``vivir o morir por el triple'' tiene un sustento estadístico sólido.
+El baloncesto moderno ha evolucionado hacia un mayor énfasis en el tiro de tres puntos. Entender si un mayor volumen de triples está asociado con mayores probabilidades de victoria, independientemente de la efectividad general de tiro, es clave para evaluar estrategias ofensivas y determinar si la filosofía de ``vivir o morir por el triple'' tiene un sustento estadístico sólido, por eso nos preguntamos:
 
 \vspace{0.3cm}
+¿Existe una correlación significativa entre el número de triples anotados (FG3M) y la victoria (WL) de un equipo en un partido, controlando por la efectividad general de tiro (FG\_PCT)?
 
-\textbf{Variables involucradas:}
-\begin{itemize}
+
+Para su análisis se utilizarán:
+\begin{itemize}[label={}]
     \setlength\itemsep{0.1em}
-    \item \textbf{Variable respuesta:}
-    \begin{itemize}
-        \item \texttt{WL}: Resultado del partido (Win/Loss).
+    \item Como variable respuesta:
+    \begin{itemize}[label={}]
+        \item WL: Resultado del partido (Win/Loss).
     \end{itemize}
-    \item \textbf{Variables predictoras:}
-    \begin{itemize}
-        \item \texttt{FG3M}: Triples anotados (Field Goals 3 Made).
-        \item \texttt{FG\_PCT}: Porcentaje total de tiros de campo convertidos (Field Goal Percentage).
+    \item Como variables predictoras:
+    \begin{itemize}[label={}]
+        \item FG3M: Triples anotados (Field Goals 3 Made).
+        \item FG\_PCT: Porcentaje total de tiros de campo convertidos (Field Goal Percentage).
     \end{itemize}
 \end{itemize}
 
-\subsection{Pregunta 2}
+\subsection*{Pregunta 2}
 \label{subsec:pregunta2}
 
-\textbf{¿Cómo ha cambiado la media de puntos por partido (PTS) y el porcentaje de tiros de tres puntos intentados (FG3A/FGA) a lo largo de las temporadas (SEASON\_YEAR), y existe una relación temporal significativa entre ambas variables?}
+\vspace{0.3cm}
+
+La NBA ha experimentado una marcada ``revolución del triple'' en la última década, caracterizada por un aumento sostenido en el uso del tiro de tres puntos y en la producción ofensiva. Analizar la evolución temporal de los puntos anotados y del porcentaje de triples intentados permite cuantificar esta transformación del juego, evaluar si el incremento en la anotación está asociado al mayor protagonismo del tiro exterior y contextualizar los cambios estratégicos observados en temporadas recientes, por esto aparece la pregunta:
 
 \vspace{0.3cm}
 
-\textbf{Relevancia:}  
-La NBA ha experimentado una marcada ``revolución del triple'' en la última década. Analizar la evolución temporal de los puntos anotados y del uso del tiro de tres puntos permite cuantificar la transformación ofensiva de la liga y contextualizar el incremento en la producción anotadora observado en temporadas recientes.
+¿Como ha cambiado la media de puntos por partido (PTS) y el porcentaje de tiros de tres puntos intentados (FG3A/FGA) a lo largo de las temporadas (SEASON\_YEAR), y existe una relación temporal significativa entre ambas variables?
 
 \vspace{0.3cm}
 
-\textbf{Variables involucradas:}
-\begin{itemize}
+Para su análisis se utilizarán:
+\begin{itemize}[label={}]
     \setlength\itemsep{0.1em}
-    \item \textbf{Variable temporal:}
-    \begin{itemize}
-        \item \texttt{SEASON\_YEAR}: Año de la temporada de la NBA.
+    \item Como variable temporal:
+    \begin{itemize}[label={}]
+        \item SEASON\_YEAR: Año de la temporada de la NBA.
     \end{itemize}
-    \item \textbf{Variables de interés:}
-    \begin{itemize}
-        \item \texttt{PTS}: Puntos totales anotados por el equipo.
-        \item \texttt{FG3A}: Intentos de tiro de tres puntos (Field Goals 3 Attempted).
-        \item \texttt{FGA}: Intentos totales de tiro de campo (Field Goals Attempted).
+    \item Como variables de interés:
+    \begin{itemize}[label={}]
+        \item PTS: Puntos totales anotados por el equipo.
+        \item FG3A: Intentos de tiro de tres puntos (Field Goals 3 Attempted).
+        \item FGA: Intentos totales de tiro de campo (Field Goals Attempted).
     \end{itemize}
 \end{itemize}
 
-\subsection{Pregunta 3}
+\subsection*{Pregunta 3}
 \label{subsec:pregunta3}
 
-\textbf{¿Qué combinación de estadísticas de juego (por ejemplo, asistencias AST, rebotes REB, robos STL, porcentaje de tiros FG\_PCT) predice de manera más robusta la diferencia de puntos (PLUS\_MINUS) en un partido?}
+\vspace{0.3cm}
+
+El estadístico plus-minus refleja el impacto neto de un equipo durante un partido, ya que mide la diferencia de puntos mientras el equipo está en cancha. Identificar qué estadísticas del box score contribuyen de manera más significativa a un plus-minus positivo permite priorizar métricas de rendimiento colectivo y comprender mejor los factores asociados a la dominancia en el marcador, por esto aparece la pregunta:
 
 \vspace{0.3cm}
 
-\textbf{Relevancia:}  
-El estadístico plus-minus refleja el impacto neto de un equipo durante un partido. Identificar qué estadísticas de box score contribuyen de manera más significativa a un plus-minus positivo permite priorizar métricas de rendimiento colectivo y comprender mejor los factores asociados a la dominancia en el marcador.
+¿Que combinación de estadísticas de juego (por ejemplo, asistencias AST, rebotes REB, robos STL, porcentaje de tiros FG\_PCT) predice de manera más robusta la diferencia de puntos (PLUS\_MINUS) en un partido?
 
 \vspace{0.3cm}
 
-\textbf{Variables involucradas:}
-\begin{itemize}
+Para su análisis se utilizarán:
+\begin{itemize}[label={}]
     \setlength\itemsep{0.1em}
-    \item \textbf{Variable respuesta:}
-    \begin{itemize}
-        \item \texttt{PLUS\_MINUS}: Diferencial de puntos del equipo en el partido.
+    \item Como variable respuesta:
+    \begin{itemize}[label={}]
+        \item PLUS\_MINUS: Diferencial de puntos del equipo en el partido.
     \end{itemize}
-    \item \textbf{Variables predictoras:}
-    \begin{itemize}
-        \item \texttt{AST}: Asistencias (Assists).
-        \item \texttt{REB}: Rebotes totales (Total Rebounds).
-        \item \texttt{STL}: Robos de balón (Steals).
-        \item \texttt{BLK}: Bloqueos realizados (Blocks).
-        \item \texttt{TOV}: Pérdidas de balón (Turnovers).
-        \item \texttt{FG\_PCT}: Porcentaje de tiros de campo.
-        \item \texttt{FG3\_PCT}: Porcentaje de triples.
-        \item \texttt{FT\_PCT}: Porcentaje de tiros libres.
+    \item Como variables predictoras:
+    \begin{itemize}[label={}]
+        \item AST: Asistencias (Assists).
+        \item REB: Rebotes totales (Total Rebounds).
+        \item STL: Robos de balón (Steals).
+        \item BLK: Bloqueos realizados (Blocks).
+        \item TOV: Pérdidas de balón (Turnovers).
+        \item FG\_PCT: Porcentaje de tiros de campo.
+        \item FG3\_PCT: Porcentaje de triples.
+        \item FT\_PCT: Porcentaje de tiros libres.
     \end{itemize}
 \end{itemize}
 
-\section{Información General del Dataset}
+\section*{Análisis Exploratorio de Datos}
 
 El conjunto de datos utilizado corresponde a estadísticas por partido a nivel de equipo
-de la NBA, abarcando las temporadas desde 2010 hasta 2024. En la Tabla~1 se resumen
+de la NBA, abarcando las temporadas desde 2010 hasta 2024. En la siguiente tabla se resumen
 las principales características del dataset.
 
 \begin{table}[H]
@@ -190,98 +192,46 @@ Valores nulos totales & 202 (0.31\%) \\ \bottomrule
 \vspace{0.3cm}
 
 Dado el amplio número de variables disponibles, para responder de manera precisa
-las preguntas de investigación se trabajará con un \textbf{subconjunto de variables relevantes}.
+las preguntas de investigación se trabajará con un subconjunto de variables relevantes.
 Estas variables se seleccionan en función de su relación directa con el rendimiento ofensivo,
 defensivo y el resultado de los partidos, y se clasifican a continuación según su naturaleza
 estadística.
 
-% -------------------------------------------------
-\section{Clasificación de Variables Utilizadas}
-\label{sec:clasificacion-variables}
-
-\subsection{Variables Cualitativas}
-\label{subsec:variables-cualitativas}
-
-Estas variables describen características categóricas del partido o del equipo y se utilizan
-principalmente para identificación, segmentación de datos y análisis comparativos.
+\subsection*{Variables cuantitativas continuas}
+Corresponden a variables numéricas que pueden tomar valores reales dentro de un intervalo y que se utilizan principalmente para medir eficiencia, proporciones y diferenciales.
 
 \begin{itemize}
-    \item \textbf{SEASON\_YEAR}: Temporada de la NBA en la que se disputó el partido.
-    \item \textbf{TEAM\_ID}: Identificador numérico único del equipo.
-    \item \textbf{TEAM\_ABBREVIATION}: Abreviatura oficial del nombre del equipo.
-    \item \textbf{TEAM\_NAME}: Nombre completo del equipo.
-    \item \textbf{GAME\_ID}: Identificador único del partido.
-    \item \textbf{GAME\_DATE}: Fecha en la que se jugó el partido.
-    \item \textbf{MATCHUP}: Información del enfrentamiento (local/visitante y rival).
-    \item \textbf{WL}: Resultado del partido (Win/Loss).
+    \item FG\_PCT: porcentaje total de tiros de campo convertidos.
+    \item FG3\_PCT: porcentaje de triples convertidos.
+    \item FT\_PCT: porcentaje de tiros libres convertidos.
+    \item FG3A/FGA: proporción de intentos de tiro de tres puntos respecto al total de tiros de campo.
+    \item PLUS\_MINUS: diferencial de puntos del equipo en el partido.
 \end{itemize}
 
-Estas variables permiten estructurar el análisis temporal, identificar equipos y diferenciar
-entre partidos ganados y perdidos, siendo fundamentales para las pruebas de hipótesis
-y modelos de clasificación.
-
-% -------------------------------------------------
-\subsection{Variables Cuantitativas Discretas}
-\label{subsec:variables-discretas}
-
-Corresponden a conteos de eventos que ocurren durante un partido y reflejan el volumen
-de acciones de juego.
+\subsection*{Variables cuantitativas discretas}
+Son variables numéricas que representan conteos enteros de eventos ocurridos durante el partido.
 
 \begin{itemize}
-    \item \textbf{PTS}: Puntos totales anotados por el equipo en el partido.
-    \item \textbf{AST}: Asistencias totales del equipo.
-    \item \textbf{REB}: Rebotes totales del equipo (suma de ofensivos y defensivos).
-    \item \textbf{FGM}: Tiros de campo convertidos.
-    \item \textbf{FGA}: Tiros de campo intentados.
-    \item \textbf{FG3M}: Triples convertidos.
-    \item \textbf{FG3A}: Triples intentados.
-    \item \textbf{TOV}: Pérdidas de balón.
-    \item \textbf{STL}: Robos de balón.
-    \item \textbf{BLK}: Tapones realizados.
+    \item PTS: puntos totales anotados por el equipo.
+    \item FG3M: triples anotados.
+    \item FG3A: intentos de tiro de tres puntos.
+    \item AST: asistencias.
+    \item REB: rebotes totales.
+    \item STL: robos de balón.
+    \item BLK: bloqueos realizados.
+    \item TOV: pérdidas de balón.
 \end{itemize}
 
-Estas variables permiten cuantificar el volumen ofensivo y defensivo del equipo, y son clave
-para explicar diferencias en el marcador y el impacto global del desempeño colectivo.
-
-% -------------------------------------------------
-\subsection{Variables Cuantitativas Continuas}
-\label{subsec:variables-continuas}
-
-Estas variables representan proporciones, promedios o métricas con escala continua,
-y reflejan la eficiencia y el impacto neto del equipo.
+\subsection*{Variables cualitativas}
+Incluyen variables categóricas que describen características no numéricas o resultados del partido.
 
 \begin{itemize}
-    \item \textbf{FG\_PCT}: Porcentaje de tiros de campo convertidos.
-    \item \textbf{FG3\_PCT}: Porcentaje de triples convertidos.
-    \item \textbf{FT\_PCT}: Porcentaje de tiros libres convertidos.
-    \item \textbf{PLUS\_MINUS}: Diferencia de puntos mientras el equipo estuvo en cancha.
+    \item WL: resultado del partido (victoria o derrota).
+    \item SEASON\_YEAR: año de la temporada, utilizada como variable temporal para el análisis de tendencias.
 \end{itemize}
 
-Estas variables son fundamentales para evaluar la eficiencia ofensiva y el impacto real
-del equipo más allá del simple volumen de anotación.
+Esta clasificación permite seleccionar y transformar adecuadamente las variables durante el preprocesamiento del dataset, facilitando la aplicación coherente de técnicas estadísticas como regresión logística binaria, análisis de varianza, regresión lineal simple y múltiple, y análisis de componentes principales, en concordancia con los objetivos del estudio.
 
-% -------------------------------------------------
-\section{Variables Seleccionadas para el Análisis Estadístico}
-\label{sec:variables-seleccionadas}
-
-A partir de la clasificación anterior, el análisis estadístico se centrará en las siguientes
-variables:
-
-\begin{itemize}
-    \item \textbf{PTS}: para analizar la evolución ofensiva y su relación con otras métricas.
-    \item \textbf{REB y AST}: como indicadores del control del juego y del juego colectivo.
-    \item \textbf{FG\_PCT}: para evaluar la eficiencia general de tiro.
-    \item \textbf{PLUS\_MINUS}: como medida del impacto neto del equipo en el partido.
-    \item \textbf{FG3M y FG3A}: para estudiar la influencia del tiro de tres puntos en la victoria.
-    \item \textbf{WL}: como variable respuesta en modelos de clasificación y pruebas de hipótesis.
-\end{itemize}
-
-Estas variables se seleccionan porque permiten responder directamente las preguntas
-de investigación planteadas, combinando volumen de juego, eficiencia y resultado final,
-y son adecuadas para la aplicación de técnicas estadísticas como regresión, pruebas de
-hipótesis y análisis multivariado.
-
-% -------------------------------------------------
 \section{Estadísticos Descriptivos}
 \label{sec:estadisticos-descriptivos}
 
@@ -291,33 +241,33 @@ hipótesis y análisis multivariado.
 La Tabla~\ref{tab:estadisticos_descriptivos} presenta los principales estadísticos descriptivos
 de las variables seleccionadas, calculados a partir del conjunto de datos completo.
 
+
 \begin{table}[H]
-\centering
-\small
-\caption{Estadísticos descriptivos principales}
-\label{tab:estadisticos_descriptivos}
-\begin{tabular}{|l|c|c|c|c|c|}
+\caption{Estadísticos descriptivos para el análisis exploratorio de datos}
+\label{tab:estadisticos_descriptivos_eda}
+\begin{tabular}{|l|c|c|c|c|c|c|}
 \toprule
- & \textbf{PTS} & \textbf{REB} & \textbf{AST} & \textbf{FG\_PCT} & \textbf{PLUS\_MINUS} \\
+ & PTS & REB & AST & STL & BLK & PLUS\_MINUS \\
 \midrule
-Media & 106.04 & 43.44 & 23.38 & 0.46 & 0.00 \\
-Mediana & 106.00 & 43.00 & 23.00 & 0.459 & 0.00 \\
-Moda & 104.00 & 43.00 & 24.00 & 0.500 & -7.00 \\
-Desv. Estándar & 13.59 & 6.60 & 5.27 & 0.056 & 14.17 \\
-Varianza & 184.60 & 43.55 & 27.74 & 0.003 & 200.82 \\
-Coef. Variación & 12.81\% & 15.19\% & 22.52\% & 12.07\% & -- \\
-Mínimo & 56.00 & 17.00 & 4.00 & 0.246 & -73.00 \\
-Máximo & 176.00 & 81.00 & 50.00 & 0.687 & 73.00 \\
-Rango & 120.00 & 64.00 & 46.00 & 0.441 & 146.00 \\
-Q1 & 97.00 & 39.00 & 20.00 & 0.422 & -9.00 \\
-Q3 & 115.00 & 48.00 & 27.00 & 0.500 & 9.00 \\
-IQR & 18.00 & 9.00 & 7.00 & 0.078 & 18.00 \\
+Media & 106.040000 & 43.444000 & 23.384000 & 7.624000 & 4.879000 & 0.000000 \\
+Mediana & 106.000000 & 43.000000 & 23.000000 & 7.000000 & 5.000000 & 0.000000 \\
+Moda & 104.000000 & 43.000000 & 24.000000 & 7.000000 & 4.000000 & -7.000000 \\
+Desv. Estándar & 13.587000 & 6.599000 & 5.267000 & 2.899000 & 2.535000 & 14.171000 \\
+Varianza & 184.599000 & 43.552000 & 27.740000 & 8.406000 & 6.428000 & 200.816000 \\
+Coef. Var. (\%) & 12.813000 & 15.191000 & 22.523000 & 38.031000 & 51.965000 & -- \\
+Mínimo & 56.000000 & 17.000000 & 4.000000 & 0.000000 & 0.000000 & -73.000000 \\
+Máximo & 176.000000 & 81.000000 & 50.000000 & 22.000000 & 20.000000 & 73.000000 \\
+Rango & 120.000000 & 64.000000 & 46.000000 & 22.000000 & 20.000000 & 146.000000 \\
+Q1 & 97.000000 & 39.000000 & 20.000000 & 6.000000 & 3.000000 & -9.000000 \\
+Q3 & 115.000000 & 48.000000 & 27.000000 & 9.000000 & 6.000000 & 9.000000 \\
+IQR & 18.000000 & 9.000000 & 7.000000 & 3.000000 & 3.000000 & 18.000000 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 
 % Sección: Distribución de Variables Cualitativas
+
 \subsection{Análisis e Interpretación de los Estadísticos Descriptivos}
 \label{subsec:analisis-estadisticos}
 
@@ -337,10 +287,6 @@ La desviación estándar de 13.59 puntos y un rango amplio de 120 puntos (desde 
 evidencian una elevada variabilidad ofensiva entre partidos. Esta dispersión puede explicarse
 por diferencias en el ritmo de juego, el nivel del rival y el contexto competitivo de cada encuentro.
 
-Desde un punto de vista analítico, esta variabilidad justifica el estudio de factores explicativos
-del rendimiento ofensivo y respalda la aplicación de modelos estadísticos para identificar qué
-variables influyen de manera significativa en la producción de puntos.
-
 \subsubsection*{Rebotes totales (REB)}
 
 El número medio de rebotes por partido es de 43.44, con valores de mediana y moda iguales a 43,
@@ -350,9 +296,6 @@ baja (6.60), indicando una menor dispersión en comparación con la anotación.
 El coeficiente de variación del 15.19\% sugiere que, aunque existen diferencias entre partidos,
 el rebote es una métrica consistente y menos sujeta a extremos. Esto indica que el control del
 rebote es una característica estructural del juego, más estable que otras métricas ofensivas.
-
-Como consecuencia, los rebotes resultan especialmente útiles como variable explicativa en modelos
-que buscan analizar el impacto global del rendimiento del equipo, como el diferencial de puntos.
 
 \subsubsection*{Asistencias (AST)}
 
@@ -365,8 +308,33 @@ Esta dispersión refleja diferencias notables en los estilos de juego de los equ
 entre ofensivas más colectivas y otras más dependientes de acciones individuales. Por ello, AST
 captura no solo volumen de juego, sino también calidad del movimiento del balón.
 
-En términos analíticos, esta variable es clave para explicar el rendimiento colectivo y resulta
-especialmente relevante en modelos multivariados que buscan predecir el diferencial de puntos.
+\subsubsection*{Robos de balón (STL)}
+
+La media de robos por partido es de 7.62, con una mediana de 7 y una moda también igual a 7,
+lo que indica que la mayoría de los equipos registran entre 6 y 8 robos por encuentro. Esta
+coincidencia entre las medidas de tendencia central sugiere una distribución relativamente
+simétrica y bien concentrada alrededor de su valor medio.
+
+La desviación estándar es de 2.90 robos, acompañada de un coeficiente de variación del 38.03\%,
+lo que evidencia una alta variabilidad relativa. El rango observado, que va desde 0 hasta 22 robos,
+pone de manifiesto la existencia de partidos con una presión defensiva muy baja frente a otros
+con una actividad defensiva excepcional.
+
+\subsubsection*{Bloqueos (BLK)}
+
+El número medio de bloqueos por partido es de 4.88, con una mediana de 5 y una moda de 4,
+lo que indica que la mayoría de los equipos registran entre 4 y 6 tapones por encuentro. La
+cercanía entre estas medidas sugiere una distribución moderadamente simétrica, aunque con
+ligeras asimetrías derivadas de partidos atípicos.
+
+La desviación estándar es de 2.54 bloqueos y el coeficiente de variación alcanza el 51.97\%,
+el valor más alto entre las variables analizadas. Este resultado evidencia una elevada
+variabilidad relativa, indicando que los bloqueos presentan una gran dispersión entre partidos.
+
+El rango, que se extiende desde 0 hasta 20 bloqueos, refleja diferencias marcadas en la protección
+del aro, asociadas principalmente a la presencia o ausencia de jugadores interiores dominantes
+y al enfoque defensivo del equipo.
+
 
 \subsubsection*{Porcentaje de tiros de campo (FG\_PCT)}
 
@@ -379,10 +347,6 @@ El rango observado, que va desde 24.6\% hasta 68.7\%, corresponde a partidos at�
 que se producen rendimientos excepcionalmente bajos o altos, generalmente asociados a
 encuentros muy desequilibrados.
 
-FG\_PCT constituye una variable fundamental para controlar la eficiencia ofensiva en los análisis
-estadísticos, permitiendo aislar el efecto de otras métricas como el tiro de tres puntos o las
-asistencias.
-
 \subsubsection*{Diferencial de puntos (PLUS\_MINUS)}
 
 El diferencial de puntos presenta una media y mediana iguales a 0.00, lo cual es coherente con un
@@ -393,19 +357,137 @@ Esta alta dispersión indica la coexistencia de partidos muy igualados con otros
 desequilibrados. Debido a que la media es cero, el coeficiente de variación no resulta interpretable,
 por lo que el análisis de esta variable debe centrarse en su variabilidad absoluta.
 
-Desde el punto de vista metodológico, la elevada dispersión de PLUS\_MINUS justifica su elección
-como variable respuesta en modelos de regresión múltiple, ya que existe suficiente variabilidad
-para identificar relaciones significativas con otras estadísticas del juego.
+
+\begin{table}[H]
+\caption{Estadísticos descriptivos para el análisis exploratorio de datos}
+\label{tab:estadisticos_descriptivos_eda1}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\toprule
+ & FG3M & FG3A & FG3\_PCT & FG\_PCT & FT\_PCT & TOV \\
+\midrule
+Media & 9.870000 & 27.547000 & 0.356000 & 0.460000 & 0.767000 & 14.202000 \\
+Mediana & 10.000000 & 27.000000 & 0.355000 & 0.459000 & 0.773000 & 14.000000 \\
+Moda & 9.000000 & 26.000000 & 0.333000 & 0.500000 & 0.750000 & 14.000000 \\
+Desv. Estándar & 4.255000 & 9.153000 & 0.098000 & 0.056000 & 0.103000 & 3.905000 \\
+Varianza & 18.104000 & 83.785000 & 0.010000 & 0.003000 & 0.011000 & 15.247000 \\
+Coef. Var. (\%) & 43.110000 & 33.228000 & 27.397000 & 12.071000 & 13.471000 & 27.494000 \\
+Mínimo & 0.000000 & 3.000000 & 0.000000 & 0.246000 & 0.000000 & 1.000000 \\
+Máximo & 29.000000 & 70.000000 & 0.842000 & 0.687000 & 1.000000 & 31.000000 \\
+Rango & 29.000000 & 67.000000 & 0.842000 & 0.441000 & 1.000000 & 30.000000 \\
+Q1 & 7.000000 & 21.000000 & 0.292000 & 0.422000 & 0.700000 & 11.000000 \\
+Q3 & 13.000000 & 34.000000 & 0.419000 & 0.500000 & 0.839000 & 17.000000 \\
+IQR & 6.000000 & 13.000000 & 0.127000 & 0.078000 & 0.139000 & 6.000000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection*{Triples convertidos (FG3M)}
+
+El promedio de triples convertidos por partido es de 9.87, con una mediana de 10 y una moda de 9,
+lo que indica que la mayoría de los equipos encestan alrededor de 9 a 10 triples por encuentro.
+La cercanía entre estas medidas de tendencia central sugiere una distribución relativamente
+simétrica, centrada en valores medios.
+
+La desviación estándar de 4.26 y el coeficiente de variación del 43.11\% evidencian una elevada
+variabilidad relativa. El rango observado, que va desde 0 hasta 29 triples, refleja diferencias
+marcadas entre partidos con escasa eficacia desde el perímetro y otros con un alto volumen de
+acierto exterior.
+
+\subsubsection*{Triples intentados (FG3A)}
+
+El número medio de triples intentados por partido es de 27.55, con una mediana de 27 y una moda
+de 26, lo que indica que la mayoría de los equipos lanzan entre 25 y 30 triples por encuentro.
+La proximidad entre la media y la mediana sugiere una distribución aproximadamente simétrica.
+
+La desviación estándar es de 9.15 y el coeficiente de variación alcanza el 33.23\%, reflejando una
+variabilidad considerable en el volumen de lanzamientos exteriores. El rango, que se extiende
+desde 3 hasta 70 intentos, pone de manifiesto la coexistencia de estilos ofensivos muy distintos,
+desde esquemas centrados en el juego interior hasta ofensivas altamente orientadas al tiro
+exterior.
+
+\subsubsection*{Porcentaje de triples convertidos (FG3\_PCT)}
+
+El porcentaje medio de triples convertidos es de 0.356 (35.6\%), con una mediana prácticamente
+idéntica (35.5\%), lo que indica una eficiencia exterior relativamente estable en la liga. La
+desviación estándar es de 0.098, reflejando una dispersión moderada en la efectividad desde el
+perímetro.
+
+El rango observado, que va desde 0\% hasta 84.2\%, corresponde a partidos atípicos, en los que se
+producen rendimientos extremadamente bajos o excepcionalmente altos, generalmente asociados a
+muestras pequeñas de intentos o a encuentros muy desequilibrados.
+
+El coeficiente de variación del 27.40\% sugiere que, aunque la eficiencia exterior presenta cierta
+variabilidad, esta es menor que la observada en las métricas de volumen, como FG3M o FG3A.
+
+\subsubsection*{Porcentaje de tiros de campo (FG\_PCT)}
+
+El porcentaje medio de tiros de campo convertidos es de 0.46 (46\%), con una mediana muy cercana
+(45.9\%), lo que indica una eficiencia ofensiva general estable a lo largo de los partidos. La
+desviación estándar es baja (0.056), confirmando que esta variable presenta una dispersión limitada.
+
+El coeficiente de variación del 12.07\% refuerza la idea de que FG\_PCT es una métrica consistente,
+menos sensible a fluctuaciones extremas que las variables de volumen. El rango, que va desde
+24.6\% hasta 68.7\%, corresponde a partidos atípicos con rendimientos ofensivos muy por debajo o
+por encima del promedio.
+
+\subsubsection*{Porcentaje de tiros libres (FT\_PCT)}
+
+El porcentaje medio de tiros libres convertidos es de 0.767 (76.7\%), con una mediana de 77.3\% y
+una moda de 75\%, lo que indica una eficiencia relativamente alta y estable desde la línea de
+tiros libres. La desviación estándar es de 0.103, mostrando una dispersión moderada.
+
+El coeficiente de variación del 13.47\% sugiere que, aunque existen diferencias entre partidos,
+la efectividad en tiros libres es una métrica consistente y menos volátil que otras estadísticas
+ofensivas. El rango observado, que se extiende desde 0\% hasta 100\%, corresponde a situaciones
+extremas poco frecuentes, generalmente asociadas a un número reducido de intentos.
+
+\subsubsection*{Pérdidas de balón (TOV)}
+
+El número medio de pérdidas de balón por partido es de 14.20, con una mediana y una moda iguales
+a 14, lo que indica una distribución centrada y relativamente simétrica. La desviación estándar
+es de 3.91, reflejando una variabilidad moderada entre partidos.
+
+El coeficiente de variación del 27.49\% sugiere que las pérdidas de balón presentan una dispersión
+considerable, aunque menor que la observada en variables como los triples convertidos. El rango,
+que va desde 1 hasta 31 pérdidas, evidencia la coexistencia de partidos con un control del balón
+muy eficiente y otros con numerosos errores no forzados.
+
 
 \subsubsection*{Conclusión del análisis descriptivo}
 
-En conjunto, los resultados muestran que las variables de volumen ofensivo, como puntos y
-asistencias, presentan una mayor variabilidad, mientras que las métricas de eficiencia, como
-FG\_PCT, son más estables. El diferencial de puntos es la variable con mayor dispersión, lo que la
-convierte en un indicador idóneo para analizar el impacto combinado de múltiples estadísticas.
+En conjunto, el análisis descriptivo evidencia una clara diferenciación entre variables de volumen,
+variables de eficiencia y métricas asociadas al control del juego. Las estadísticas de volumen
+ofensivo, como puntos (PTS), triples intentados (FG3A), triples convertidos (FG3M) y asistencias
+(AST), presentan una elevada variabilidad relativa, reflejando diferencias sustanciales en el ritmo
+de juego y en los estilos ofensivos de los equipos. Estas variables aportan información relevante
+sobre la identidad táctica de los equipos, aunque son más sensibles al contexto del partido.
 
-Este análisis descriptivo proporciona una base sólida para la aplicación de técnicas estadísticas
-inferenciales y modelos multivariados en las siguientes secciones del estudio.
+Por el contrario, las métricas de eficiencia, como el porcentaje de tiros de campo (FG\_PCT) y el
+porcentaje de tiros libres (FT\_PCT), muestran una dispersión considerablemente menor, lo que las
+convierte en indicadores estables del rendimiento ofensivo. Su menor variabilidad sugiere que
+capturan la calidad de ejecución más que el volumen de juego, siendo especialmente útiles para
+comparaciones consistentes entre equipos y partidos.
+
+Las variables que presentan los valores extremos más pronunciados son el diferencial de puntos
+(PLUS\_MINUS), los intentos de triple (FG3A) y los triples convertidos (FG3M). En particular,
+PLUS\_MINUS exhibe el mayor rango y desviación estándar, reflejando la coexistencia de partidos muy
+igualados con otros altamente desequilibrados. Esta característica lo convierte en una variable
+clave para evaluar el impacto combinado de múltiples estadísticas y para identificar escenarios de
+dominancia o colapso competitivo.
+
+Asimismo, las pérdidas de balón (TOV) y los robos (STL) muestran una variabilidad moderada-alta,
+aportando información relevante sobre el control del balón y la presión defensiva. Estas métricas
+resultan especialmente útiles para explicar diferencias de rendimiento que no se reflejan
+directamente en la anotación, pero que influyen de manera decisiva en la posesión y el flujo del
+juego.
+
+En síntesis, los valores extremos observados en las variables de volumen y en el diferencial de
+puntos aportan información crítica para el análisis estadístico posterior, ya que permiten
+identificar patrones asociados a partidos atípicos y a desempeños excepcionalmente altos o bajos.
+Esta diversidad en la dispersión de las variables justifica la aplicación de modelos estadísticos
+multivariados, en los que la combinación de métricas de volumen, eficiencia y control del juego
+permite capturar de forma más completa la complejidad del rendimiento de los equipos en la NBA.
+
 
 \subsection{Análisis de la Distribución de Resultados}
 \label{subsec:distribucion-resultados}
@@ -444,60 +526,82 @@ los equipos.
 \section{Distribución Gráfica de las Variables}
 \label{sec:distribucion-grafica}
 
-A continuación se presentan los histogramas y polígonos de frecuencias acumuladas de las variables 
-cuantitativas más relevantes, que permiten visualizar la distribución de los datos y complementar
-el análisis estadístico descriptivo.
+En esta sección se presentan los histogramas y polígonos de frecuencias acumuladas correspondientes
+al conjunto completo de variables cuantitativas consideradas en el estudio. La inclusión de todas
+las representaciones gráficas tiene como objetivo proporcionar una visión global de la estructura
+distributiva de los datos y garantizar la transparencia del análisis exploratorio realizado.
 
-\subsubsection*{Distribución de Puntos (PTS)}
+No obstante, dado el elevado número de variables y la heterogeneidad en su comportamiento
+estadístico, no todas las distribuciones aportan el mismo nivel de información para los objetivos
+del análisis posterior. Por esta razón, aunque se muestran todos los histogramas, el análisis
+interpretativo detallado se centra únicamente en aquellas variables cuya representación gráfica
+resulta especialmente informativa.
+
+En particular, se analizan con mayor profundidad las variables que presentan una elevada
+variabilidad, asimetrías marcadas, colas pronunciadas o una presencia relevante de observaciones
+extremas, ya que estos rasgos pueden influir de manera significativa en la selección, interpretación
+y validación de modelos estadísticos posteriores. Asimismo, se priorizan aquellas métricas que
+desempeñan un papel clave en la explicación del rendimiento de los equipos, como los puntos
+anotados (PTS), las asistencias (AST), los intentos de triples (FG3A), el porcentaje de acierto en
+triples (FG3\_PCT), las pérdidas de balón (TOV) y el diferencial de puntos (PLUS\_MINUS).
+
+Por el contrario, otras variables muestran distribuciones altamente estables, concentradas alrededor
+de sus valores centrales y con una dispersión reducida. En estos casos, el histograma y el polígono
+de frecuencias acumuladas confirman visualmente la información ya obtenida a partir del análisis
+descriptivo, sin aportar elementos adicionales de interpretación. En consecuencia, dichas variables
+no se analizan con el mismo nivel de detalle gráfico, limitándose su inclusión a una función
+ilustrativa y de validación visual.
+
+Este enfoque permite equilibrar exhaustividad y claridad analítica, evitando redundancias
+innecesarias y concentrando el esfuerzo interpretativo en aquellas distribuciones cuya forma y
+dispersión aportan mayor valor explicativo para el desarrollo del análisis estadístico que se
+presenta en las secciones siguientes.
+
+\subsection*{Variables con distribución aproximadamente normal y comportamiento estable}
+
+Las variables PTS, AST, REB, FG3M, FG3A y TOV presentan distribuciones con un comportamiento
+estadístico similar, caracterizado por una forma aproximadamente normal, una estrecha
+correspondencia entre media y mediana, y una dispersión moderada. Estas características indican
+que dichas métricas describen fenómenos recurrentes y estructurales del juego, asociados al ritmo
+ofensivo, la generación colectiva, el control del balón y la producción global de puntos.
+
+En todos los casos, los histogramas muestran una concentración clara alrededor de valores
+centrales, mientras que los polígonos acumulados exhiben curvas suaves y simétricas, lo que
+confirma la estabilidad de estas variables a lo largo del conjunto de partidos analizados. La
+presencia de valores extremos es limitada y coherente con contextos competitivos particulares,
+sin alterar el patrón general de las distribuciones.
+
+Dado el alto grado de similitud en la forma y comportamiento estadístico de estas variables,
+la representación gráfica individual de todas ellas resultaría redundante y no aportaría
+información adicional relevante al análisis descriptivo. Por este motivo, se selecciona un
+conjunto representativo de variables para su visualización mediante histogramas y polígonos
+acumulados, utilizando dichas gráficas como ejemplos ilustrativos del comportamiento común
+observado en el grupo. Las variables restantes comparten patrones análogos, por lo que su
+interpretación se infiere directamente a partir de las distribuciones mostradas.
+
+Desde el punto de vista analítico, estos resultados sugieren que dichas variables aportan
+información complementaria pero consistente, siendo especialmente adecuadas para su utilización
+conjunta en análisis multivariados posteriores, donde actúan como indicadores robustos del
+volumen y la organización del juego.
+
+
 
 \begin{figure}[H]
 \centering
 \begin{minipage}{0.48\textwidth}
 \centering
 \includegraphics[width=\linewidth]{images/histograma_pts.png}
-\caption{Histograma de Puntos (PTS). Media: 106.04, Mediana: 106.00}
+\caption{Histograma de Puntos Totales (PTS). Media: 106.04, Mediana: 106.00}
 \label{fig:hist_pts}
 \end{minipage}
 \hfill
 \begin{minipage}{0.48\textwidth}
 \centering
 \includegraphics[width=\linewidth]{images/poligono_acumulado_pts.png}
-\caption{Polígono acumulado de Puntos (PTS)}
+\caption{Polígono acumulado de PTS}
 \label{fig:pol_pts}
 \end{minipage}
 \end{figure}
-
-La distribución de puntos por partido muestra una forma aproximadamente normal con centro alrededor
-de 106 puntos. El histograma revela una simetría en la distribución, confirmada por la proximidad
-entre media (106.04) y mediana (106.00). El polígono acumulado muestra que aproximadamente el 50\%
-de los partidos tienen menos de 106 puntos, con una progresión suave que indica ausencia de
-valores extremadamente concentrados.
-
-\subsubsection*{Distribución de Rebotes (REB)}
-
-\begin{figure}[H]
-\centering
-\begin{minipage}{0.48\textwidth}
-\centering
-\includegraphics[width=\linewidth]{images/histograma_reb.png}
-\caption{Histograma de Rebotes (REB). Media: 43.44, Mediana: 43.00}
-\label{fig:hist_reb}
-\end{minipage}
-\hfill
-\begin{minipage}{0.48\textwidth}
-\centering
-\includegraphics[width=\linewidth]{images/poligono_acumulado_reb.png}
-\caption{Polígono acumulado de Rebotes (REB)}
-\label{fig:pol_reb}
-\end{minipage}
-\end{figure}
-
-La distribución de rebotes presenta una forma aproximadamente normal con ligera asimetría hacia
-la derecha. La mayoría de los partidos se concentran entre 40 y 50 rebotes, siendo 43 el valor
-más frecuente. El polígono acumulado muestra una curva de crecimiento uniforme, indicando una
-distribución equilibrada sin agrupamientos anómalos.
-
-\subsubsection*{Distribución de Asistencias (AST)}
 
 \begin{figure}[H]
 \centering
@@ -516,34 +620,70 @@ distribución equilibrada sin agrupamientos anómalos.
 \end{minipage}
 \end{figure}
 
-Las asistencias muestran una distribución ligeramente asimétrica hacia la derecha, con valores
-típicos entre 20 y 27 asistencias por partido. La proximidad entre media (23.38) y mediana (23.00)
-sugiere una distribución razonablemente simétrica. El polígono acumulado presenta una curva
-suave, indicando una transición gradual entre los diferentes niveles de asistencia.
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{images/histograma_reb.png}
+\caption{Histograma de Rebotes Totales (REB). Media: 43.44, Mediana: 43.00}
+\label{fig:hist_reb}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{images/poligono_acumulado_reb.png}
+\caption{Polígono acumulado de REB}
+\label{fig:pol_reb}
+\end{minipage}
+\end{figure}
 
-\subsubsection*{Distribución del Porcentaje de Tiro (FG\_PCT)}
+\subsection*{Variables restantes}
+Dada la diversidad en la forma, dispersión y significado estadístico de estas variables, se
+realiza un análisis gráfico individual para cada una. Este enfoque permite capturar las
+particularidades de sus distribuciones y resaltar aquellos rasgos que resultan relevantes para la
+interpretación del juego y para su incorporación en modelos estadísticos posteriores.
+
+\subsubsection*{Distribución del Porcentaje de Triples (FG3\_PCT)}
 
 \begin{figure}[H]
 \centering
 \begin{minipage}{0.48\textwidth}
 \centering
-\includegraphics[width=\linewidth]{images/histograma_fg_pct.png}
-\caption{Histograma de FG\%. Media: 0.46, Mediana: 0.46}
-\label{fig:hist_fg_pct}
+\includegraphics[width=\linewidth]{images/histograma_fg3_pct.png}
+\caption{Histograma de Porcentaje de Triples (FG3\_PCT)}
+\label{fig:hist_fg3_pct}
 \end{minipage}
 \hfill
 \begin{minipage}{0.48\textwidth}
 \centering
-\includegraphics[width=\linewidth]{images/poligono_acumulado_fg_pct.png}
-\caption{Polígono acumulado de FG\%}
-\label{fig:pol_fg_pct}
+\includegraphics[width=\linewidth]{images/poligono_acumulado_fg3_pct.png}
+\caption{Polígono acumulado de FG3\%}
+\label{fig:pol_fg3_pct}
 \end{minipage}
 \end{figure}
 
-El porcentaje de tiro presenta una distribución aproximadamente normal centrada en 0.46 (46\%),
-con coincidencia exacta entre media y mediana. La distribución es relativamente compacta,
-indicando consistencia en la eficiencia de tiro entre partidos. El polígono acumulado muestra
-una progresión uniforme, confirmando la homogeneidad de esta métrica.
+El porcentaje de triples presenta una distribución aproximadamente normal con centro alrededor del 35\%-40\%. La distribución es más dispersa que la de tiros de campo generales, reflejando la mayor variabilidad inherente al tiro de tres puntos. La simetría observada sugiere que los valores extremos (tanto muy bajos como muy altos) son igualmente probables. El polígono acumulado muestra una curva en forma de S suave, confirmando la naturaleza simétrica de la distribución, con aproximadamente el 50\% de los partidos registrando un porcentaje inferior al 40\%.
+
+\subsubsection*{Distribución del Porcentaje de Tiros Libres (FT\_PCT)}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{images/histograma_ft_pct.png}
+\caption{Histograma de Porcentaje de Tiros Libres (FT\_PCT). Media: 0.77, Mediana: 0.77}
+\label{fig:hist_ft_pct}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{images/poligono_acumulado_ft_pct.png}
+\caption{Polígono acumulado de FT\%}
+\label{fig:pol_ft_pct}
+\end{minipage}
+\end{figure}
+
+El porcentaje de tiros libres presenta una distribución asimétrica con cola hacia la izquierda, centrada en 0.77 (77\%). La coincidencia exacta entre media y mediana ocurre en una distribución no simétrica debido a la compensación entre valores. La concentración principal se observa entre 0.7 y 0.85, indicando que la mayoría de los partidos tienen una eficiencia en tiros libres dentro de este rango. El polígono acumulado muestra una progresión inicial rápida que luego se estabiliza, reflejando que aproximadamente el 80\% de los partidos tienen un porcentaje superior al 70\%.
 
 \subsubsection*{Distribución del Diferencial de Puntos (PLUS\_MINUS)}
 
@@ -552,7 +692,7 @@ una progresión uniforme, confirmando la homogeneidad de esta métrica.
 \begin{minipage}{0.48\textwidth}
 \centering
 \includegraphics[width=\linewidth]{images/histograma_plus_minus.png}
-\caption{Histograma de PLUS\_MINUS. Media: 0.00, Mediana: 0.00}
+\caption{Histograma de Diferencial de Puntos (PLUS\_MINUS). Media: 0.00, Mediana: 0.00}
 \label{fig:hist_plus_minus}
 \end{minipage}
 \hfill
@@ -564,13 +704,71 @@ una progresión uniforme, confirmando la homogeneidad de esta métrica.
 \end{minipage}
 \end{figure}
 
-El diferencial de puntos muestra una distribución simétrica centrada en cero, como era de
-esperar en un conjunto de datos balanceado (igual número de victorias y derrotas). La forma
-aproximadamente normal con colas extendidas indica presencia de partidos con diferencias
-extremas. El polígono acumulado presenta una curva en forma de S invertida, típica de
-distribuciones simétricas, con punto de inflexión en el 50\% correspondiente al valor cero.
+El diferencial de puntos muestra una distribución perfectamente simétrica centrada en cero, como era de esperar en un conjunto de datos balanceado que incluye tanto victorias como derrotas. La forma aproximadamente normal con colas extendidas indica la presencia de partidos con diferencias extremas en ambas direcciones. La coincidencia exacta entre media y mediana en cero confirma el perfecto equilibrio de la distribución. El polígono acumulado presenta la clásica forma de S invertida, con punto de inflexión exactamente en el 50\%, indicando que la mitad de los partidos tienen diferencial negativo y la otra mitad positivo.
 
-% -------------------------------------------------
+\subsubsection*{Distribución de Robos de Balón (STL)}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{images/histograma_stl.png}
+\caption{Histograma de Robos de Balón (STL). Media: 7.62, Mediana: 7.00}
+\label{fig:hist_stl}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{images/poligono_acumulado_stl.png}
+\caption{Polígono acumulado de STL}
+\label{fig:pol_stl}
+\end{minipage}
+\end{figure}
+
+Los robos de balón muestran una distribución claramente asimétrica con cola hacia la derecha, típica de variables con límite inferior en cero. La diferencia entre media (7.62) y mediana (7.00) confirma esta asimetría. La mayoría de los partidos registran entre 5 y 10 robos, con una frecuencia que disminuye rápidamente para valores superiores. El polígono acumulado muestra una curva de crecimiento rápido inicial que luego se suaviza, indicando que aproximadamente el 80\% de los partidos tienen menos de 10 robos.
+
+\subsubsection*{Distribución de Bloques (BLK)}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{images/histograma_blk.png}
+\caption{Histograma de Bloques (BLK). Media: 4.88, Mediana: 5.00}
+\label{fig:hist_blk}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{images/poligono_acumulado_blk.png}
+\caption{Polígono acumulado de Bloques (BLK)}
+\label{fig:pol_blk}
+\end{minipage}
+\end{figure}
+
+La distribución de bloques por partido muestra una asimetría marcada hacia la derecha, típica de variables con límite inferior en cero. La mayoría de los partidos registran entre 2.5 y 7.5 bloques, con un pico alrededor de 5 bloques. La proximidad entre media (4.88) y mediana (5.00) sugiere una distribución razonablemente equilibrada pese a la asimetría. El polígono acumulado presenta una curva de crecimiento rápido inicial que luego se suaviza, indicando que aproximadamente el 80\% de los partidos tienen menos de 10 bloques.
+
+\subsubsection*{Distribución de la Proporción de Triples Intentados (FG3A/FGA)}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{images/histograma_fg3a_fga.png}
+\caption{Histograma de Proporción FG3A/FGA. Media: 0.32, Mediana: 0.32}
+\label{fig:hist_fg3a_fga}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{images/poligono_acumulado_fg3a_fga.png}
+\caption{Polígono acumulado de FG3A/FGA}
+\label{fig:pol_fg3a_fga}
+\end{minipage}
+\end{figure}
+
+La proporción de triples intentados respecto al total de tiros muestra una distribución aproximadamente normal centrada en 0.32 (32\%), con coincidencia exacta entre media y mediana. Esto indica que, en promedio, aproximadamente un tercio de los tiros de campo son intentos de tres puntos. La distribución compacta alrededor de este valor sugiere una relativa homogeneidad en las estrategias ofensivas entre equipos y partidos. El polígono acumulado muestra una curva suave y simétrica, confirmando la consistencia en esta proporción, con aproximadamente el 50\% de los partidos registrando una proporción inferior al 32\%.
+
 \subsection{Boxplots y Detección de Valores Atípicos}
 \label{subsec:boxplots}
 
@@ -596,7 +794,6 @@ Los diagramas de caja (boxplots) resumen la distribución mediante cuartiles y p
     
     \item \textbf{PLUS\_MINUS}: Está centrado en cero, con una dispersión amplia y presencia de outliers en ambos extremos, reflejando partidos con diferenciales de puntos muy marcados.
 \end{itemize}
-
 
 \subsection{Asimetría y Curtosis}
 \label{subsec:asimetria-curtosis}
@@ -646,6 +843,7 @@ Las medidas de asimetría y curtosis cuantifican desviaciones de la distribució
 \end{itemize}
 
 % -------------------------------------------------
+
 \subsection{Conclusión sobre la Distribución y Normalidad}
 \label{subsec:conclusion-normalidad}
 

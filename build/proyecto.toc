@@ -1,85 +1,75 @@
 \babel@toc {spanish}{}\relax 
 \contentsline {section}{Introducción}{4}{section*.2}%
-\contentsline {section}{\numberline {1}Preguntas de Investigación}{4}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Pregunta 1}{4}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Pregunta 2}{5}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Pregunta 3}{5}{subsection.1.3}%
-\contentsline {section}{\numberline {2}Información General del Dataset}{6}{section.2}%
-\contentsline {section}{\numberline {3}Clasificación de Variables Utilizadas}{7}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Variables Cualitativas}{7}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Variables Cuantitativas Discretas}{7}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Variables Cuantitativas Continuas}{8}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Variables Seleccionadas para el Análisis Estadístico}{8}{section.4}%
-\contentsline {section}{\numberline {5}Estadísticos Descriptivos}{9}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Medidas de Tendencia Central y Dispersión}{9}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Análisis e Interpretación de los Estadísticos Descriptivos}{9}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Análisis de la Distribución de Resultados}{11}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Distribución Gráfica de las Variables}{12}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Boxplots y Detección de Valores Atípicos}{15}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Asimetría y Curtosis}{16}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Síntesis del Análisis Gráfico}{17}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Conclusión sobre la Distribución y Normalidad}{17}{subsection.6.4}%
-\contentsline {section}{\numberline {7}Análisis de Correlaciones}{18}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Matriz de Correlación}{18}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Correlaciones Significativas}{18}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Conclusiones}{18}{subsection.7.3}%
-\contentsline {section}{\numberline {8}Análisis de Outliers (Método IQR)}{19}{section.8}%
-\contentsline {section}{\numberline {9}Transformaciones y Preprocesamiento de Datos}{19}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Manejo de Valores Faltantes}{19}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Codificación de Variables Categóricas}{20}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Estandarización y Normalización de Variables Numéricas}{20}{subsection.9.3}%
-\contentsline {subsubsection}{\numberline {9.3.1}Diagnóstico de Escalas Diferentes}{20}{subsubsection.9.3.1}%
-\contentsline {subsubsection}{\numberline {9.3.2}Transformaciones Aplicadas}{21}{subsubsection.9.3.2}%
-\contentsline {subsection}{\numberline {9.4}Tratamiento de Valores Atípicos}{21}{subsection.9.4}%
-\contentsline {subsection}{\numberline {9.5}Creación de Variables Derivadas Avanzadas}{22}{subsection.9.5}%
-\contentsline {section}{Conclusiones Finales del Análisis Exploratorio}{23}{section*.30}%
-\contentsline {section}{\numberline {10}Análisis Estadístico de las Preguntas de Investigación}{23}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Pregunta 1: Análisis de la Relación entre Triples y Victoria}{23}{subsection.10.1}%
-\contentsline {subsubsection}{\numberline {10.1.1}Metodología Aplicada: Regresión Logística Binaria}{23}{subsubsection.10.1.1}%
-\contentsline {subsection}{\numberline {10.2}Resultados del Modelo (Pregunta 1)}{24}{subsection.10.2}%
-\contentsline {subsubsection}{\numberline {10.2.1}Coeficientes y Significancia}{24}{subsubsection.10.2.1}%
-\contentsline {subsubsection}{\numberline {10.2.2}Odds Ratios}{24}{subsubsection.10.2.2}%
-\contentsline {subsection}{\numberline {10.3}Interpretación de Resultados (Pregunta 1)}{24}{subsection.10.3}%
-\contentsline {subsubsection}{\numberline {10.3.1}Efecto Marginal de los Triples (FG3M)}{24}{subsubsection.10.3.1}%
-\contentsline {subsubsection}{\numberline {10.3.2}Efecto Marginal del Porcentaje de Tiro (FG\_PCT)}{25}{subsubsection.10.3.2}%
-\contentsline {subsubsection}{\numberline {10.3.3}Interpretación de los Coeficientes}{25}{subsubsection.10.3.3}%
-\contentsline {subsubsection}{\numberline {10.3.4}Análisis Gráfico}{25}{subsubsection.10.3.4}%
-\contentsline {subsubsection}{\numberline {10.3.5}Conclusión (Pregunta 1)}{27}{subsubsection.10.3.5}%
-\contentsline {subsection}{\numberline {10.4}Pregunta 2: Análisis de la Evolución Temporal del Juego}{27}{subsection.10.4}%
-\contentsline {subsubsection}{\numberline {10.4.1}Metodología Aplicada: ANOVA y Regresión Lineal}{27}{subsubsection.10.4.1}%
-\contentsline {subsubsection}{\numberline {10.4.2}Justificación Metodológica}{27}{subsubsection.10.4.2}%
-\contentsline {subsection}{\numberline {10.5}Resultados (Pregunta 2)}{27}{subsection.10.5}%
-\contentsline {subsubsection}{\numberline {10.5.1}Regresión Lineal Simple}{27}{subsubsection.10.5.1}%
-\contentsline {subsubsection}{\numberline {10.5.2}Medias por Temporada (Valores Estandarizados)}{28}{subsubsection.10.5.2}%
-\contentsline {subsubsection}{\numberline {10.5.3}Resultados ANOVA}{28}{subsubsection.10.5.3}%
-\contentsline {subsection}{\numberline {10.6}Análisis e Interpretación (Pregunta 2)}{28}{subsection.10.6}%
-\contentsline {subsubsection}{\numberline {10.6.1}Tendencias Temporales}{28}{subsubsection.10.6.1}%
-\contentsline {paragraph}{Puntos por Partido (PTS)}{28}{section*.38}%
-\contentsline {paragraph}{Proporción de Tiros de Tres (FG3A/FGA)}{29}{section*.39}%
-\contentsline {subsubsection}{\numberline {10.6.2}Diferencias entre Temporadas (ANOVA)}{29}{subsubsection.10.6.2}%
-\contentsline {subsection}{\numberline {10.7}Pregunta 3: Análisis de Predictores del Diferencial de Puntos}{29}{subsection.10.7}%
-\contentsline {subsubsection}{\numberline {10.7.1}Justificación de la Regresión Múltiple}{29}{subsubsection.10.7.1}%
-\contentsline {subsubsection}{\numberline {10.7.2}Modelo Estadístico}{30}{subsubsection.10.7.2}%
-\contentsline {subsubsection}{\numberline {10.7.3}Hipótesis Estadísticas}{30}{subsubsection.10.7.3}%
-\contentsline {subsection}{\numberline {10.8}Resultados (Pregunta 3)}{30}{subsection.10.8}%
-\contentsline {subsubsection}{\numberline {10.8.1}Métricas Globales del Modelo}{30}{subsubsection.10.8.1}%
-\contentsline {subsubsection}{\numberline {10.8.2}Coeficientes de Regresión}{30}{subsubsection.10.8.2}%
-\contentsline {subsection}{\numberline {10.9}Análisis e Interpretación (Pregunta 3)}{31}{subsection.10.9}%
-\contentsline {subsubsection}{\numberline {10.9.1}Interpretación de los Coeficientes}{31}{subsubsection.10.9.1}%
-\contentsline {subsubsection}{\numberline {10.9.2}Análisis de Significancia Estadística}{31}{subsubsection.10.9.2}%
-\contentsline {paragraph}{Significancia Individual}{31}{section*.44}%
-\contentsline {paragraph}{Significancia Global}{31}{section*.45}%
-\contentsline {subsubsection}{\numberline {10.9.3}Poder Explicativo del Modelo}{32}{subsubsection.10.9.3}%
-\contentsline {section}{\numberline {11}Hallazgos Principales por Pregunta de Investigación}{32}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Pregunta 1: Relación entre triples y victoria}{32}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Pregunta 2: Evolución temporal del juego (2010-2024)}{32}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}Pregunta 3: Predictores del diferencial de puntos (PLUS\_MINUS)}{33}{subsection.11.3}%
-\contentsline {section}{\numberline {12}Síntesis General}{33}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Patrones identificados}{33}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}Implicaciones estratégicas}{33}{subsection.12.2}%
-\contentsline {section}{\numberline {13}Limitaciones del Estudio}{33}{section.13}%
-\contentsline {section}{\numberline {14}Extensiones y Mejoras Futuras}{34}{section.14}%
-\contentsline {subsection}{\numberline {14.1}Mejoras metodológicas}{34}{subsection.14.1}%
-\contentsline {subsection}{\numberline {14.2}Variables adicionales}{34}{subsection.14.2}%
-\contentsline {subsection}{\numberline {14.3}Análisis comparativos}{34}{subsection.14.3}%
-\contentsline {section}{\numberline {15}Conclusiones Finales}{34}{section.15}%
+\contentsline {section}{\numberline {1}Estadísticos Descriptivos}{8}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Medidas de Tendencia Central y Dispersión}{8}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Análisis e Interpretación de los Estadísticos Descriptivos}{8}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Análisis de la Distribución de Resultados}{14}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Distribución Gráfica de las Variables}{14}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Boxplots y Detección de Valores Atípicos}{20}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Asimetría y Curtosis}{21}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Síntesis del Análisis Gráfico}{22}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Conclusión sobre la Distribución y Normalidad}{23}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Análisis de Correlaciones}{23}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Matriz de Correlación}{24}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Correlaciones Significativas}{24}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Conclusiones}{24}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Análisis de Outliers (Método IQR)}{25}{section.4}%
+\contentsline {section}{\numberline {5}Transformaciones y Preprocesamiento de Datos}{25}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Manejo de Valores Faltantes}{25}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Codificación de Variables Categóricas}{26}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Estandarización y Normalización de Variables Numéricas}{26}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Diagnóstico de Escalas Diferentes}{26}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Transformaciones Aplicadas}{27}{subsubsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.4}Tratamiento de Valores Atípicos}{27}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Creación de Variables Derivadas Avanzadas}{28}{subsection.5.5}%
+\contentsline {section}{Conclusiones Finales del Análisis Exploratorio}{29}{section*.54}%
+\contentsline {section}{\numberline {6}Análisis Estadístico de las Preguntas de Investigación}{29}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Pregunta 1: Análisis de la Relación entre Triples y Victoria}{29}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Metodología Aplicada: Regresión Logística Binaria}{29}{subsubsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.2}Resultados del Modelo (Pregunta 1)}{30}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Coeficientes y Significancia}{30}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Odds Ratios}{30}{subsubsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.3}Interpretación de Resultados (Pregunta 1)}{30}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {6.3.1}Efecto Marginal de los Triples (FG3M)}{30}{subsubsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.2}Efecto Marginal del Porcentaje de Tiro (FG\_PCT)}{31}{subsubsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {6.3.3}Interpretación de los Coeficientes}{31}{subsubsection.6.3.3}%
+\contentsline {subsubsection}{\numberline {6.3.4}Análisis Gráfico}{31}{subsubsection.6.3.4}%
+\contentsline {subsubsection}{\numberline {6.3.5}Conclusión (Pregunta 1)}{33}{subsubsection.6.3.5}%
+\contentsline {subsection}{\numberline {6.4}Pregunta 2: Análisis de la Evolución Temporal del Juego}{33}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}Metodología Aplicada: ANOVA y Regresión Lineal}{33}{subsubsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.2}Justificación Metodológica}{33}{subsubsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.5}Resultados (Pregunta 2)}{33}{subsection.6.5}%
+\contentsline {subsubsection}{\numberline {6.5.1}Regresión Lineal Simple}{33}{subsubsection.6.5.1}%
+\contentsline {subsubsection}{\numberline {6.5.2}Medias por Temporada (Valores Estandarizados)}{34}{subsubsection.6.5.2}%
+\contentsline {subsubsection}{\numberline {6.5.3}Resultados ANOVA}{34}{subsubsection.6.5.3}%
+\contentsline {subsection}{\numberline {6.6}Análisis e Interpretación (Pregunta 2)}{34}{subsection.6.6}%
+\contentsline {subsubsection}{\numberline {6.6.1}Tendencias Temporales}{34}{subsubsection.6.6.1}%
+\contentsline {paragraph}{Puntos por Partido (PTS)}{34}{section*.62}%
+\contentsline {paragraph}{Proporción de Tiros de Tres (FG3A/FGA)}{35}{section*.63}%
+\contentsline {subsubsection}{\numberline {6.6.2}Diferencias entre Temporadas (ANOVA)}{35}{subsubsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.7}Pregunta 3: Análisis de Predictores del Diferencial de Puntos}{35}{subsection.6.7}%
+\contentsline {subsubsection}{\numberline {6.7.1}Justificación de la Regresión Múltiple}{35}{subsubsection.6.7.1}%
+\contentsline {subsubsection}{\numberline {6.7.2}Modelo Estadístico}{36}{subsubsection.6.7.2}%
+\contentsline {subsubsection}{\numberline {6.7.3}Hipótesis Estadísticas}{36}{subsubsection.6.7.3}%
+\contentsline {subsection}{\numberline {6.8}Resultados (Pregunta 3)}{36}{subsection.6.8}%
+\contentsline {subsubsection}{\numberline {6.8.1}Métricas Globales del Modelo}{36}{subsubsection.6.8.1}%
+\contentsline {subsubsection}{\numberline {6.8.2}Coeficientes de Regresión}{36}{subsubsection.6.8.2}%
+\contentsline {subsection}{\numberline {6.9}Análisis e Interpretación (Pregunta 3)}{37}{subsection.6.9}%
+\contentsline {subsubsection}{\numberline {6.9.1}Interpretación de los Coeficientes}{37}{subsubsection.6.9.1}%
+\contentsline {subsubsection}{\numberline {6.9.2}Análisis de Significancia Estadística}{37}{subsubsection.6.9.2}%
+\contentsline {paragraph}{Significancia Individual}{37}{section*.68}%
+\contentsline {paragraph}{Significancia Global}{37}{section*.69}%
+\contentsline {subsubsection}{\numberline {6.9.3}Poder Explicativo del Modelo}{38}{subsubsection.6.9.3}%
+\contentsline {section}{\numberline {7}Hallazgos Principales por Pregunta de Investigación}{38}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Pregunta 1: Relación entre triples y victoria}{38}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Pregunta 2: Evolución temporal del juego (2010-2024)}{38}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Pregunta 3: Predictores del diferencial de puntos (PLUS\_MINUS)}{39}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Síntesis General}{39}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Patrones identificados}{39}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Implicaciones estratégicas}{39}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Limitaciones del Estudio}{39}{section.9}%
+\contentsline {section}{\numberline {10}Extensiones y Mejoras Futuras}{40}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Mejoras metodológicas}{40}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Variables adicionales}{40}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Análisis comparativos}{40}{subsection.10.3}%
+\contentsline {section}{\numberline {11}Conclusiones Finales}{40}{section.11}%
