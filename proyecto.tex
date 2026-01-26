@@ -523,39 +523,33 @@ los equipos.
 
 % -------------------------------------------------
 
-\section{Distribución Gráfica de las Variables}
-\label{sec:distribucion-grafica}
+\subsection{Análisis gráfico de las distribuciones}
 
-En esta sección se presentan los histogramas y polígonos de frecuencias acumuladas correspondientes
-al conjunto completo de variables cuantitativas consideradas en el estudio. La inclusión de todas
-las representaciones gráficas tiene como objetivo proporcionar una visión global de la estructura
-distributiva de los datos y garantizar la transparencia del análisis exploratorio realizado.
+Con el objetivo de profundizar en la estructura estadística de las variables y complementar el
+análisis descriptivo previo, se realiza a continuación un estudio gráfico basado en histogramas
+y polígonos de frecuencias acumuladas. Estas representaciones permiten evaluar la forma de las
+distribuciones, identificar posibles asimetrías, concentraciones de valores y la presencia de
+observaciones extremas, aspectos que no siempre resultan evidentes a partir de los estadísticos
+resumen.
 
-No obstante, dado el elevado número de variables y la heterogeneidad en su comportamiento
-estadístico, no todas las distribuciones aportan el mismo nivel de información para los objetivos
-del análisis posterior. Por esta razón, aunque se muestran todos los histogramas, el análisis
-interpretativo detallado se centra únicamente en aquellas variables cuya representación gráfica
-resulta especialmente informativa.
+Dado el elevado número de variables cuantitativas disponibles en el conjunto de datos, el
+análisis gráfico se organiza de manera selectiva y estructurada. En primer lugar, se agrupan
+aquellas variables que presentan distribuciones aproximadamente normales y un comportamiento
+estadístico estable, caracterizado por una alta similitud en la forma, la dispersión y la
+relación entre media y mediana. Para este grupo, se muestran únicamente algunas variables
+representativas, con el fin de ilustrar el patrón común observado y evitar redundancias
+innecesarias en la presentación gráfica.
 
-En particular, se analizan con mayor profundidad las variables que presentan una elevada
-variabilidad, asimetrías marcadas, colas pronunciadas o una presencia relevante de observaciones
-extremas, ya que estos rasgos pueden influir de manera significativa en la selección, interpretación
-y validación de modelos estadísticos posteriores. Asimismo, se priorizan aquellas métricas que
-desempeñan un papel clave en la explicación del rendimiento de los equipos, como los puntos
-anotados (PTS), las asistencias (AST), los intentos de triples (FG3A), el porcentaje de acierto en
-triples (FG3\_PCT), las pérdidas de balón (TOV) y el diferencial de puntos (PLUS\_MINUS).
+Posteriormente, se analizan de forma individual aquellas variables cuya distribución presenta
+características diferenciadas, ya sea por su mayor asimetría, su escala acotada, su naturaleza
+discreta o su significado competitivo específico dentro del juego. En estos casos, la
+representación gráfica aporta información relevante para la interpretación de cada métrica,
+justificando un análisis separado de sus histogramas y polígonos acumulados.
 
-Por el contrario, otras variables muestran distribuciones altamente estables, concentradas alrededor
-de sus valores centrales y con una dispersión reducida. En estos casos, el histograma y el polígono
-de frecuencias acumuladas confirman visualmente la información ya obtenida a partir del análisis
-descriptivo, sin aportar elementos adicionales de interpretación. En consecuencia, dichas variables
-no se analizan con el mismo nivel de detalle gráfico, limitándose su inclusión a una función
-ilustrativa y de validación visual.
-
-Este enfoque permite equilibrar exhaustividad y claridad analítica, evitando redundancias
-innecesarias y concentrando el esfuerzo interpretativo en aquellas distribuciones cuya forma y
-dispersión aportan mayor valor explicativo para el desarrollo del análisis estadístico que se
-presenta en las secciones siguientes.
+Esta organización permite equilibrar claridad expositiva y profundidad analítica, asegurando
+que el análisis gráfico se centre en aquellas variables donde la visualización aporta un valor
+interpretativo real, y sentando una base sólida para los modelos estadísticos inferenciales que
+se desarrollarán en secciones posteriores.
 
 \subsection*{Variables con distribución aproximadamente normal y comportamiento estable}
 
@@ -772,362 +766,201 @@ La proporción de triples intentados respecto al total de tiros muestra una dist
 \subsection{Boxplots y Detección de Valores Atípicos}
 \label{subsec:boxplots}
 
-Los diagramas de caja (boxplots) resumen la distribución mediante cuartiles y permiten identificar valores atípicos (outliers) de manera visual.
+Con el objetivo de complementar el análisis descriptivo previo basado en histogramas y
+polígonos acumulados, se emplean boxplots para examinar la dispersión, simetría y presencia
+de valores atípicos en las variables cuantitativas seleccionadas. Este tipo de representación
+permite identificar de manera sintética la estructura central de los datos mediante la mediana,
+el rango intercuartílico y los extremos no atípicos, así como detectar observaciones extremas
+que pueden resultar relevantes en el contexto competitivo o para la especificación de modelos
+estadísticos posteriores.
+
+\subsubsection*{Resumen del grupo: métricas de volumen, tiro exterior y control del juego}
+
+Las variables incluidas en este grupo (\textit{PTS, FG3M, FG3A, AST, REB y TOV}) representan métricas
+de \textbf{volumen ofensivo, generación colectiva, orientación al tiro exterior y control del ritmo
+de juego}. En conjunto, los boxplots muestran distribuciones mayormente simétricas, con medias y
+medianas próximas, lo que sugiere un comportamiento estable de estas variables a lo largo del
+conjunto de partidos analizados. Los rangos intercuartílicos son moderados en todas las métricas,
+indicando que, si bien existe variabilidad natural entre encuentros, el desempeño del equipo se
+concentra alrededor de valores centrales bien definidos.
+
+Un rasgo común del grupo es la presencia de \textbf{valores atípicos en ambos extremos}, asociados a
+partidos con condiciones excepcionales, como ritmos de juego inusualmente altos o bajos,
+diferencias marcadas en el nivel de los oponentes o ajustes tácticos específicos. Estos valores no
+alteran la estructura central de las distribuciones, pero aportan información relevante sobre
+escenarios de desempeño extremo.
+
+Desde una perspectiva comparativa, cada variable resalta un aspecto particular del juego.
+\textit{PTS} sintetiza el resultado final de la producción ofensiva total; \textit{AST} refleja el
+grado de juego colectivo y la circulación del balón; \textit{REB} captura el control físico y
+posicional del partido; \textit{TOV} actúa como un indicador inverso del orden y la eficiencia en la
+ejecución ofensiva. En relación con el tiro exterior, \textit{FG3A} evidencia la orientación táctica
+hacia el lanzamiento de tres puntos, mientras que \textit{FG3M} muestra una mayor dispersión,
+confirmando el carácter situacional y dependiente del acierto de esta variable dentro del juego.
+
+En conjunto, estas métricas ofrecen una visión coherente y complementaria del estilo de juego del
+equipo. Por esta razón, se presenta únicamente una selección representativa de boxplots, evitando
+redundancias descriptivas sin pérdida de información analítica relevante.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.95\textwidth]{images/boxplots.png}
-    \caption{Boxplots de las principales variables del dataset.}
-    \label{fig:boxplots}
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/boxplots/boxplot_PTS.png}
+        \caption{PTS}
+        \label{fig:PTS}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/boxplots/boxplot_FG3M.png}
+        \caption{FG3M}
+        \label{fig:FG3M}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/boxplots/boxplot_FG3A.png}
+        \caption{FG3A}
+        \label{fig:FG3A}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/boxplots/boxplot_AST.png}
+        \caption{AST}
+        \label{fig:AST}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/boxplots/boxplot_REB.png}
+        \caption{REB}
+        \label{fig:REB}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/boxplots/boxplot_TOV.png}
+        \caption{TOV}
+        \label{fig:TOV}
+    \end{subfigure}
+
+    \caption{Boxplots representativos del grupo de métricas de volumen ofensivo, tiro exterior y control del juego.}
+    \label{fig:boxplots_volumen_control}
 \end{figure}
 
-\textbf{Análisis de Boxplots (Figura \ref{fig:boxplots}):}
+\subsubsection*{Resumen del grupo: métricas de eficiencia y perfil de tiro}
 
-\begin{itemize}
-    \item \textbf{PTS}: La distribución se centra alrededor de 106 puntos, con un rango intercuartílico aproximado entre 100 y 115. Se observan valores atípicos tanto por debajo como por encima del rango típico, correspondientes a partidos con anotaciones excepcionalmente bajas o altas.
-    
-    \item \textbf{AST}: Presenta una mediana cercana a 23 asistencias y una dispersión moderada. Los outliers reflejan partidos con volúmenes inusuales de generación ofensiva.
-    
-    \item \textbf{REB}: La mediana se sitúa alrededor de 43 rebotes, con una distribución relativamente simétrica. Los valores atípicos corresponden a partidos con dominio o déficit extremo en el rebote.
-    
-    \item \textbf{FG\_PCT}: Muestra la menor dispersión relativa, con mediana cercana a 0.46. Los pocos outliers indican partidos con eficiencias de tiro excepcionalmente altas o bajas.
-    
-    \item \textbf{PLUS\_MINUS}: Está centrado en cero, con una dispersión amplia y presencia de outliers en ambos extremos, reflejando partidos con diferenciales de puntos muy marcados.
-\end{itemize}
+Las variables incluidas en este grupo (\textit{FG\_PCT, FG3\_PCT, FT\_PCT y FG3A/FGA}) describen la
+\textbf{eficiencia ofensiva y la orientación del lanzamiento} del equipo. En conjunto, los
+boxplots muestran distribuciones claramente más concentradas que las observadas en métricas de
+volumen, lo que refleja una mayor estabilidad relativa en los porcentajes de acierto a lo largo
+de los partidos analizados.
 
-\subsection{Asimetría y Curtosis}
-\label{subsec:asimetria-curtosis}
+Un rasgo común del grupo es la \textbf{proximidad entre media y mediana}, lo que sugiere
+distribuciones aproximadamente simétricas y un comportamiento consistente en términos de
+eficiencia. Sin embargo, se observa una diferencia clara entre métricas: \textit{FG\_PCT} y
+\textit{FT\_PCT} presentan rangos intercuartílicos reducidos, indicando una elevada estabilidad,
+mientras que \textit{FG3\_PCT} exhibe una dispersión notablemente mayor, confirmando el carácter
+más volátil del tiro de tres puntos.
 
-Las medidas de asimetría y curtosis cuantifican desviaciones de la distribución normal.
+La variable \textit{FG3A/FGA} aporta una perspectiva complementaria al describir el
+\textbf{perfil táctico de lanzamiento} más que la eficiencia en sí. Su dispersión moderada y la
+escasa presencia de valores atípicos sugieren que, aunque existen variaciones estratégicas entre
+partidos, la proporción de tiros de tres puntos se mantiene dentro de un rango relativamente
+homogéneo.
+
+En conjunto, estos boxplots permiten diferenciar claramente entre métricas de eficiencia estable
+(\textit{FG\_PCT, FT\_PCT}), métricas altamente dependientes del contexto (\textit{FG3\_PCT}) y
+métricas de estilo ofensivo (\textit{FG3A/FGA}), justificando su análisis conjunto y evitando
+redundancias descriptivas mediante la presentación de una selección representativa.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth]{images/asimetria_curtosis.png}
-    \caption{Medidas de asimetría y curtosis para las variables principales.}
-    \label{fig:asimetria-curtosis}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/boxplots/boxplot_FG_PCT.png}
+        \caption{FG\_PCT}
+        \label{fig:FG_PCT_eff}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/boxplots/boxplot_FG3_PCT.png}
+        \caption{FG3\_PCT}
+        \label{fig:FG3_PCT_eff}
+    \end{subfigure}
+    
+    \vspace{0.5cm}
+    
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/boxplots/boxplot_FT_PCT.png}
+        \caption{FT\_PCT}
+        \label{fig:FT_PCT_eff}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/boxplots/boxplot_FG3A_FGA.png}
+        \caption{FG3A/FGA}
+        \label{fig:FG3A_FGA_eff}
+    \end{subfigure}
+    
+    \caption{Boxplots de las métricas de eficiencia y perfil de tiro.}
+    \label{fig:boxplots_efficiency}
 \end{figure}
 
-\textbf{Análisis de Asimetría y Curtosis (Figura \ref{fig:asimetria-curtosis}):}
-
-\begin{itemize}
-    \item \textbf{Asimetría (Skewness)}:
-    \begin{itemize}
-        \item La mayoría de las variables presentan asimetría positiva leve, mientras que \texttt{FG\_PCT} y \texttt{PLUS\_MINUS} muestran distribuciones cercanas a la simetría.
-        \item \texttt{PLUS\_MINUS} presenta la mayor asimetría ($\text{skew} = 0.32$), seguido de \texttt{AST} ($0.235$) y \texttt{REB} ($0.195$).
-        \item \texttt{FG\_PCT} exhibe la menor asimetría ($0.095$), siendo la variable más cercana a una distribución simétrica.
-    \end{itemize}
-
-    
-    \item \textbf{Curtosis}: 
-    \begin{itemize}
-        \item Mide el "apuntamiento" de la distribución respecto a la normal.
-        \item PLUS\_MINUS presenta la mayor curtosis (0.32), indicando distribución más puntiaguda con colas más pesadas.
-        \item PTS y FG\_PCT tienen curtosis cercana a cero (0.015 y -0.03 respectivamente), sugiriendo formas similares a la normal.
-        \item AST y REB muestran curtosis positiva moderada (0.06 y 0.09), con distribuciones ligeramente más apuntadas.
-    \end{itemize}
-\end{itemize}
-
-\subsection{Síntesis del Análisis Gráfico}
-\label{subsec:sintesis-grafico}
-
-\begin{itemize}
-    \item \textbf{Normalidad}: Las variables PTS y FG\_PCT muestran distribuciones más cercanas a la normal, con asimetría y curtosis mínimas. AST, REB y PLUS\_MINUS presentan desviaciones notables de la normalidad.
-    
-    \item \textbf{Outliers}: Todas las variables exhiben valores atípicos significativos, especialmente en los extremos superiores. Esto sugiere la presencia frecuente de partidos con desempeños estadísticamente excepcionales.
-    
-    \item \textbf{Asimetría general}: La asimetría positiva predominante indica que, en general, las distribuciones tienen colas más largas hacia valores altos, reflejando la ocurrencia de partidos con estadísticas excepcionalmente buenas.
-    
-    \item \textbf{Consistencia métrica}: FG\_PCT muestra el comportamiento más estable y simétrico, confirmando que el porcentaje de tiro es una métrica más consistente que las de volumen.
-    
-    \item \textbf{Consideraciones analíticas}: La presencia de asimetría y outliers justifica considerar transformaciones de datos o métodos robustos en análisis inferenciales posteriores.
-\end{itemize}
-
-% -------------------------------------------------
-
-\subsection{Conclusión sobre la Distribución y Normalidad}
-\label{subsec:conclusion-normalidad}
-
-El análisis gráfico y de medidas de forma revela que las variables presentan diferentes grados de aproximación a la distribución normal. Mientras PTS y FG\_PCT muestran distribuciones razonablemente simétricas con curtosis cercana a cero (compatibles con normalidad), AST, REB y PLUS\_MINUS exhiben asimetría positiva y mayor curtosis, desviándose significativamente del supuesto de normalidad. La presencia generalizada de valores atípicos en todas las variables indica la ocurrencia frecuente de partidos con desempeños extremos. Estas características distribucionales sugieren que, para análisis inferenciales rigurosos, deberían considerarse técnicas robustas o transformaciones de datos, especialmente para las variables con mayor asimetría y curtosis. No obstante, para muestras grandes como la analizada, muchos procedimientos estadísticos son relativamente robustos a estas desviaciones de normalidad.
-
-\section{Análisis de Correlaciones}
-\label{sec:analisis-correlaciones}
-
-\begin{table}[H]
-\centering
-\caption{Matriz de correlación entre variables principales}
-\label{tab:correlacion}
-\begin{tabular}{lccccc}
-\toprule
- & PTS & REB & AST & FG\_PCT & PLUS\_MINUS \\
-\midrule
-\textbf{PTS} & 1.000000 & 0.149700 & 0.618600 & 0.685500 & 0.521500 \\
-\textbf{REB} & 0.149700 & 1.000000 & 0.051600 & -0.170700 & 0.340200 \\
-\textbf{AST} & 0.618600 & 0.051600 & 1.000000 & 0.559100 & 0.396200 \\
-\textbf{FG\_PCT} & 0.685500 & -0.170700 & 0.559100 & 1.000000 & 0.546900 \\
-\textbf{PLUS\_MINUS} & 0.521500 & 0.340200 & 0.396200 & 0.546900 & 1.000000 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-
-\subsection{Matriz de Correlación}
-\label{subsec:matriz-correlacion}
-
-La Tabla~\ref{tab:correlacion} presenta la matriz de correlación entre las principales variables estadísticas analizadas, permitiendo identificar la intensidad y dirección de las relaciones lineales entre ellas.
-
-\subsection{Correlaciones Significativas}
-\label{subsec:correlaciones-significativas}
-
-\begin{itemize}
-    \item \textbf{PTS -- FG\_PCT}: $r = 0.6855$ (correlación alta positiva).  
-    Existe una relación fuerte entre el porcentaje de tiro y los puntos anotados, lo que confirma que la eficiencia ofensiva es un factor clave en la producción anotadora.
-
-    \item \textbf{PTS -- AST}: $r = 0.6186$ (correlación moderada-alta positiva).  
-    Las asistencias muestran una asociación significativa con los puntos, reflejando la importancia del juego colectivo en la generación de anotaciones.
-
-    \item \textbf{PTS -- PLUS\_MINUS}: $r = 0.5215$ (correlación moderada positiva).  
-    Un mayor volumen de puntos se relaciona con un diferencial positivo, indicando impacto directo del rendimiento ofensivo en el resultado del partido.
-
-    \item \textbf{FG\_PCT -- PLUS\_MINUS}: $r = 0.5469$ (correlación moderada positiva).  
-    La efectividad en el tiro contribuye de forma consistente a mejores diferenciales de puntos.
-
-    \item \textbf{REB -- FG\_PCT}: $r = -0.1707$ (correlación débil negativa).  
-    Esta relación sugiere que un mayor volumen de rebotes no está necesariamente asociado con una mayor eficiencia de tiro, posiblemente reflejando diferencias de rol o estilo de juego.
-\end{itemize}
-
-\subsection{Conclusiones}
-\label{subsec:conclusiones-correlaciones}
-
-El análisis de correlaciones confirma que la NBA actual está fuertemente influenciada por la eficiencia ofensiva. La relación elevada entre \texttt{FG\_PCT} y \texttt{PTS} ($r = 0.69$) consolida al porcentaje de tiro como el principal predictor del volumen anotador, superando la influencia de variables como los rebotes. Asimismo, las correlaciones moderadas con \texttt{PLUS\_MINUS} indican que el rendimiento ofensivo tiene un impacto directo en el diferencial final de puntos, reforzando la relevancia estratégica de la eficiencia en el baloncesto moderno.
-
-\section{Análisis de Outliers (Método IQR)}
-\label{sec:analisis-outliers}
-
-\begin{table}[H]
-\centering
-\caption{Detección de outliers usando el método IQR}
-\label{tab:outliers_iqr}
-\begin{tabular}{lccccc}
-\toprule
-Variable & Total & Outliers & \% & Límite Inf. & Límite Sup. \\
-\midrule
-PTS & 33316 & 231 & 0.69 & 70.0 & 142.0 \\
-REB & 33316 & 229 & 0.69 & 25.5 & 61.5 \\
-AST & 33316 & 260 & 0.78 & 9.5 & 37.5 \\
-PLUS\_MINUS & 33316 & 460 & 1.38 & -36.0 & 36.0 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-La Tabla~\ref{tab:outliers_iqr} presenta la detección de valores atípicos utilizando el método del rango intercuartílico (IQR), definido por los límites $Q_1 - 1.5 \cdot IQR$ y $Q_3 + 1.5 \cdot IQR$.
-
-Los resultados muestran que el porcentaje de outliers es reducido en todas las variables analizadas, con valores inferiores al 1.5\% incluso en un conjunto de datos de gran tamaño ($n = 33{,}316$), lo que indica una alta estabilidad estadística del dataset.
-
-La variable \texttt{PLUS\_MINUS} presenta la mayor proporción de valores atípicos (1.38\%), lo cual es consistente con su naturaleza altamente dependiente del contexto del partido y de diferencias extremas de anotación. Sin embargo, esta proporción sigue siendo baja en términos absolutos, por lo que no compromete la validez del análisis global.
-
-En conjunto, la baja incidencia de outliers confirma la calidad del conjunto de datos y respalda el uso de técnicas estadísticas paramétricas en los análisis posteriores.
-
-\section{Transformaciones y Preprocesamiento de Datos}
-\label{sec:transformaciones}
-
-El preprocesamiento de datos constituye una etapa fundamental para garantizar la consistencia y
-calidad del análisis estadístico posterior. En esta sección se describen las transformaciones
-aplicadas al conjunto de datos NBA correspondiente al período 2010--2024, enfocándose únicamente
-en las variables utilizadas en los análisis posteriores.
-
-\subsection{Manejo de Valores Faltantes}
-\label{subsec:valores-faltantes}
-
-Se realizó un análisis sistemático de valores faltantes sobre las variables seleccionadas para el
-estudio: \texttt{PTS}, \texttt{REB}, \texttt{AST}, \texttt{FG\_PCT} y \texttt{PLUS\_MINUS}.
-Los resultados se resumen en la Tabla~\ref{tab:valores_faltantes}.
-
-\begin{table}[H]
-\centering
-\caption{Tratamiento de valores faltantes en las variables analizadas}
-\label{tab:valores_faltantes}
-\begin{tabular}{lccc}
-\toprule
-Variable & Valores Faltantes & Porcentaje (\%) & Tratamiento Aplicado \\
-\midrule
-PTS & 0 & 0.000 & No requiere tratamiento \\
-REB & 0 & 0.000 & No requiere tratamiento \\
-AST & 0 & 0.000 & No requiere tratamiento \\
-FG\_PCT & 0 & 0.000 & No requiere tratamiento \\
-PLUS\_MINUS & 0 & 0.000 & No requiere tratamiento \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Dado que no se detectaron valores faltantes en ninguna de las variables analizadas, no fue necesario
-aplicar técnicas de imputación ni realizar transformaciones adicionales en esta etapa. Este resultado
-garantiza la integridad de los datos y permite proceder directamente con las etapas de escalado y
-modelado estadístico.
-
-\subsection{Codificación de Variables Categóricas}
-\label{subsec:codificacion}
-
-Las variables categóricas contienen información cualitativa que debe transformarse a formato
-numérico para su uso en modelos estadísticos. En este estudio, únicamente se consideró necesaria
-la codificación de la variable objetivo \texttt{WL}, correspondiente al resultado del partido.
-
-La variable \texttt{WL} es de naturaleza dicotómica, tomando los valores \texttt{W} (victoria) y
-\texttt{L} (derrota). Para su incorporación en modelos de regresión y clasificación, se realizó
-una codificación binaria estándar, definida como:
-
-\[
-\text{WL\_bin} =
-\begin{cases}
-1 & \text{si el partido termina en victoria (W)} \\
-0 & \text{si el partido termina en derrota (L)}
-\end{cases}
-\]
-
-Esta codificación es ampliamente utilizada en regresión logística y otros modelos lineales
-generalizados, ya que permite interpretar los coeficientes estimados en términos de cambios en
-probabilidad u \textit{odds ratio}.
-
-\subsection{Estandarización y Normalización de Variables Numéricas}
-\label{subsec:estandarizacion}
-
-\subsubsection{Diagnóstico de Escalas Diferentes}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|c|c|c|}
-\hline
-\textbf{Variable} & \textbf{Media} & \textbf{Desviación Estándar} & \textbf{Rango} \\
-\hline
-\texttt{PTS} & 106.04 & 13.59 & 120.00 \\
-\texttt{AST} & 23.38 & 5.27 & 46.00 \\
-\texttt{REB} & 43.44 & 6.60 & 64.00 \\
-\texttt{FG\_PCT} & 0.46 & 0.056 & 0.441 \\
-\texttt{PLUS\_MINUS} & 0.00 & 14.17 & 146.00 \\
-\hline
-\end{tabular}
-\caption{Estadísticos que evidencian escalas diferentes (valores reales)}
-\label{tab:escalas-variables-reales}
-\end{table}
-
-\textbf{Problema identificado}: Las variables están en unidades incomparables, por ejemplo:
-
-\begin{itemize}
-    \item Puntos en escala ~100 (106 ± 13.59)
-    \item Porcentajes en escala ~0.5 (0.46 ± 0.056)
-    \item Diferenciales centrados en 0 con gran rango (0 ± 14.17)
-\end{itemize}
-
-\textbf{Consecuencias de no estandarizar}:
-
-\begin{enumerate}
-\item Algoritmos basados en distancias (K-Means, K-NN, PCA) se verían dominados por variables de mayor rango.
-\item Coeficientes de regresión múltiple y logística no serían comparables.
-\item Algoritmos de optimización numérica (gradiente descendente) convergerían más lentamente.
-\end{enumerate}
-
-\subsubsection{Transformaciones Aplicadas}
-
-\begin{enumerate}
-\item \textbf{Estandarización Z-score}: aplicada a PTS, AST, REB, STL, BLK, TOV para centrar en 0 y escala 1.
-
-\item \textbf{Normalización Min-Max}: aplicada a FG\_PCT, FG3\_PCT y FT\_PCT para reescalar en [0,1].
-
-\end{enumerate}
-
-\textit{Nota}: Transformaciones adicionales como Box-Cox o log no se aplicaron de forma generalizada, dado que las desviaciones de normalidad y outliers observados fueron leves, y el tamaño de muestra grande garantiza robustez suficiente para las pruebas posteriores.
-
-\subsection{Tratamiento de Valores Atípicos}
-\label{subsec:tratamiento-outliers}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|c|c|p{0.4\textwidth}|}
-\hline
-\textbf{Variable} & \textbf{Outliers} & \textbf{Porcentaje} & \textbf{Tratamiento y Justificación} \\
-\hline
-\texttt{PLUS\_MINUS} & 460 & 1.4\% & \textbf{Winsorizing al 5\%-95\%}: Partidos extremadamente desbalanceados distorsionan varianza.\\
-\hline
-\texttt{PTS} & 231 & 0.7\% & \textbf{Mantenidos}: Partidos históricos de alta puntuación son eventos válidos e informativos.\\
-\hline
-\texttt{AST} & 260 & 0.8\% & \textbf{Mantenidos}: Récords de asistencias representan desempeños excepcionales reales.\\
-\hline
-\texttt{FG\_PCT} & 275 & 0.8\% & \textbf{Mantenidos}: Eficiencias extremas son métricas legítimas de rendimiento.\\
-\hline
-\end{tabular}
-\caption{Estrategia de tratamiento de outliers}
-\label{tab:tratamiento-outliers}
-\end{table}
-
-\textbf{Método de Winsorizing aplicado}:
-\[
-X_{\text{winsor}} = \begin{cases}
-Q_{0.05} & \text{si } X < Q_{0.05} \\
-Q_{0.95} & \text{si } X > Q_{0.95} \\
-X & \text{en otro caso}
-\end{cases}
-\]
-
-\textbf{Justificación del tratamiento diferencial}:
-\begin{itemize}
-\item \texttt{PLUS\_MINUS}: Los valores extremos representan partidos anómalos que pueden distorsionar análisis de varianza y correlación. Winsorizing preserva el tamaño muestral mientras mitiga su influencia.
-
-\item \texttt{PTS}, \texttt{AST}, \texttt{FG\_PCT}: Los outliers en estas variables representan récords y desempeños históricos legítimos que contienen información valiosa sobre el límite superior del rendimiento humano en baloncesto.
-
-\item \textbf{Enfoque robusto}: Para análisis sensibles a outliers, se utilizarán métodos robustos (medianas, regresión robusta) complementariamente.
-\end{itemize}
-
-\subsection{Creación de Variables Derivadas Avanzadas}
-\label{subsec:variables-derivadas}
-
-Las variables originales del dataset capturan estadísticas básicas, pero no necesariamente métricas avanzadas de rendimiento. Se crearon las siguientes variables derivadas:
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{0.25\textwidth}|p{0.35\textwidth}|p{0.3\textwidth}|}
-\hline
-\textbf{Variable Derivada} & \textbf{Fórmula y Cálculo} & \textbf{Propósito Analítico} \\
-\hline
-\texttt{POSS} (Posesiones) & $ \text{FGA} - \text{OREB} + \text{TOV} + 0.4 \times \text{FTA} $ & Estimación estándar NBA de posesiones por partido\\
-\hline
-\texttt{PACE} (Ritmo) & $ \dfrac{\text{POSS}}{\text{MIN}} \times 48 $ & Ritmo de juego ajustado a 48 minutos\\
-\hline
-\texttt{OFF\_EFF} (Eficiencia Ofensiva) & $ \dfrac{\text{PTS}}{\text{POSS}} \times 100 $ & Puntos por 100 posesiones (métrica estándar NBA)\\
-\hline
-\texttt{AST\_TO\_RATIO} (Ratio Asist/Pérdida) & $ \dfrac{\text{AST}}{\text{TOV}} $ & Eficiencia en distribución del balón\\
-\hline
-\texttt{FG3A\_RATE} (Tasa de Triples) & $ \dfrac{\text{FG3A}}{\text{FGA}} $ & Porcentaje de tiros que son de tres puntos\\
-\hline
-\texttt{EFFICIENT\_SCORING} & $ \text{FG\_PCT} + 0.5 \times \text{FG3\_PCT} $ & Métrica ponderada que valora más los triples\\
-\hline
-\end{tabular}
-\caption{Variables derivadas creadas para análisis avanzado}
-\label{tab:variables-derivadas}
-\end{table}
-
-\textbf{Justificación de cada variable derivada}:
-
-\begin{itemize}
-\item \texttt{POSS} y \texttt{PACE}: Permiten comparar equipos independientemente del ritmo de juego, controlando por diferencias en posesiones.
-
-\item \texttt{OFF\_EFF}: Considerada la métrica más importante de eficiencia ofensiva en baloncesto moderno, ya que controla por oportunidades de anotación.
-
-\item \texttt{AST\_TO\_RATIO}: Combina creatividad ofensiva (asistencias) con cuidado del balón (pérdidas) en una sola métrica.
-
-\item \texttt{FG3A\_RATE}: Cuantifica directamente la "revolución del triple" que motiva la Pregunta 1 de investigación.
-
-\item \texttt{EFFICIENT\_SCORING}: Reconoce que un triple anotado al 40\% es equivalente a un tiro de 2 anotado al 60\%, capturando la eficiencia real de anotación.
-\end{itemize}
-
-% --- Conclusiones Finales de la primera parte ---
-\subsection*{Conclusiones Finales del Análisis Exploratorio}
-\addcontentsline{toc}{section}{Conclusiones Finales del Análisis Exploratorio}
-
-\begin{itemize}
-\item El análisis exploratorio revela distribuciones normales para la mayoría de las variables estadísticas principales.
-\item Las correlaciones más fuertes se observan entre puntos y porcentaje de tiro, confirmando la importancia de la eficiencia en el baloncesto moderno.
-\item La detección de outliers indica partidos extremos que podrían merecer análisis más detallado.
-\item El dataset presenta alta calidad de datos con valores nulos mínimos y consistencia en las relaciones entre variables.
-\end{itemize}
+\subsubsection*{Boxplot del Diferencial de Puntos (PLUS\_MINUS)}
+
+El boxplot de PLUS\_MINUS se caracteriza por una perfecta simetría alrededor de cero, con
+mediana y media coincidentes y un rango intercuartílico amplio (IQR = 18). Este comportamiento
+es consistente con un conjunto de datos balanceado que incluye tanto victorias como derrotas.
+La presencia de numerosos valores atípicos en ambos extremos refleja partidos con diferencias
+marcadas en el marcador, representativos de contextos competitivos desiguales o rendimientos
+excepcionales.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/boxplots/boxplot_PLUS_MINUS.png}
+    \caption{Boxplot del diferencial de puntos (PLUS\_MINUS).}
+    \label{fig:boxplot_plus_minus}
+\end{figure}
+
+\subsubsection*{Boxplot de los Robos de Balón (STL)}
+
+La variable STL exhibe un boxplot claramente asimétrico hacia la derecha, con mediana de 7 robos
+y un rango intercuartílico reducido (IQR = 3). La elevada cantidad de valores atípicos superiores
+indica la existencia de partidos con presión defensiva intensa y alta capacidad de recuperación
+de balón. Esta asimetría es característica de variables de conteo con límite inferior en cero y
+confirma que los robos representan eventos menos frecuentes pero altamente dependientes del
+contexto defensivo y del rival.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/boxplots/boxplot_STL.png}
+    \caption{Boxplot de los robos de balón (STL).}
+    \label{fig:boxplot_stl}
+\end{figure}
+
+\subsubsection*{Boxplot de los Bloqueos (BLK)}
+
+El boxplot de BLK muestra una mediana de 5 bloqueos por partido y un rango intercuartílico de 3,
+con una distribución también asimétrica hacia la derecha. La proximidad entre media y mediana
+sugiere un equilibrio razonable en la estructura central, aunque la presencia de numerosos
+valores atípicos elevados refleja partidos con una actividad defensiva excepcional cerca del
+aro. Este comportamiento confirma que los bloqueos, al igual que los robos, son eventos
+discretos y situacionales, sensibles a la composición del equipo y al tipo de ataque rival.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/boxplots/boxplot_BLK.png}
+    \caption{Boxplot de los bloqueos (BLK).}
+    \label{fig:boxplot_blk}
+\end{figure}
 
 \section{Análisis Estadístico de las Preguntas de Investigación}
 \label{sec:analisis-estadistico}
@@ -1137,127 +970,290 @@ En esta sección se presentan los análisis estadísticos realizados para respon
 \subsection{Pregunta 1: Análisis de la Relación entre Triples y Victoria}
 \label{subsec:pregunta1-analisis}
 
-\subsubsection{Metodología Aplicada: Regresión Logística Binaria}
-\label{subsubsec:metodologia-pregunta1}
+\vspace{0.3cm}
+¿Existe una correlación significativa entre el número de triples anotados (FG3M) y la victoria (WL) de un equipo en un partido, controlando por la efectividad general de tiro (FG\_PCT)?
 
-Para abordar la pregunta sobre si el número de triples anotados está asociado significativamente con la probabilidad de ganar, se implementó un modelo de regresión logística. Esta técnica es apropiada porque:
 
-\begin{itemize}
-\item La variable respuesta es binaria (Victoria/Derrota)
-\item Permite controlar por múltiples variables predictoras
-\item Proporciona coeficientes interpretables como odds ratios
-\item Permite evaluar significancia estadística de cada predictor
-\end{itemize}
+Con el objetivo de responder de forma robusta a la Pregunta 1, se adoptó un enfoque
+estadístico complementario que combina un modelo de regresión logística binaria
+con una prueba no paramétrica de comparación de grupos (Mann--Whitney U, también
+conocida como Wilcoxon rank-sum). Esta estrategia permite evaluar la relación entre el
+número de triples anotados y la probabilidad de victoria desde dos perspectivas
+estadísticas coherentes pero conceptualmente distintas.
 
-El modelo especificado fue:
-\[
-\log\left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 \cdot \text{FG3M\_LOG} + \beta_2 \cdot \text{FG\_PCT\_MM} + \beta_3 \cdot \text{IS\_HOME}
-\]
-donde $p$ representa la probabilidad de victoria.
+\vspace{0.3cm}
 
-\subsection{Resultados del Modelo (Pregunta 1)}
-\label{subsec:resultados-pregunta1}
+La regresión logística se emplea como herramienta principal de modelación, dado que la
+variable respuesta es dicotómica (WL: victoria/derrota). Este modelo permite
+cuantificar el efecto marginal del número de triples anotados (FG3M) sobre la
+probabilidad de ganar un partido, controlando simultáneamente por la efectividad general
+de tiro (FG\_PCT). En este contexto, el objetivo de la regresión logística es
+evaluar si el volumen de triples posee un impacto estadísticamente significativo sobre la
+probabilidad de victoria, independientemente de la eficiencia ofensiva global, expresando
+los resultados en términos de odds ratios, fácilmente interpretables en el ámbito
+deportivo.
 
-\subsubsection{Coeficientes y Significancia}
-\label{subsubsec:coeficientes-significancia}
-\begin{table}[H]
-\centering
-\caption{Coeficientes del Modelo de Regresión Logística}
-\label{tab:coeficientes}
-\begin{tabular}{lrrrrrr}
-\toprule
-\textbf{Variable} & \textbf{Coef.} & \textbf{Std. Err.} & \textbf{z} & \textbf{P$>|$z$|$} & \textbf{[0.025} & \textbf{0.975]} \\
-\midrule
-const & -4.6357 & 0.063 & -73.259 & 0.000 & -4.760 & -4.512 \\
-FG3M & 0.0496 & 0.003 & 16.144 & 0.000 & 0.044 & 0.056 \\
-FG\_PCT & 8.5432 & 0.123 & 69.513 & 0.000 & 8.302 & 8.784 \\
-\bottomrule
-\end{tabular}
-\end{table}
+\subsubsection{Preparación de los datos y verificación de supuestos}
 
-\subsubsection{Odds Ratios}
-\label{subsubsec:odds-ratios}
-\begin{table}[H]
-\centering
-\caption{Odds Ratios del Modelo}
-\label{tab:oddsratios}
-\begin{tabular}{lr}
-\toprule
-\textbf{Variable} & \textbf{Odds Ratio} \\
-\midrule
-const & 0.0097 \\
-FG3M & 1.0508 \\
-FG\_PCT & 5131.7316 \\
-\bottomrule
-\end{tabular}
-\end{table}
+Previo a la estimación del modelo de regresión logística binaria, se realizó una
+preparación y exploración de las variables con el objetivo de garantizar la
+validez estadística del análisis y justificar la metodología empleada.
 
-\subsection{Interpretación de Resultados (Pregunta 1)}
-\label{subsec:interpretacion-pregunta1}
+La variable respuesta fue codificada de forma binaria como
+WL\_bin, donde $1$ representa victoria y $0$ derrota, lo cual es
+coherente con la naturaleza dicotómica requerida por la regresión logística.
+Como variables predictoras se utilizaron el número de triples anotados
+(FG3M) y el porcentaje total de tiros de campo convertidos
+(FG\_PCT), seleccionadas por su relevancia directa en la producción
+ofensiva y su vínculo teórico con la probabilidad de victoria.
 
-\subsubsection{Efecto Marginal de los Triples (FG3M)}
-\label{subsubsec:efecto-fg3m}
 
-Cada triple adicional anotado aumenta las odds de victoria en aproximadamente 5.08\%, manteniendo constante el porcentaje de tiro:
-\[
-\text{Odds Ratio} = e^{0.0496} \approx 1.0508
-\]
-\[
-\text{Incremento porcentual} = (1.0508 - 1) \times 100\% = 5.08\%
-\]
-
-\subsubsection{Efecto Marginal del Porcentaje de Tiro (FG\_PCT)}
-\label{subsubsec:efecto-fg-pct}
-
-Dado que FG\_PCT está en escala 0-1, el efecto marginal por punto porcentual es:
-\[
-\text{Odds Ratio por 0.01 unidades} = e^{8.5432 \times 0.01} \approx 1.089
-\]
-\[
-\text{Incremento porcentual por 1\%} = 8.9\%
-\]
-
-Los resultados indican que el coeficiente asociado al número de triples anotados (FG3M) es positivo y estadísticamente significativo, incluso al controlar por la efectividad general de tiro. Esto sugiere que anotar más triples incrementa la probabilidad de ganar un partido.
-
-Por su parte, la variable FG\_PCT presenta un coeficiente positivo de mayor magnitud, lo que indica que la eficiencia general de tiro tiene un impacto más fuerte sobre la probabilidad de victoria que el volumen de triples por sí solo.
-
-\subsubsection{Interpretación de los Coeficientes}
-\label{subsubsec:interpretacion-coeficientes}
-
-La interpretación de los \textit{odds ratios} permite cuantificar el impacto de cada variable. En particular:
+El análisis se planteó bajo las siguientes hipótesis inferenciales:
 
 \begin{itemize}
-    \item Un incremento de una unidad en FG3M multiplica las probabilidades relativas de victoria por $e^{\beta_1}$, manteniendo constante la efectividad de tiro.
-    \item Un aumento en FG\_PCT produce un incremento aún mayor en las probabilidades de victoria, reflejando la importancia de la eficiencia ofensiva.
+    \item Hipótesis principal del modelo logístico:
+    \[
+    H_0: \beta_{\text{FG3M}} = 0 \quad \text{vs.} \quad H_1: \beta_{\text{FG3M}} \neq 0
+    \]
+    lo que implica contrastar si el número de triples anotados tiene un efecto
+    estadísticamente significativo sobre la probabilidad de victoria,
+    controlando por la efectividad general de tiro.
+
+    \item Hipótesis auxiliar:
+    \[
+    H_0: \beta_{\text{FG\_PCT}} = 0 \quad \text{vs.} \quad H_1: \beta_{\text{FG\_PCT}} \neq 0
+    \]
+    evaluando el impacto de la eficiencia ofensiva total en el resultado del
+    partido.
 \end{itemize}
 
-Estos resultados confirman que el tiro de tres puntos es un factor relevante, pero no sustituye la necesidad de una alta eficiencia general.
+Cada observación del conjunto de datos corresponde a un partido distinto,
+por lo que se asume independencia entre observaciones. Este supuesto se
+considera satisfecho por el propio diseño del experimento observacional,
+al no existir mediciones repetidas ni dependencia temporal directa entre filas.
 
-\subsubsection{Análisis Gráfico}
-\label{subsubsec:analisis-grafico-p1}
 
-La Figura \ref{fig:probabilidad-fg3m} muestra la probabilidad predicha de victoria en función del número de triples anotados, manteniendo constante la efectividad de tiro en su valor promedio. Se observa una relación creciente, lo cual es consistente con el signo positivo del coeficiente estimado para FG3M.
+A diferencia de los modelos lineales clásicos, la regresión logística no
+requiere normalidad de las variables explicativas ni homocedasticidad de los
+residuos, ya que la variable respuesta sigue una distribución binomial y el
+modelo se estima mediante máxima verosimilitud. En consecuencia, la ausencia
+de normalidad en variables como FG3M no invalida el uso de este modelo.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{images/probabilidad_vs_fg3m.png}
-\caption{Probabilidad de victoria en función de los triples anotados (FG3M)}
-\label{fig:probabilidad-fg3m}
-\end{figure}
 
-Adicionalmente, la Figura \ref{fig:distribucion-probabilidades} presenta la distribución de las probabilidades predichas para victorias y derrotas. Las victorias tienden a concentrarse en probabilidades más altas, mientras que las derrotas se agrupan en valores menores, aunque con cierto solapamiento esperado en contextos deportivos.
+Para evaluar la posible dependencia entre las variables predictoras, se calculó
+la correlación de Spearman entre FG3M y FG\_PCT, obteniéndose
+$\rho = 0.280$ con un valor $p < 0.001$. Este resultado indica la existencia de
+una asociación positiva moderada, pero no lo suficientemente elevada como para
+sugerir problemas de multicolinealidad severa. Por tanto, ambas variables pueden
+incluirse conjuntamente en el modelo sin comprometer la estabilidad de los
+coeficientes estimados.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{images/distribucion_probabilidades.png}
-\caption{Distribución de probabilidades predichas por el modelo}
-\label{fig:distribucion-probabilidades}
-\end{figure}
 
-\subsubsection{Conclusión (Pregunta 1)}
-\label{subsubsec:conclusion-pregunta1}
+Uno de los supuestos clave de la regresión logística es la relación lineal entre
+cada predictor continuo y el logit de la probabilidad de éxito. Para evaluar este
+supuesto, se examinó la correlación entre el logit estimado y las variables
+predictoras. Se obtuvo una correlación positiva entre el logit y FG3M
+($r = 0.457$) y una correlación muy elevada entre el logit y FG\_PCT
+($r = 0.985$), lo que respalda la existencia de una relación aproximadamente
+lineal entre estas variables y el logit de la probabilidad de victoria.
 
-En conclusión, los resultados de la regresión logística binaria indican que existe una relación positiva y estadísticamente significativa entre el número de triples anotados y la probabilidad de victoria en un partido de la NBA, incluso al controlar por la efectividad general de tiro. No obstante, la eficiencia ofensiva emerge como el factor más influyente, lo que sugiere que la estrategia óptima combina un volumen adecuado de triples con altos niveles de eficiencia.
+El modelo de regresión logística binaria convergió correctamente tras seis
+iteraciones, indicando estabilidad en el proceso de estimación. El test de razón
+de verosimilitudes resultó altamente significativo ($p < 0.001$), lo que confirma
+que el modelo con predictores mejora sustancialmente al modelo nulo.
+
+El coeficiente asociado a FG3M fue positivo y estadísticamente
+significativo ($\hat{\beta} = 0.0496$, $p < 0.001$), lo que indica que, manteniendo
+constante la efectividad general de tiro, un incremento en el número de triples
+anotados aumenta la probabilidad de victoria. De igual forma, FG\_PCT
+presentó un coeficiente positivo de gran magnitud ($\hat{\beta} = 19.37$,
+$p < 0.001$), confirmando que la eficiencia ofensiva es un determinante clave del
+resultado del partido.
+
+El pseudo coeficiente de determinación de McFadden ($R^2 = 0.168$) sugiere que el
+modelo explica una proporción sustancial de la variabilidad del resultado del
+partido, especialmente considerando la naturaleza binaria y compleja del fenómeno
+analizado.
+
+\subsubsection{Conclusión General de la Pregunta 1}
+
+A partir de los análisis realizados, se puede concluir que existe una relación positiva,
+estadísticamente significativa y robusta entre el número de triples anotados (FG3M) y la
+probabilidad de victoria (WL) en partidos de la NBA, incluso al controlar por la efectividad
+general de tiro (FG\_PCT).
+
+La regresión logística binaria mostró que el coeficiente asociado a FG3M es positivo
+($\hat{\beta} = 0.0496$) y altamente significativo ($p < 0.001$), lo que implica que cada triple
+adicional anotado incrementa las odds de victoria en aproximadamente un 5\%, manteniendo
+constante el porcentaje total de tiro. Este resultado permite rechazar la hipótesis nula
+$H_0: \beta_{\text{FG3M}} = 0$ y confirma que el volumen de triples tiene un efecto propio sobre el
+resultado del partido.
+
+Asimismo, el porcentaje de tiros de campo convertidos (FG\_PCT) presentó un coeficiente positivo
+de gran magnitud y elevada significancia estadística, lo que evidencia que la eficiencia ofensiva
+global es el factor más influyente sobre la probabilidad de ganar. No obstante, la permanencia de
+FG3M como predictor significativo al controlar por FG\_PCT demuestra que el impacto del tiro de
+tres puntos no se reduce únicamente a una consecuencia indirecta de una mayor eficiencia general.
+
+Desde una perspectiva complementaria, la correlación de Spearman entre FG3M y el resultado del
+partido fue positiva y significativa ($\rho = 0.280$, $p < 0.001$), lo que aporta evidencia
+inferencial directa de que los equipos que anotan más triples tienden, en términos generales, a
+obtener mejores resultados. 
+
+\vspace{0.3cm}
+  
+\subsection{Prueba de Mann--Whitney U}
+
+Como complemento al análisis multivariado basado en regresión logística binaria, se
+aplica la prueba de Mann--Whitney U (también conocida como prueba de rangos de
+Wilcoxon) con el objetivo de comparar la distribución del número de triples anotados
+(FG3M) entre dos grupos independientes: partidos ganados (WL = W) y partidos perdidos
+(WL = L).
+
+\subsubsection{Preparación de los datos}
+
+Para la aplicación de la prueba se realizó la siguiente preparación de los datos:
+
+\begin{itemize}
+    \item Se seleccionó la variable \texttt{FG3M} como variable cuantitativa de interés,
+    representando el número de triples anotados en cada partido.
+    \item Se utilizó la variable categórica \texttt{WL} para definir dos grupos
+    independientes: victorias y derrotas.
+    \item Se eliminaron observaciones con valores faltantes en cualquiera de las dos
+    variables, garantizando que cada observación perteneciera de forma unívoca a uno
+    de los grupos.
+    \item No se aplicaron transformaciones adicionales (como normalización o
+    estandarización), dado que la prueba de Mann--Whitney se basa en rangos y no en los
+    valores originales de la variable.
+\end{itemize}
+
+Esta preparación permite preservar la estructura original de la variable FG3M y
+mantener la interpretación directa del número de triples anotados por partido.
+
+\subsubsection{Verificación de los supuestos de la prueba}
+
+La prueba de Mann--Whitney U requiere el cumplimiento de los siguientes supuestos:
+
+\begin{enumerate}
+    \item \textbf{Independencia de las observaciones.}  
+    Cada partido constituye una observación independiente, por lo que no existe
+    dependencia entre los valores de FG3M de los distintos partidos. Este supuesto se
+    considera satisfecho.
+    
+    \item \textbf{Variable de respuesta al menos ordinal.}  
+    La variable FG3M es cuantitativa discreta, por lo que cumple sobradamente con este
+    requisito.
+    
+    \item \textbf{Grupos independientes.}  
+    Los partidos ganados y perdidos son mutuamente excluyentes; una observación no puede
+    pertenecer simultáneamente a ambos grupos.
+    
+    \item \textbf{Ausencia de supuestos de normalidad y homocedasticidad.}  
+    A diferencia de las pruebas paramétricas (como la prueba t de Student), la prueba de
+    Mann--Whitney no requiere que la variable analizada siga una distribución normal ni
+    que las varianzas de ambos grupos sean iguales.
+\end{enumerate}
+
+El análisis exploratorio previo, mediante histogramas y boxplots, evidenció que la
+distribución de FG3M es asimétrica, presenta colas largas y valores atípicos, lo que
+invalida los supuestos de normalidad y homocedasticidad necesarios para pruebas
+paramétricas. Por tanto, la elección de una prueba no paramétrica resulta adecuada y
+metodológicamente justificada.
+
+\subsubsection{Objetivo inferencial}
+
+El objetivo inferencial de la prueba de Mann--Whitney U es evaluar si la distribución de
+FG3M en los partidos ganados tiende a presentar valores sistemáticamente mayores que en
+los partidos perdidos. En términos estadísticos, se contrasta la hipótesis nula de que
+ambas distribuciones son iguales frente a la alternativa de que los partidos ganados
+presentan mayores rangos de FG3M.
+
+De este modo, la prueba proporciona evidencia inferencial directa sobre la relación
+bivariada entre el número de triples anotados y el resultado del partido, complementando
+el análisis multivariado de la regresión logística y reforzando la interpretación de la
+Pregunta de Investigación 1 desde una perspectiva no paramétrica.
+
+%\input{latex_tables/resultados_mann_whitney.tex}
+
+\subsection{Prueba de Mann--Whitney U para el número de triples anotados (FG3M)}
+
+Como complemento al análisis multivariado basado en regresión logística, se aplicó la
+prueba no paramétrica de Mann--Whitney U con el objetivo de comparar la distribución del
+número de triples anotados (FG3M) entre partidos ganados y partidos perdidos. Esta prueba
+permite evaluar si existen diferencias sistemáticas en el volumen de triples entre ambos
+grupos sin asumir normalidad ni homocedasticidad, condiciones que no se cumplen para esta
+variable según el análisis exploratorio previo.
+
+\subsubsection{Preparación de los datos}
+
+La preparación de los datos consistió en seleccionar únicamente las observaciones con
+información válida en las variables \textit{WL} (resultado del partido) y \textit{FG3M}
+(triples anotados). Posteriormente, los partidos se dividieron en dos grupos independientes:
+victorias (\textit{WL = W}) y derrotas (\textit{WL = L}). Ambos grupos presentan tamaños
+muestrales idénticos ($N = 16\,658$), lo que refuerza la robustez de la comparación.
+
+La variable FG3M es una variable discreta de conteo, con distribución asimétrica y presencia
+de valores atípicos, características que justifican el uso de una prueba no paramétrica
+basada en rangos en lugar de pruebas paramétricas como la t de Student.
+
+\subsubsection{Hipótesis planteadas}
+
+La prueba de Mann--Whitney U se utilizó para contrastar las siguientes hipótesis:
+
+\begin{itemize}
+    \item $H_0$: La distribución del número de triples anotados (FG3M) es la misma en partidos
+    ganados y partidos perdidos.
+    \item $H_1$: La distribución del número de triples anotados (FG3M) difiere entre partidos
+    ganados y partidos perdidos.
+\end{itemize}
+
+Desde una perspectiva sustantiva, la hipótesis alternativa implica que los partidos ganados
+tienden a presentar valores sistemáticamente mayores de triples anotados que los partidos
+perdidos.
+
+\subsubsection{Cumplimiento de los supuestos de la prueba}
+
+Los supuestos fundamentales de la prueba de Mann--Whitney U se cumplen en este análisis:
+
+\begin{itemize}
+    \item \textbf{Independencia de los grupos}: cada observación corresponde a un partido
+    distinto, y los grupos de victorias y derrotas no se solapan.
+    \item \textbf{Escala adecuada}: FG3M es una variable cuantitativa ordinal/discreta, apta
+    para ser ordenada por rangos.
+    \item \textbf{No normalidad}: la prueba no requiere normalidad ni igualdad de varianzas,
+    condiciones que no se asumen para FG3M.
+\end{itemize}
+
+\subsubsection{Resultados e interpretación}
+
+Los estadísticos descriptivos muestran que la mediana de triples anotados en partidos
+ganados (Mediana = 10) es superior a la observada en partidos perdidos (Mediana = 9), con
+rangos intercuartílicos desplazados hacia valores mayores en el grupo de victorias. Esta
+diferencia descriptiva sugiere, de forma preliminar, una mayor producción de triples en los
+partidos exitosos.
+
+La prueba de Mann--Whitney U arroja un estadístico $U = 170\,661\,761$, acompañado de un valor
+$Z = 36.36$ y un \textit{p-value} menor que 0.001. Este resultado proporciona evidencia
+estadística contundente para rechazar la hipótesis nula, indicando que la diferencia entre
+las distribuciones de FG3M en partidos ganados y perdidos es altamente significativa desde
+el punto de vista inferencial.
+
+Adicionalmente, el tamaño del efecto calculado ($r = 0.199$) corresponde a un efecto pequeño
+a moderado según los criterios convencionales. Esto indica que, si bien la diferencia es
+estadísticamente muy significativa —en parte debido al gran tamaño muestral—, el volumen de
+triples por sí solo explica una fracción limitada, aunque relevante, de la diferencia entre
+victorias y derrotas.
+
+\subsubsection{Conclusión de la prueba}
+
+En conjunto, los resultados de la prueba de Mann--Whitney U confirman que los partidos
+ganados tienden a presentar un mayor número de triples anotados que los partidos perdidos.
+Esta evidencia inferencial directa, basada únicamente en la comparación de FG3M entre ambos
+grupos, complementa los hallazgos del modelo de regresión logística y refuerza la conclusión
+de que el tiro de tres puntos constituye un factor relevante en la probabilidad de victoria,
+aunque no exclusivo ni determinante por sí solo.
+
+
 
 \subsection{Pregunta 2: Análisis de la Evolución Temporal del Juego}
 \label{subsec:pregunta2-analisis}
@@ -1265,12 +1261,261 @@ En conclusión, los resultados de la regresión logística binaria indican que e
 \subsubsection{Metodología Aplicada: ANOVA y Regresión Lineal}
 \label{subsubsec:metodologia-pregunta2}
 
-Para analizar la evolución temporal se utilizaron dos técnicas complementarias:
+Para analizar la evolución temporal de las variables ofensivas se emplearon dos técnicas
+estadísticas complementarias: un análisis de varianza (ANOVA) de una vía y un modelo de
+regresión lineal. La combinación de ambos enfoques permite abordar el problema desde una
+perspectiva tanto comparativa como explicativa.
+
+En primer lugar, se aplicó un ANOVA de una vía con el objetivo de evaluar si las medias
+de las variables de interés difieren de forma estadísticamente significativa entre
+temporadas. En este contexto, la temporada actúa como un factor categórico que divide el
+conjunto de datos en múltiples grupos independientes, mientras que las variables respuesta
+(PTS y FG3A/FGA) son cuantitativas continuas. El ANOVA resulta apropiado cuando se desea
+comparar medias entre más de dos grupos, evitando la realización de múltiples contrastes
+bivariados que incrementarían el riesgo de error tipo I.
+
+La aplicación del ANOVA está respaldada por el análisis exploratorio previo. Los boxplots y
+estadísticos descriptivos mostraron que, a nivel agregado por temporada, las distribuciones
+de PTS y FG3A/FGA presentan rangos intercuartílicos moderados y una variabilidad relativamente
+estable entre temporadas. Además, el elevado tamaño muestral por grupo permite invocar el
+teorema del límite central, de modo que las medias muestrales pueden considerarse
+aproximadamente normales, aun cuando los datos a nivel de partido no sigan estrictamente una
+distribución normal. Esta característica confiere robustez al ANOVA frente a desviaciones
+moderadas de normalidad.
+
+No obstante, el ANOVA únicamente permite determinar si existen diferencias globales entre
+temporadas, pero no cuantifica la dirección ni la magnitud del cambio a lo largo del tiempo.
+Por esta razón, como complemento al análisis comparativo, se estimó un modelo de
+regresión lineal utilizando la temporada como variable explicativa continua. Este
+enfoque permite modelar explícitamente la tendencia temporal de cada variable y estimar la
+tasa media de cambio anual.
+
+Mientras que el ANOVA responde a la pregunta de si las medias difieren entre temporadas, la
+regresión lineal permite evaluar si existe una relación temporal sistemática, identificar su
+signo (creciente o decreciente) y cuantificar su intensidad. En conjunto, ambas técnicas
+proporcionan una visión integral de la evolución del juego: el ANOVA detecta diferencias
+estructurales entre temporadas y la regresión lineal traduce dichas diferencias en una
+tendencia temporal interpretable.
+
+
+\subsubsection{Preparación de los datos y verificación de supuestos del ANOVA}
+\label{subsubsec:anova-preparacion-supuestos}
+
+Para aplicar un ANOVA de una vía en el análisis de la evolución temporal, fue necesaria una
+preparación previa de los datos y la evaluación de los supuestos asociados a esta técnica.
+
+\paragraph{Preparación de las variables}
+
+En primer lugar, la variable temporal \textbf{SEASON\_YEAR} se trató como un factor categórico,
+dado que el objetivo del ANOVA es comparar las medias de las variables de interés entre
+temporadas discretas. Cada nivel del factor representa una temporada de la NBA, lo que
+define grupos independientes de observaciones.
+
+Las variables respuesta consideradas fueron:
+
+\begin{itemize}
+    \item \textbf{PTS}: puntos totales anotados por partido.
+    \item \textbf{FG3A/FGA}: proporción de intentos de triple sobre el total de tiros de campo.
+\end{itemize}
+
+Para la variable FG3A/FGA, se construyó explícitamente la razón entre FG3A y FGA a nivel de
+partido, garantizando que ambas variables estuvieran definidas y fueran positivas. Esta
+transformación permite capturar la orientación estratégica hacia el tiro de tres puntos de
+forma estandarizada y comparable entre temporadas.
+
+Posteriormente, se eliminaron observaciones con valores faltantes en cualquiera de las
+variables implicadas, asegurando la consistencia del conjunto de datos utilizado en el
+análisis.
+
+\paragraph{Independencia de las observaciones}
+
+El supuesto de independencia se considera razonable, dado que cada observación corresponde a
+un partido distinto. Aunque un mismo equipo puede aparecer en múltiples partidos dentro de
+una temporada, el análisis se realiza a nivel de partido y no se modelan dependencias
+temporales intra-equipo, por lo que el ANOVA se interpreta como una aproximación agregada a
+nivel de liga.
+
+\paragraph{Normalidad}
+
+El ANOVA asume normalidad de los residuos dentro de cada grupo. El análisis exploratorio
+previo mediante histogramas y boxplots mostró que las distribuciones de PTS y FG3A/FGA a nivel
+de partido presentan asimetrías moderadas y valores atípicos. Sin embargo, dado el gran
+tamaño muestral por temporada, las medias muestrales pueden considerarse aproximadamente
+normales por efecto del teorema del límite central.
+
+En este contexto, el ANOVA se considera robusto frente a desviaciones moderadas de normalidad,
+especialmente cuando el interés se centra en la comparación de medias entre grupos con tamaños
+similares.
+
+\paragraph{Homoscedasticidad}
+
+El supuesto de homogeneidad de varianzas implica que la dispersión de la variable respuesta
+sea comparable entre temporadas. La inspección gráfica mediante boxplots por temporada
+mostró rangos intercuartílicos relativamente estables, sin evidencia de varianzas
+extremadamente desiguales entre grupos.
+
+Si bien pueden existir diferencias leves en la variabilidad entre temporadas, estas no son
+suficientemente pronunciadas como para invalidar el ANOVA, el cual es conocido por su
+robustez ante heterocedasticidad moderada cuando los tamaños muestrales son grandes y
+balanceados.
+
+\paragraph{Justificación final}
+
+En conjunto, la estructura de los datos, el tamaño muestral elevado, la estabilidad observada
+en las distribuciones por temporada y la naturaleza del objetivo analítico justifican el uso
+del ANOVA de una vía para evaluar si existen diferencias significativas en las medias de PTS y
+FG3A/FGA entre temporadas. Este análisis proporciona la base inferencial para determinar si
+los cambios observados responden a variaciones sistemáticas en el tiempo o a fluctuaciones
+aleatorias.
+
+\section{Análisis ANOVA por temporada (Pregunta 2)}
+
+El objetivo de esta sección es evaluar si existen diferencias estadísticamente significativas entre las temporadas de la NBA en relación con:
+\begin{itemize}
+    \item la proporción de lanzamientos de tres puntos respecto al total de tiros de campo (FG3A/FGA),
+    \item y la cantidad de puntos anotados por partido (PTS).
+\end{itemize}
+
+Para ello se aplicó un análisis de varianza de una vía (ANOVA), considerando la temporada (\texttt{SEASON\_YEAR}) como factor categórico.
+
+\subsection{Preparación de los datos}
+
+A partir del conjunto de datos original, se realizaron los siguientes pasos:
+\begin{enumerate}
+    \item Se construyó la variable \texttt{FG3A/FGA} como una proporción entre intentos de triples y tiros de campo totales.
+    \item Se seleccionaron las variables relevantes: \texttt{SEASON\_YEAR}, \texttt{PTS} y \texttt{FG3A/FGA}.
+    \item Se eliminaron observaciones con valores faltantes.
+    \item La variable \texttt{SEASON\_YEAR} fue tratada como un factor categórico, condición necesaria para la aplicación del ANOVA.
+\end{enumerate}
+
+Posteriormente, se calcularon estadísticos descriptivos por temporada, los cuales se muestran en las Tablas \ref{tab:anova-desc-fg3} y \ref{tab:anova-desc-pts}.
+
+\subsection{Hipótesis estadísticas}
+
+Para cada variable dependiente se plantearon las siguientes hipótesis:
+
+\paragraph{Para FG3A/FGA}
+\begin{itemize}
+    \item $H_0$: La media de FG3A/FGA es igual en todas las temporadas.
+    \item $H_1$: Al menos una temporada presenta una media de FG3A/FGA diferente.
+\end{itemize}
+
+\paragraph{Para PTS}
+\begin{itemize}
+    \item $H_0$: La media de puntos por partido (PTS) es igual en todas las temporadas.
+    \item $H_1$: Al menos una temporada presenta una media de PTS diferente.
+\end{itemize}
+
+\subsection{Resultados del ANOVA}
+
+Los resultados del ANOVA se presentan en las Tablas \ref{tab:anova-fg3} y \ref{tab:anova-pts}.
+
+Para la variable FG3A/FGA, el estadístico F obtenido es $F = 1950.55$ con un valor-p prácticamente nulo ($p < 0.001$). Esto proporciona evidencia estadística muy fuerte para rechazar la hipótesis nula, indicando que la proporción de triples ha cambiado significativamente entre temporadas.
+
+De manera análoga, para la variable PTS se obtuvo un estadístico $F = 647.86$ con $p < 0.001$, lo que indica diferencias estadísticamente significativas en la media de puntos por partido entre temporadas.
+
+Estos resultados son coherentes con los estadísticos descriptivos, donde se observa un incremento progresivo tanto en la proporción de triples como en la cantidad de puntos anotados a lo largo del tiempo.
+
+\subsection{Evaluación de los supuestos del ANOVA}
+
+El ANOVA de una vía se apoya en tres supuestos principales: independencia de las observaciones, normalidad de los residuos y homogeneidad de varianzas.
+
+\paragraph{Independencia}
+La independencia se considera razonable, ya que cada observación corresponde a un partido distinto y no existe solapamiento estructural entre ellos.
+
+\paragraph{Normalidad de los residuos}
+La normalidad se evaluó mediante la prueba de Shapiro--Wilk aplicada a los residuos de los modelos. Como se observa en la Tabla \ref{tab:anova-supuestos}, los valores-p son menores a 0.05 para ambas variables.
+
+No obstante, dado el tamaño muestral extremadamente grande (más de 30\,000 observaciones), la prueba de Shapiro--Wilk resulta excesivamente sensible. En este contexto, pequeñas desviaciones de la normalidad producen rechazos formales de la hipótesis nula. Sin embargo, el ANOVA es robusto frente a violaciones moderadas de normalidad cuando los tamaños muestrales son grandes y relativamente balanceados, condición que se cumple en este estudio.
+
+\paragraph{Homogeneidad de varianzas}
+La homogeneidad de varianzas se evaluó mediante la prueba de Levene. Los resultados muestran valores-p inferiores a 0.05 para ambas variables, lo que indica diferencias en las varianzas entre temporadas.
+
+Al igual que en el caso de la normalidad, esta violación se ve mitigada por el gran tamaño muestral y la similitud en los tamaños de los grupos. En este escenario, el estadístico F del ANOVA mantiene una buena aproximación, por lo que los resultados siguen siendo interpretables.
+
+\subsection{Conclusión}
+
+En conclusión, los resultados del ANOVA muestran evidencia estadística contundente de que tanto la proporción de lanzamientos de tres puntos como la cantidad de puntos anotados por partido han variado significativamente entre temporadas. A pesar de que los supuestos de normalidad y homocedasticidad no se cumplen estrictamente según las pruebas formales, el gran tamaño de la muestra y el balance entre grupos permiten considerar válidas las conclusiones obtenidas.
+
+Estos hallazgos respaldan la idea de una evolución estructural del juego en la NBA, caracterizada por un aumento sostenido del uso del tiro de tres puntos y del ritmo ofensivo a lo largo del tiempo.
+
+
+
+\subsection{Regresión lineal para el análisis temporal (Pregunta 2)}
+\label{subsec:pregunta2-regresion}
+
+Con el objetivo de cuantificar la evolución temporal observada en el análisis descriptivo y confirmada por el ANOVA, se aplicó un modelo de regresión lineal simple para evaluar la relación entre el tiempo (temporadas) y las variables de interés.
+
+\subsubsection{Preparación de los datos}
+
+Para la implementación del modelo de regresión se realizaron los siguientes pasos:
 
 \begin{enumerate}
-\item \textbf{ANOVA de una vía}: Para determinar si existen diferencias significativas entre temporadas.
-\item \textbf{Regresión lineal}: Para cuantificar la tendencia temporal y tasa de cambio anual.
+    \item La variable \texttt{SEASON\_YEAR} fue transformada en una variable numérica ordinal que representa el orden temporal de las temporadas. Esta transformación es necesaria para interpretar el coeficiente de regresión como una tasa de cambio anual.
+    \item Se utilizaron como variables dependientes:
+    \begin{itemize}
+        \item \texttt{PTS}: puntos anotados por partido.
+        \item \texttt{FG3A/FGA}: proporción de tiros de tres puntos intentados.
+    \end{itemize}
+    \item Se eliminaron observaciones con valores faltantes para asegurar la correcta estimación del modelo.
+    \item No se aplicaron transformaciones adicionales a las variables dependientes, ya que el objetivo principal del análisis es estimar la tendencia media a lo largo del tiempo y no realizar inferencia puntual a nivel individual.
 \end{enumerate}
+
+Esta preparación permite interpretar directamente los coeficientes estimados como el cambio promedio por temporada en cada variable.
+
+\subsubsection{Especificación del modelo}
+
+Para cada variable dependiente se estimó el siguiente modelo:
+
+\[
+Y_i = \beta_0 + \beta_1 \cdot \text{Temporada}_i + \varepsilon_i
+\]
+
+donde:
+\begin{itemize}
+    \item $Y_i$ representa \texttt{PTS} o \texttt{FG3A/FGA},
+    \item $\beta_0$ es el valor esperado al inicio del período,
+    \item $\beta_1$ mide la tendencia temporal promedio por temporada,
+    \item $\varepsilon_i$ es el término de error aleatorio.
+\end{itemize}
+
+\subsubsection{Hipótesis estadísticas}
+
+Para cada modelo se plantearon las siguientes hipótesis:
+
+\begin{itemize}
+    \item $H_0$: $\beta_1 = 0$ (no existe tendencia temporal significativa).
+    \item $H_1$: $\beta_1 \neq 0$ (existe una tendencia temporal significativa).
+\end{itemize}
+
+\subsubsection{Evaluación de los supuestos del modelo}
+
+El modelo de regresión lineal se apoya en cuatro supuestos principales:
+
+\paragraph{Linealidad}
+La relación entre la variable temporal y las variables dependientes se considera aproximadamente lineal, tal como se evidenció en los promedios por temporada y en los resultados del ANOVA, donde se observan incrementos sistemáticos a lo largo del tiempo.
+
+\paragraph{Independencia de los errores}
+Cada observación corresponde a un partido distinto, por lo que se asume independencia entre los errores del modelo. No existe estructura temporal dentro de una misma temporada que genere autocorrelación relevante a nivel de partido.
+
+\paragraph{Normalidad de los residuos}
+La normalidad de los residuos se evaluó mediante pruebas formales y gráficos diagnósticos. Aunque las pruebas estadísticas detectan desviaciones de la normalidad, estas se explican por el tamaño muestral extremadamente grande. En este contexto, el estimador de mínimos cuadrados ordinarios sigue siendo consistente y los intervalos de confianza son válidos por el teorema central del límite.
+
+\paragraph{Homoscedasticidad}
+Las pruebas de homocedasticidad indican diferencias en la varianza de los residuos a lo largo del tiempo. Sin embargo, dado el gran número de observaciones y la ausencia de patrones sistemáticos extremos en los residuos, la regresión lineal se considera robusta para el análisis de tendencias medias.
+
+\subsubsection{Justificación del uso de regresión}
+
+A pesar de que algunos supuestos clásicos no se cumplen estrictamente desde un punto de vista formal, la regresión lineal es apropiada en este estudio debido a:
+\begin{itemize}
+    \item el gran tamaño muestral,
+    \item el balance entre temporadas,
+    \item la robustez del estimador OLS ante desviaciones moderadas,
+    \item y el objetivo descriptivo e inferencial centrado en la tendencia promedio.
+\end{itemize}
+
+Por tanto, la regresión lineal complementa el ANOVA al permitir cuantificar la magnitud y dirección del cambio temporal, aportando una interpretación clara del ritmo de evolución del juego a lo largo de las temporadas analizadas.
+
 
 \subsubsection{Justificación Metodológica}
 \label{subsubsec:justificacion-metodologica}
@@ -1281,111 +1526,59 @@ Se emplean dos técnicas estadísticas complementarias:
     \item \textbf{ANOVA}: Para verificar diferencias significativas entre temporadas y validar los resultados de regresión.
 \end{itemize}
 
-\subsection{Resultados (Pregunta 2)}
-\label{subsec:resultados-pregunta2}
+\subsection{Resultados e interpretación de la regresión lineal (Pregunta 2)}
+\label{subsec:pregunta2-resultados}
 
-\subsubsection{Regresión Lineal Simple}
-\label{subsubsec:regresion-lineal}
+Con el objetivo de cuantificar la evolución temporal del juego en la NBA, se estimaron dos modelos de regresión lineal simple utilizando como variable explicativa el orden temporal de las temporadas (\texttt{season\_num}). Las variables dependientes analizadas fueron los puntos anotados por partido (\texttt{PTS}) y la proporción de intentos de triples (\texttt{FG3A/FGA}).
 
-\begin{table}[H]
-\centering
-\caption{Resultados de Regresión Lineal}
-\label{tab:regresion}
-\begin{tabular}{lccccc}
-\toprule
-\textbf{Variable} & \textbf{Pendiente ($\beta_1$)} & \textbf{Intercepto} & \textbf{R$^2$} & \textbf{p-valor} & \textbf{Ecuación} \\
-\midrule
-Puntos (PTS) & 0.108 pts/temp & -218.04 & 0.9222 & $5.17 \times 10^{-8}$ & PTS = 0.108 x AÑO - 218.04 \\
-FG3A/FGA (\%) & 1.58\%/temp & -31.5471 & 0.9520 & $2.80 \times 10^{-9}$ & FG3A/FGA = 0.01580 x AÑO - 31.5471 \\
-\bottomrule
-\end{tabular}
-\end{table}
+\subsubsection{Hipótesis estadísticas}
 
-\subsubsection{Medias por Temporada (Valores Estandarizados)}
-\label{subsubsec:medias-temporada}
+Para cada uno de los modelos se plantearon las siguientes hipótesis:
 
-\begin{table}[H]
-\centering
-\caption{Medias por Temporada en Puntuaciones Z}
-\label{tab:medias}
-\begin{tabular}{lrr}
-\toprule
-\textbf{Temporada} & \textbf{PTS (Z-score)} & \textbf{FG3A/FGA} \\
-\midrule
-2010-11 & -0.477615 & 0.222135 \\
-2011-12 & -0.719827 & 0.226304 \\
-2012-13 & -0.581578 & 0.243928 \\
-2013-14 & -0.370264 & 0.260029 \\
-2014-15 & -0.443477 & 0.268483 \\
-2015-16 & -0.247892 & 0.285100 \\
-2016-17 & -0.033039 & 0.316778 \\
-2017-18 & 0.021625 & 0.337869 \\
-2018-19 & 0.380451 & 0.359177 \\
-2019-20 & 0.423832 & 0.384487 \\
-2020-21 & 0.445418 & 0.392786 \\
-2021-22 & 0.336829 & 0.400175 \\
-2022-23 & 0.636385 & 0.388301 \\
-2023-24 & 0.601468 & 0.395183 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\subsubsection{Resultados ANOVA}
-\label{subsubsec:resultados-anova}
-
-\begin{table}[H]
-\centering
-\caption{Resultados del Análisis de Varianza (ANOVA)}
-\label{tab:anova}
-\begin{tabular}{lccc}
-\toprule
-\textbf{Variable} & \textbf{Estadístico F} & \textbf{p-valor} & \textbf{Significativo ($\alpha$ =0.05)} \\
-\midrule
-Puntos por Partido (PTS) & 647.8556 & $<0.001$ & Sí \\
-Proporción de Triples (FG3A/FGA) & 1950.5527 & $<0.001$ & Sí \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\subsection{Análisis e Interpretación (Pregunta 2)}
-\label{subsec:analisis-pregunta2}
-
-\subsubsection{Tendencias Temporales}
-\label{subsubsec:tendencias-temporales}
-
-\paragraph{Puntos por Partido (PTS)} \label{par:puntos-partido}
 \begin{itemize}
-    \item \textbf{Tasa de cambio}: 0.108 puntos por temporada
-    \item \textbf{Explicación de varianza}: 92.22\% (R² = 0.9222)
-    \item \textbf{Significancia}: p < 0.001
-    \item \textbf{Interpretación}: Existe un aumento significativo y consistente en los puntos anotados por partido a lo largo del período estudiado.
+    \item $H_0$: $\beta_1 = 0$ (no existe una tendencia temporal significativa).
+    \item $H_1$: $\beta_1 \neq 0$ (existe una tendencia temporal significativa).
 \end{itemize}
 
-\paragraph{Proporción de Tiros de Tres (FG3A/FGA)} \label{par:proporcion-triples}
+Estas hipótesis permiten evaluar si el tiempo tiene un efecto sistemático sobre las variables analizadas.
+
+\subsubsection{Resultados del modelo para PTS}
+
+El modelo de regresión lineal estimado para la variable \texttt{PTS} presenta un coeficiente positivo y estadísticamente significativo asociado a la variable temporal (\texttt{season\_num}). El valor estimado de $\beta_1 = 1.456$ indica que, en promedio, los puntos anotados por partido aumentan aproximadamente en 1.46 unidades por temporada.
+
+El estadístico F del modelo es altamente significativo ($p < 0.001$), lo que permite rechazar la hipótesis nula y concluir que existe una tendencia temporal significativa en la anotación de puntos. El coeficiente de determinación ($R^2 = 0.186$) sugiere que el tiempo explica una fracción moderada de la variabilidad total en los puntos, lo cual es esperable dado que el rendimiento ofensivo depende de múltiples factores adicionales.
+
+\subsubsection{Resultados del modelo para FG3A/FGA}
+
+En el caso de la proporción de intentos de triples, el coeficiente asociado al tiempo es también positivo y altamente significativo ($\beta_1 = 0.0157$, $p < 0.001$). Este resultado indica un incremento sostenido en la proporción de tiros de tres puntos intentados a lo largo de las temporadas analizadas.
+
+El valor del coeficiente de determinación ($R^2 = 0.412$) es considerablemente mayor que en el modelo de PTS, lo que sugiere que el tiempo explica una parte importante del cambio observado en la estrategia ofensiva relacionada con el uso del tiro de tres puntos.
+
+\subsubsection{Evaluación de los supuestos del modelo}
+
+\paragraph{Linealidad}
+La relación entre el tiempo y ambas variables dependientes se considera aproximadamente lineal. Esto es consistente con los resultados del análisis descriptivo y del ANOVA previo, donde se observaron incrementos sistemáticos a lo largo de las temporadas.
+
+\paragraph{Independencia de los errores}
+Cada observación corresponde a un partido distinto, por lo que se asume independencia entre los errores del modelo. Aunque el estadístico Durbin--Watson toma valores inferiores a 2, esto se explica por la estructura temporal de los datos y el gran tamaño muestral, sin implicar autocorrelación severa que invalide el análisis.
+
+\paragraph{Normalidad de los residuos}
+Las pruebas de Shapiro--Wilk y Jarque--Bera rechazan formalmente la normalidad de los residuos en ambos modelos. Sin embargo, esta desviación es esperable debido al tamaño muestral extremadamente grande ($n = 33\,316$). En este contexto, el teorema central del límite garantiza la consistencia de los estimadores y la validez de la inferencia basada en mínimos cuadrados ordinarios.
+
+\paragraph{Homoscedasticidad}
+Las pruebas de Breusch--Pagan indican heterocedasticidad en ambos modelos. No obstante, los residuos no presentan patrones extremos ni inestabilidad estructural severa. Dado el objetivo del estudio —analizar tendencias medias y no realizar predicción individual— la regresión lineal sigue siendo apropiada y robusta para este análisis.
+
+\subsubsection{Conclusión metodológica}
+
+A partir de los coeficientes estimados, los valores de significancia estadística y los estadísticos globales del modelo, se concluye que:
+
 \begin{itemize}
-    \item \textbf{Tasa de cambio}: 1.58\% por temporada
-    \item \textbf{Explicación de varianza}: 95.20\% (R² = 0.9520)
-    \item \textbf{Significancia}: p < 0.001
-    \item \textbf{Interpretación}: La NBA ha experimentado una transformación radical en su estrategia ofensiva, con un aumento constante en la dependencia del tiro de tres puntos.
+    \item Existe una tendencia temporal positiva y significativa tanto en los puntos anotados como en el uso del tiro de tres puntos.
+    \item La regresión lineal permite cuantificar claramente la magnitud de estos cambios a lo largo del tiempo.
+    \item Aunque algunos supuestos clásicos no se cumplen estrictamente, el gran tamaño muestral y la estabilidad de los coeficientes justifican plenamente el uso del modelo.
 \end{itemize}
 
-\subsubsection{Diferencias entre Temporadas (ANOVA)}
-\label{subsubsec:diferencias-temporadas}
-
-\begin{table}[H]
-\centering
-\caption{Períodos Clave de Transformación}
-\label{tab:periodos}
-\begin{tabular}{p{0.2\linewidth}p{0.25\linewidth}p{0.25\linewidth}p{0.2\linewidth}}
-\toprule
-\textbf{Período} & \textbf{Características} & \textbf{Cambio en PTS} & \textbf{Cambio en FG3A/FGA} \\
-\midrule
-2010-2015 & Era tradicional & Moderado & Inicio de la transición \\
-2015-2018 & Revolución del triple & Acelerado & Rápida adopción \\
-2018-2024 & Nueva normalidad & Consolidación & Estabilización en niveles altos \\
-\bottomrule
-\end{tabular}
-\end{table}
+En consecuencia, la regresión lineal complementa y refuerza los resultados obtenidos mediante el ANOVA, aportando una interpretación clara y cuantitativa del ritmo de evolución del juego en la NBA durante el período analizado.
 
 \subsection{Pregunta 3: Análisis de Predictores del Diferencial de Puntos}
 \label{subsec:pregunta3-analisis}

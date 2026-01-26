@@ -1,0 +1,49 @@
+\subsection{Regresión lineal: FG3_ratio}
+
+\subsubsection{Resultados del modelo}
+\begin{center}
+\begin{tabular}{lclc}
+\toprule
+\textbf{Dep. Variable:}    &    FG3\_ratio    & \textbf{  R-squared:         } &     0.412   \\
+\textbf{Model:}            &       OLS        & \textbf{  Adj. R-squared:    } &     0.411   \\
+\textbf{Method:}           &  Least Squares   & \textbf{  F-statistic:       } & 2.330e+04   \\
+\textbf{Date:}             & Mon, 26 Jan 2026 & \textbf{  Prob (F-statistic):} &     0.00    \\
+\textbf{Time:}             &     03:52:33     & \textbf{  Log-Likelihood:    } &    38794.   \\
+\textbf{No. Observations:} &       33316      & \textbf{  AIC:               } & -7.758e+04  \\
+\textbf{Df Residuals:}     &       33314      & \textbf{  BIC:               } & -7.757e+04  \\
+\textbf{Df Model:}         &           1      & \textbf{                     } &             \\
+\textbf{Covariance Type:}  &    nonrobust     & \textbf{                     } &             \\
+\bottomrule
+\end{tabular}
+\begin{tabular}{lcccccc}
+                     & \textbf{coef} & \textbf{std err} & \textbf{t} & \textbf{P$> |$t$|$} & \textbf{[0.025} & \textbf{0.975]}  \\
+\midrule
+\textbf{const}       &       0.2177  &        0.001     &   276.243  &         0.000        &        0.216    &        0.219     \\
+\textbf{season\_num} &       0.0157  &        0.000     &   152.628  &         0.000        &        0.015    &        0.016     \\
+\bottomrule
+\end{tabular}
+\begin{tabular}{lclc}
+\textbf{Omnibus:}       & 507.475 & \textbf{  Durbin-Watson:     } &     0.929  \\
+\textbf{Prob(Omnibus):} &   0.000 & \textbf{  Jarque-Bera (JB):  } &   533.625  \\
+\textbf{Skew:}          &   0.298 & \textbf{  Prob(JB):          } & 1.33e-116  \\
+\textbf{Kurtosis:}      &   3.173 & \textbf{  Cond. No.          } &      14.8  \\
+\bottomrule
+\end{tabular}
+%\caption{OLS Regression Results}
+\end{center}
+
+Notes: \newline
+ [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+\subsubsection{Evaluación de supuestos}
+\begin{table}[H]
+\centering
+\begin{tabular}{lcc}
+\toprule
+Prueba & Estadístico & p-valor \\
+\midrule
+Shapiro--Wilk & 0.9934 & 0.0000 \\
+Breusch--Pagan & 50.9993 & 0.0000 \\
+\bottomrule
+\end{tabular}
+\caption{Evaluación de supuestos para la regresión de FG3_ratio}
+\end{table}
