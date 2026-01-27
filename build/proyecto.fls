@@ -427,7 +427,16 @@ INPUT .\images\boxplots\boxplot_BLK.png
 INPUT .\images\boxplots\boxplot_BLK.png
 INPUT .\images\boxplots\boxplot_BLK.png
 INPUT .\images\boxplots\boxplot_BLK.png
+INPUT .\latex_tables\resultados_logit.tex
+INPUT .\latex_tables\resultados_logit.tex
+INPUT latex_tables\resultados_logit.tex
+INPUT C:\Users\marti\AppData\Local\Programs\MiKTeX\tex\latex\base\omscmr.fd
+INPUT C:\Users\marti\AppData\Local\Programs\MiKTeX\tex\latex\base\omscmr.fd
+INPUT C:\Users\marti\AppData\Local\Programs\MiKTeX\tex\latex\base\omscmr.fd
 INPUT C:\Users\marti\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1200.tfm
+INPUT .\latex_tables\mann_whitney_fg3m.tex
+INPUT .\latex_tables\mann_whitney_fg3m.tex
+INPUT latex_tables\mann_whitney_fg3m.tex
 INPUT C:\Users\marti\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcbx1200.tfm
 INPUT c:\Users\marti\OneDrive\Documents\SCUL\estadistica1.19.2026\NBA_statistics\build\proyecto.aux
 INPUT c:\Users\marti\OneDrive\Documents\SCUL\estadistica1.19.2026\NBA_statistics\build\proyecto.out

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.27)  26 JAN 2026 03:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.27)  27 JAN 2026 10:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -392,6 +392,10 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 ) (c:\Users\marti\OneDrive\Documents\SCUL\estadistica1.19.2026\NBA_statistics\build\proyecto.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
+
+
+LaTeX Warning: Label `tab:metricas' multiply defined.
+
 )
 \openout1 = `proyecto.aux'.
 
@@ -496,7 +500,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.52 ...�n Metodológica}{37}{subsubsection.3.6.6}
+l.48 ...elo Estadístico}{38}{subsubsection.4.0.2}
                                                   % [1])
 \tf@toc=\write4
 \openout4 = `proyecto.toc'.
@@ -524,18 +528,18 @@ Overfull \hbox (15.96657pt too wide) in paragraph at lines 364--382
  []
 
 [9] [10] [11] [12] [13]
-<images/histograma_pts.png, id=428, 622.2447pt x 394.5942pt>
+<images/histograma_pts.png, id=318, 622.2447pt x 394.5942pt>
 File: images/histograma_pts.png Graphic file (type png)
 <use images/histograma_pts.png>
 Package pdftex.def Info: images/histograma_pts.png  used on input line 587.
 (pdftex.def)             Requested size: 217.42265pt x 137.87521pt.
-<images/poligono_acumulado_pts.png, id=430, 618.1494pt x 395.076pt>
+<images/poligono_acumulado_pts.png, id=320, 618.1494pt x 395.076pt>
 File: images/poligono_acumulado_pts.png Graphic file (type png)
 <use images/poligono_acumulado_pts.png>
 Package pdftex.def Info: images/poligono_acumulado_pts.png  used on input line 594.
 (pdftex.def)             Requested size: 217.42265pt x 138.95987pt.
  [14]
-<images/histograma_ast.png, id=436, 621.0402pt x 394.5942pt>
+<images/histograma_ast.png, id=326, 621.0402pt x 394.5942pt>
 File: images/histograma_ast.png Graphic file (type png)
 <use images/histograma_ast.png>
 Package pdftex.def Info: images/histograma_ast.png  used on input line 604.
@@ -545,49 +549,49 @@ Underfull \hbox (badness 6348) in paragraph at lines 605--605
 []\OT1/cmr/m/n/12 Figura 3: |His-to-gra-ma de Asis-ten-cias
  []
 
-<images/poligono_acumulado_ast.png, id=437, 614.7768pt x 395.076pt>
+<images/poligono_acumulado_ast.png, id=327, 614.7768pt x 395.076pt>
 File: images/poligono_acumulado_ast.png Graphic file (type png)
 <use images/poligono_acumulado_ast.png>
 Package pdftex.def Info: images/poligono_acumulado_ast.png  used on input line 611.
 (pdftex.def)             Requested size: 217.42265pt x 139.71944pt.
-<images/histograma_reb.png, id=438, 621.0402pt x 394.5942pt>
+<images/histograma_reb.png, id=328, 621.0402pt x 394.5942pt>
 File: images/histograma_reb.png Graphic file (type png)
 <use images/histograma_reb.png>
 Package pdftex.def Info: images/histograma_reb.png  used on input line 621.
 (pdftex.def)             Requested size: 217.42265pt x 138.14615pt.
-<images/poligono_acumulado_reb.png, id=439, 614.7768pt x 395.076pt>
+<images/poligono_acumulado_reb.png, id=329, 614.7768pt x 395.076pt>
 File: images/poligono_acumulado_reb.png Graphic file (type png)
 <use images/poligono_acumulado_reb.png>
 Package pdftex.def Info: images/poligono_acumulado_reb.png  used on input line 628.
 (pdftex.def)             Requested size: 217.42265pt x 139.71944pt.
 [15 <./images/histograma_pts.png> <./images/poligono_acumulado_pts.png> <./images/histograma_ast.png> <./images/poligono_acumulado_ast.png> <./images/histograma_reb.png> <./images/poligono_acumulado_reb.png>]
-<images/histograma_fg3_pct.png, id=454, 621.0402pt x 394.8351pt>
+<images/histograma_fg3_pct.png, id=344, 621.0402pt x 394.8351pt>
 File: images/histograma_fg3_pct.png Graphic file (type png)
 <use images/histograma_fg3_pct.png>
 Package pdftex.def Info: images/histograma_fg3_pct.png  used on input line 646.
 (pdftex.def)             Requested size: 217.42265pt x 138.2305pt.
-<images/poligono_acumulado_fg3_pct.png, id=455, 614.7768pt x 395.076pt>
+<images/poligono_acumulado_fg3_pct.png, id=345, 614.7768pt x 395.076pt>
 File: images/poligono_acumulado_fg3_pct.png Graphic file (type png)
 <use images/poligono_acumulado_fg3_pct.png>
 Package pdftex.def Info: images/poligono_acumulado_fg3_pct.png  used on input line 653.
 (pdftex.def)             Requested size: 217.42265pt x 139.71944pt.
-<images/histograma_ft_pct.png, id=456, 621.0402pt x 394.8351pt>
+<images/histograma_ft_pct.png, id=346, 621.0402pt x 394.8351pt>
 File: images/histograma_ft_pct.png Graphic file (type png)
 <use images/histograma_ft_pct.png>
 Package pdftex.def Info: images/histograma_ft_pct.png  used on input line 667.
 (pdftex.def)             Requested size: 217.42265pt x 138.2305pt.
-<images/poligono_acumulado_ft_pct.png, id=457, 614.7768pt x 395.076pt>
+<images/poligono_acumulado_ft_pct.png, id=347, 614.7768pt x 395.076pt>
 File: images/poligono_acumulado_ft_pct.png Graphic file (type png)
 <use images/poligono_acumulado_ft_pct.png>
 Package pdftex.def Info: images/poligono_acumulado_ft_pct.png  used on input line 674.
 (pdftex.def)             Requested size: 217.42265pt x 139.71944pt.
  [16 <./images/histograma_fg3_pct.png> <./images/poligono_acumulado_fg3_pct.png> <./images/histograma_ft_pct.png> <./images/poligono_acumulado_ft_pct.png>]
-<images/histograma_plus_minus.png, id=470, 626.5809pt x 394.8351pt>
+<images/histograma_plus_minus.png, id=360, 626.5809pt x 394.8351pt>
 File: images/histograma_plus_minus.png Graphic file (type png)
 <use images/histograma_plus_minus.png>
 Package pdftex.def Info: images/histograma_plus_minus.png  used on input line 688.
 (pdftex.def)             Requested size: 217.42265pt x 137.00145pt.
-<images/poligono_acumulado_plus_minus.png, id=471, 614.7768pt x 395.076pt>
+<images/poligono_acumulado_plus_minus.png, id=361, 614.7768pt x 395.076pt>
 File: images/poligono_acumulado_plus_minus.png Graphic file (type png)
 <use images/poligono_acumulado_plus_minus.png>
 Package pdftex.def Info: images/poligono_acumulado_plus_minus.png  used on input line 695.
@@ -597,28 +601,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 696--696
 []\OT1/cmr/m/n/12 Figura 12: |Pol^^S^^Pgono acu-mu-la-do de
  []
 
-<images/histograma_stl.png, id=472, 621.0402pt x 395.076pt>
+<images/histograma_stl.png, id=362, 621.0402pt x 395.076pt>
 File: images/histograma_stl.png Graphic file (type png)
 <use images/histograma_stl.png>
 Package pdftex.def Info: images/histograma_stl.png  used on input line 709.
 (pdftex.def)             Requested size: 217.42265pt x 138.31483pt.
-<images/poligono_acumulado_stl.png, id=473, 614.7768pt x 395.076pt>
+<images/poligono_acumulado_stl.png, id=363, 614.7768pt x 395.076pt>
 File: images/poligono_acumulado_stl.png Graphic file (type png)
 <use images/poligono_acumulado_stl.png>
 Package pdftex.def Info: images/poligono_acumulado_stl.png  used on input line 716.
 (pdftex.def)             Requested size: 217.42265pt x 139.71944pt.
 [17 <./images/histograma_plus_minus.png> <./images/poligono_acumulado_plus_minus.png>]
-<images/histograma_blk.png, id=482, 621.0402pt x 394.5942pt>
+<images/histograma_blk.png, id=372, 621.0402pt x 394.5942pt>
 File: images/histograma_blk.png Graphic file (type png)
 <use images/histograma_blk.png>
 Package pdftex.def Info: images/histograma_blk.png  used on input line 730.
 (pdftex.def)             Requested size: 217.42265pt x 138.14615pt.
-<images/poligono_acumulado_blk.png, id=483, 614.7768pt x 395.076pt>
+<images/poligono_acumulado_blk.png, id=373, 614.7768pt x 395.076pt>
 File: images/poligono_acumulado_blk.png Graphic file (type png)
 <use images/poligono_acumulado_blk.png>
 Package pdftex.def Info: images/poligono_acumulado_blk.png  used on input line 737.
 (pdftex.def)             Requested size: 217.42265pt x 139.71944pt.
-<images/histograma_fg3a_fga.png, id=484, 621.0402pt x 395.5578pt>
+<images/histograma_fg3a_fga.png, id=374, 621.0402pt x 395.5578pt>
 File: images/histograma_fg3a_fga.png Graphic file (type png)
 <use images/histograma_fg3a_fga.png>
 Package pdftex.def Info: images/histograma_fg3a_fga.png  used on input line 751.
@@ -628,7 +632,7 @@ Underfull \hbox (badness 3417) in paragraph at lines 752--752
 []\OT1/cmr/m/n/12 Figura 17: |His-to-gra-ma de Pro-por-ci^^Son
  []
 
-<images/poligono_acumulado_fg3a_fga.png, id=485, 614.7768pt x 395.076pt>
+<images/poligono_acumulado_fg3a_fga.png, id=375, 614.7768pt x 395.076pt>
 File: images/poligono_acumulado_fg3a_fga.png Graphic file (type png)
 <use images/poligono_acumulado_fg3a_fga.png>
 Package pdftex.def Info: images/poligono_acumulado_fg3a_fga.png  used on input line 758.
@@ -639,32 +643,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 759--759
  []
 
 [18 <./images/histograma_stl.png> <./images/poligono_acumulado_stl.png> <./images/histograma_blk.png> <./images/poligono_acumulado_blk.png>] [19 <./images/histograma_fg3a_fga.png> <./images/poligono_acumulado_fg3a_fga.png>]
-<images/boxplots/boxplot_PTS.png, id=509, 390.7398pt x 381.3447pt>
+<images/boxplots/boxplot_PTS.png, id=399, 390.7398pt x 381.3447pt>
 File: images/boxplots/boxplot_PTS.png Graphic file (type png)
 <use images/boxplots/boxplot_PTS.png>
 Package pdftex.def Info: images/boxplots/boxplot_PTS.png  used on input line 809.
 (pdftex.def)             Requested size: 135.89174pt x 132.62308pt.
-<images/boxplots/boxplot_FG3M.png, id=510, 384.2355pt x 381.3447pt>
+<images/boxplots/boxplot_FG3M.png, id=400, 384.2355pt x 381.3447pt>
 File: images/boxplots/boxplot_FG3M.png Graphic file (type png)
 <use images/boxplots/boxplot_FG3M.png>
 Package pdftex.def Info: images/boxplots/boxplot_FG3M.png  used on input line 816.
 (pdftex.def)             Requested size: 135.89174pt x 134.86916pt.
-<images/boxplots/boxplot_FG3A.png, id=511, 384.2355pt x 381.3447pt>
+<images/boxplots/boxplot_FG3A.png, id=401, 384.2355pt x 381.3447pt>
 File: images/boxplots/boxplot_FG3A.png Graphic file (type png)
 <use images/boxplots/boxplot_FG3A.png>
 Package pdftex.def Info: images/boxplots/boxplot_FG3A.png  used on input line 823.
 (pdftex.def)             Requested size: 135.89174pt x 134.86916pt.
-<images/boxplots/boxplot_AST.png, id=512, 384.2355pt x 381.3447pt>
+<images/boxplots/boxplot_AST.png, id=402, 384.2355pt x 381.3447pt>
 File: images/boxplots/boxplot_AST.png Graphic file (type png)
 <use images/boxplots/boxplot_AST.png>
 Package pdftex.def Info: images/boxplots/boxplot_AST.png  used on input line 832.
 (pdftex.def)             Requested size: 135.89174pt x 134.86916pt.
-<images/boxplots/boxplot_REB.png, id=513, 384.2355pt x 381.3447pt>
+<images/boxplots/boxplot_REB.png, id=403, 384.2355pt x 381.3447pt>
 File: images/boxplots/boxplot_REB.png Graphic file (type png)
 <use images/boxplots/boxplot_REB.png>
 Package pdftex.def Info: images/boxplots/boxplot_REB.png  used on input line 839.
 (pdftex.def)             Requested size: 135.89174pt x 134.86916pt.
-<images/boxplots/boxplot_TOV.png, id=514, 384.2355pt x 381.3447pt>
+<images/boxplots/boxplot_TOV.png, id=404, 384.2355pt x 381.3447pt>
 File: images/boxplots/boxplot_TOV.png Graphic file (type png)
 <use images/boxplots/boxplot_TOV.png>
 Package pdftex.def Info: images/boxplots/boxplot_TOV.png  used on input line 846.
@@ -675,121 +679,103 @@ Overfull \hbox (9.63196pt too wide) in paragraph at lines 876--880
  []
 
 [21 <./images/boxplots/boxplot_PTS.png> <./images/boxplots/boxplot_FG3M.png> <./images/boxplots/boxplot_FG3A.png> <./images/boxplots/boxplot_AST.png> <./images/boxplots/boxplot_REB.png> <./images/boxplots/boxplot_TOV.png>]
-<images/boxplots/boxplot_FG_PCT.png, id=532, 387.6081pt x 381.3447pt>
+<images/boxplots/boxplot_FG_PCT.png, id=422, 387.6081pt x 381.3447pt>
 File: images/boxplots/boxplot_FG_PCT.png Graphic file (type png)
 <use images/boxplots/boxplot_FG_PCT.png>
 Package pdftex.def Info: images/boxplots/boxplot_FG_PCT.png  used on input line 885.
 (pdftex.def)             Requested size: 203.83417pt x 200.54645pt.
-<images/boxplots/boxplot_FG3_PCT.png, id=533, 387.6081pt x 381.3447pt>
+<images/boxplots/boxplot_FG3_PCT.png, id=423, 387.6081pt x 381.3447pt>
 File: images/boxplots/boxplot_FG3_PCT.png Graphic file (type png)
 <use images/boxplots/boxplot_FG3_PCT.png>
 Package pdftex.def Info: images/boxplots/boxplot_FG3_PCT.png  used on input line 892.
 (pdftex.def)             Requested size: 203.83417pt x 200.54645pt.
-<images/boxplots/boxplot_FT_PCT.png, id=534, 387.6081pt x 381.3447pt>
+<images/boxplots/boxplot_FT_PCT.png, id=424, 387.6081pt x 381.3447pt>
 File: images/boxplots/boxplot_FT_PCT.png Graphic file (type png)
 <use images/boxplots/boxplot_FT_PCT.png>
 Package pdftex.def Info: images/boxplots/boxplot_FT_PCT.png  used on input line 901.
 (pdftex.def)             Requested size: 203.83417pt x 200.54645pt.
-<images/boxplots/boxplot_FG3A_FGA.png, id=535, 387.6081pt x 381.3447pt>
+<images/boxplots/boxplot_FG3A_FGA.png, id=425, 387.6081pt x 381.3447pt>
 File: images/boxplots/boxplot_FG3A_FGA.png Graphic file (type png)
 <use images/boxplots/boxplot_FG3A_FGA.png>
 Package pdftex.def Info: images/boxplots/boxplot_FG3A_FGA.png  used on input line 908.
 (pdftex.def)             Requested size: 203.83417pt x 200.54645pt.
-<images/boxplots/boxplot_PLUS_MINUS.png, id=536, 392.667pt x 381.3447pt>
+<images/boxplots/boxplot_PLUS_MINUS.png, id=426, 392.667pt x 381.3447pt>
 File: images/boxplots/boxplot_PLUS_MINUS.png Graphic file (type png)
 <use images/boxplots/boxplot_PLUS_MINUS.png>
 Package pdftex.def Info: images/boxplots/boxplot_PLUS_MINUS.png  used on input line 928.
 (pdftex.def)             Requested size: 226.48395pt x 219.95811pt.
  [22 <./images/boxplots/boxplot_FG_PCT.png> <./images/boxplots/boxplot_FG3_PCT.png> <./images/boxplots/boxplot_FT_PCT.png> <./images/boxplots/boxplot_FG3A_FGA.png>]
-<images/boxplots/boxplot_STL.png, id=547, 384.2355pt x 381.3447pt>
+<images/boxplots/boxplot_STL.png, id=437, 384.2355pt x 381.3447pt>
 File: images/boxplots/boxplot_STL.png Graphic file (type png)
 <use images/boxplots/boxplot_STL.png>
 Package pdftex.def Info: images/boxplots/boxplot_STL.png  used on input line 944.
 (pdftex.def)             Requested size: 226.48395pt x 224.77611pt.
  [23 <./images/boxplots/boxplot_PLUS_MINUS.png> <./images/boxplots/boxplot_STL.png>]
-<images/boxplots/boxplot_BLK.png, id=557, 393.8715pt x 381.3447pt>
+<images/boxplots/boxplot_BLK.png, id=447, 393.8715pt x 381.3447pt>
 File: images/boxplots/boxplot_BLK.png Graphic file (type png)
 <use images/boxplots/boxplot_BLK.png>
 Package pdftex.def Info: images/boxplots/boxplot_BLK.png  used on input line 960.
 (pdftex.def)             Requested size: 226.48395pt x 219.28313pt.
- [24 <./images/boxplots/boxplot_BLK.png>] [25] [26] [27] [28] [29] [30]
-Overfull \hbox (7.35529pt too wide) in paragraph at lines 1309--1313
- []\OT1/cmr/bx/n/12 Preparaci^^Son de las va-ria-bles[] \OT1/cmr/m/n/12 En pri-mer lu-gar, la va-ria-ble tem-po-ral \OT1/cmr/bx/n/12 SEA-SON[]YEAR
- []
+ [24 <./images/boxplots/boxplot_BLK.png>] [25] (latex_tables/resultados_logit.tex
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 41.
+ (C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
+File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 41.
+) [26] [27] [28] (latex_tables/mann_whitney_fg3m.tex) [29] [30] [31] [32]
 
-[31] [32]
-
-LaTeX Warning: Reference `tab:anova-desc-fg3' on page 33 undefined on input line 1391.
-
-
-LaTeX Warning: Reference `tab:anova-desc-pts' on page 33 undefined on input line 1391.
-
-[33]
-
-LaTeX Warning: Reference `tab:anova-fg3' on page 34 undefined on input line 1411.
+LaTeX Warning: Reference `tab:anova-fg3' on page 33 undefined on input line 1322.
 
 
-LaTeX Warning: Reference `tab:anova-pts' on page 34 undefined on input line 1411.
+LaTeX Warning: Reference `tab:anova-pts' on page 33 undefined on input line 1322.
 
+[33] [34] [35] [36]
 
-LaTeX Warning: Reference `tab:anova-supuestos' on page 34 undefined on input line 1427.
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 1477.
 
-[34] [35] [36] [37] [38] [39]
-Overfull \hbox (153.5814pt too wide) in paragraph at lines 1652--1664
+[37] [38]
+Overfull \hbox (153.5814pt too wide) in paragraph at lines 1543--1555
  [][] 
  []
 
-[40]
-Underfull \hbox (badness 6608) in paragraph at lines 1681--1682
+
+Underfull \hbox (badness 6608) in paragraph at lines 1572--1573
 []|\OT1/cmr/bx/n/12 Segundo pre-dic-tor m^^Sas im-por-tan-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1681--1682
+Underfull \hbox (badness 10000) in paragraph at lines 1572--1573
 \OT1/cmr/bx/n/12 te\OT1/cmr/m/n/12 . Ca-da re-bo-te adi-cio-nal in-cre-men-ta
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1682--1683
+Underfull \hbox (badness 10000) in paragraph at lines 1573--1574
 []|\OT1/cmr/m/n/12 Cada ro-bo adi-cio-nal in-cre-men-ta
  []
 
 
-Underfull \hbox (badness 3407) in paragraph at lines 1682--1683
+Underfull \hbox (badness 3407) in paragraph at lines 1573--1574
 \OT1/cmr/m/n/12 PLUS[]MINUS en 3.38 pun-tos, in-di-can-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1683--1684
+Underfull \hbox (badness 10000) in paragraph at lines 1574--1575
 []|\OT1/cmr/m/n/12 Cada p^^Serdi-da adi-cio-nal dis-mi-nu-ye
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1683--1684
+Underfull \hbox (badness 10000) in paragraph at lines 1574--1575
 \OT1/cmr/m/n/12 PLUS[]MINUS en 3.18 pun-tos, des-ta-
  []
 
 
-Overfull \hbox (50.61783pt too wide) in paragraph at lines 1676--1687
+Overfull \hbox (50.61783pt too wide) in paragraph at lines 1567--1578
  [][] 
  []
 
-[41] [42]
-Overfull \hbox (45.45738pt too wide) in paragraph at lines 1744--1744
-[]\OT1/cmr/bx/n/14.4 Pregunta 3: Pre-dic-to-res del di-fe-ren-cial de pun-tos (PLUS[]MINUS) 
- []
-
-
-Overfull \hbox (10.04044pt too wide) in paragraph at lines 1769--1770
-[]\OT1/cmr/bx/n/12 Variables de-fen-si-vas\OT1/cmr/m/n/12 : STL y REB mos-tra-ron im-pac-to sig-ni-fi-ca-ti-vo en PLUS[]MINUS 
- []
-
-[43]
-Overfull \hbox (14.19644pt too wide) in paragraph at lines 1787--1788
-[]\OT1/cmr/bx/n/12 Multicolinealidad\OT1/cmr/m/n/12 : Al-gu-nas va-ria-bles pre-dic-to-ras co-rre-la-cio-na-das (ej. AST-FG[]PCT) 
- []
-
-[44] [45] (c:\Users\marti\OneDrive\Documents\SCUL\estadistica1.19.2026\NBA_statistics\build\proyecto.aux
+[39] [40] [41] (c:\Users\marti\OneDrive\Documents\SCUL\estadistica1.19.2026\NBA_statistics\build\proyecto.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -801,21 +787,24 @@ L3 programming layer <2024-01-04>
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `proyecto.out' has not changed.
-(rerunfilecheck)             Checksum: 415F81F3C81D79F9697D7F23E3AF0AE2;16505.
+(rerunfilecheck)             Checksum: 6B415CECD52539D09DED9322E614DAB6;10898.
  ) 
 Here is how much of TeX's memory you used:
- 14981 strings out of 474486
- 245751 string characters out of 5743754
+ 14942 strings out of 474486
+ 245620 string characters out of 5743754
  1941542 words of memory out of 5000000
- 36862 multiletter control sequences out of 15000+600000
+ 36850 multiletter control sequences out of 15000+600000
  566332 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,79p,746b,783s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,11n,79p,861b,783s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1200.pk> <C:\Users\marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on c:\Users\marti\OneDrive\Documents\SCUL\estadistica1.19.2026\NBA_statistics\build\proyecto.pdf (46 pages, 3081871 bytes).
+Output written on c:\Users\marti\OneDrive\Documents\SCUL\estadistica1.19.2026\NBA_statistics\build\proyecto.pdf (42 pages, 3054856 bytes).
 PDF statistics:
- 802 PDF objects out of 1000 (max. 8388607)
- 211 named destinations out of 1000 (max. 500000)
- 692 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 661 PDF objects out of 1000 (max. 8388607)
+ 173 named destinations out of 1000 (max. 500000)
+ 516 words of extra memory for PDF output out of 10000 (max. 10000000)
 

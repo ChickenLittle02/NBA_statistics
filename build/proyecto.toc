@@ -6,83 +6,54 @@
 \contentsline {subsection}{\numberline {1.3}Análisis de la Distribución de Resultados}{13}{subsection.1.3}%
 \contentsline {subsection}{\numberline {1.4}Análisis gráfico de las distribuciones}{13}{subsection.1.4}%
 \contentsline {subsection}{\numberline {1.5}Boxplots y Detección de Valores Atípicos}{19}{subsection.1.5}%
-\contentsline {section}{\numberline {2}Análisis Estadístico de las Preguntas de Investigación}{24}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Pregunta 1: Análisis de la Relación entre Triples y Victoria}{24}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Preparación de los datos y verificación de supuestos}{25}{subsubsection.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.1.2}Conclusión General de la Pregunta 1}{26}{subsubsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.2}Prueba de Mann--Whitney U}{27}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Preparación de los datos}{27}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Verificación de los supuestos de la prueba}{28}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.3}Objetivo inferencial}{28}{subsubsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.3}Prueba de Mann--Whitney U para el número de triples anotados (FG3M)}{29}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Preparación de los datos}{29}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Hipótesis planteadas}{29}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Cumplimiento de los supuestos de la prueba}{29}{subsubsection.2.3.3}%
-\contentsline {subsubsection}{\numberline {2.3.4}Resultados e interpretación}{30}{subsubsection.2.3.4}%
-\contentsline {subsubsection}{\numberline {2.3.5}Conclusión de la prueba}{30}{subsubsection.2.3.5}%
-\contentsline {subsection}{\numberline {2.4}Pregunta 2: Análisis de la Evolución Temporal del Juego}{30}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Metodología Aplicada: ANOVA y Regresión Lineal}{30}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Preparación de los datos y verificación de supuestos del ANOVA}{31}{subsubsection.2.4.2}%
-\contentsline {paragraph}{Preparación de las variables}{31}{section*.56}%
-\contentsline {paragraph}{Independencia de las observaciones}{32}{section*.57}%
-\contentsline {paragraph}{Normalidad}{32}{section*.58}%
-\contentsline {paragraph}{Homoscedasticidad}{32}{section*.59}%
-\contentsline {paragraph}{Justificación final}{32}{section*.60}%
-\contentsline {section}{\numberline {3}Análisis ANOVA por temporada (Pregunta 2)}{33}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Preparación de los datos}{33}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Hipótesis estadísticas}{33}{subsection.3.2}%
-\contentsline {paragraph}{Para FG3A/FGA}{33}{section*.61}%
-\contentsline {paragraph}{Para PTS}{34}{section*.62}%
-\contentsline {subsection}{\numberline {3.3}Resultados del ANOVA}{34}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Evaluación de los supuestos del ANOVA}{34}{subsection.3.4}%
-\contentsline {paragraph}{Independencia}{34}{section*.63}%
-\contentsline {paragraph}{Normalidad de los residuos}{34}{section*.64}%
-\contentsline {paragraph}{Homogeneidad de varianzas}{34}{section*.65}%
-\contentsline {subsection}{\numberline {3.5}Conclusión}{35}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Regresión lineal para el análisis temporal (Pregunta 2)}{35}{subsection.3.6}%
-\contentsline {subsubsection}{\numberline {3.6.1}Preparación de los datos}{35}{subsubsection.3.6.1}%
-\contentsline {subsubsection}{\numberline {3.6.2}Especificación del modelo}{36}{subsubsection.3.6.2}%
-\contentsline {subsubsection}{\numberline {3.6.3}Hipótesis estadísticas}{36}{subsubsection.3.6.3}%
-\contentsline {subsubsection}{\numberline {3.6.4}Evaluación de los supuestos del modelo}{36}{subsubsection.3.6.4}%
-\contentsline {paragraph}{Linealidad}{36}{section*.66}%
-\contentsline {paragraph}{Independencia de los errores}{36}{section*.67}%
-\contentsline {paragraph}{Normalidad de los residuos}{37}{section*.68}%
-\contentsline {paragraph}{Homoscedasticidad}{37}{section*.69}%
-\contentsline {subsubsection}{\numberline {3.6.5}Justificación del uso de regresión}{37}{subsubsection.3.6.5}%
-\contentsline {subsubsection}{\numberline {3.6.6}Justificación Metodológica}{37}{subsubsection.3.6.6}%
-\contentsline {subsection}{\numberline {3.7}Resultados e interpretación de la regresión lineal (Pregunta 2)}{37}{subsection.3.7}%
-\contentsline {subsubsection}{\numberline {3.7.1}Hipótesis estadísticas}{38}{subsubsection.3.7.1}%
-\contentsline {subsubsection}{\numberline {3.7.2}Resultados del modelo para PTS}{38}{subsubsection.3.7.2}%
-\contentsline {subsubsection}{\numberline {3.7.3}Resultados del modelo para FG3A/FGA}{38}{subsubsection.3.7.3}%
-\contentsline {subsubsection}{\numberline {3.7.4}Evaluación de los supuestos del modelo}{38}{subsubsection.3.7.4}%
-\contentsline {paragraph}{Linealidad}{38}{section*.70}%
-\contentsline {paragraph}{Independencia de los errores}{39}{section*.71}%
-\contentsline {paragraph}{Normalidad de los residuos}{39}{section*.72}%
-\contentsline {paragraph}{Homoscedasticidad}{39}{section*.73}%
-\contentsline {subsubsection}{\numberline {3.7.5}Conclusión metodológica}{39}{subsubsection.3.7.5}%
-\contentsline {subsection}{\numberline {3.8}Pregunta 3: Análisis de Predictores del Diferencial de Puntos}{39}{subsection.3.8}%
-\contentsline {subsubsection}{\numberline {3.8.1}Justificación de la Regresión Múltiple}{39}{subsubsection.3.8.1}%
-\contentsline {subsubsection}{\numberline {3.8.2}Modelo Estadístico}{40}{subsubsection.3.8.2}%
-\contentsline {subsubsection}{\numberline {3.8.3}Hipótesis Estadísticas}{40}{subsubsection.3.8.3}%
-\contentsline {subsection}{\numberline {3.9}Resultados (Pregunta 3)}{40}{subsection.3.9}%
-\contentsline {subsubsection}{\numberline {3.9.1}Métricas Globales del Modelo}{40}{subsubsection.3.9.1}%
-\contentsline {subsubsection}{\numberline {3.9.2}Coeficientes de Regresión}{41}{subsubsection.3.9.2}%
-\contentsline {subsection}{\numberline {3.10}Análisis e Interpretación (Pregunta 3)}{41}{subsection.3.10}%
-\contentsline {subsubsection}{\numberline {3.10.1}Interpretación de los Coeficientes}{41}{subsubsection.3.10.1}%
-\contentsline {subsubsection}{\numberline {3.10.2}Análisis de Significancia Estadística}{41}{subsubsection.3.10.2}%
-\contentsline {paragraph}{Significancia Individual}{41}{section*.77}%
-\contentsline {paragraph}{Significancia Global}{42}{section*.78}%
-\contentsline {subsubsection}{\numberline {3.10.3}Poder Explicativo del Modelo}{42}{subsubsection.3.10.3}%
-\contentsline {section}{\numberline {4}Hallazgos Principales por Pregunta de Investigación}{42}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Pregunta 1: Relación entre triples y victoria}{42}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Pregunta 2: Evolución temporal del juego (2010-2024)}{42}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Pregunta 3: Predictores del diferencial de puntos (PLUS\_MINUS)}{43}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Síntesis General}{43}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Patrones identificados}{43}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Implicaciones estratégicas}{44}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Limitaciones del Estudio}{44}{section.6}%
-\contentsline {section}{\numberline {7}Extensiones y Mejoras Futuras}{44}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Mejoras metodológicas}{44}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Variables adicionales}{44}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Análisis comparativos}{45}{subsection.7.3}%
-\contentsline {section}{\numberline {8}Conclusiones Finales}{45}{section.8}%
+\contentsline {section}{\numberline {2}Pregunta 1: Análisis de la Relación entre Triples y Victoria}{24}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Regresión logística binaria}{25}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Evaluación de supuestos y resultados del modelo logístico}{26}{subsubsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.2}Prueba de Mann--Whitney U para el número de triples anotados (FG3M)}{28}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Preparación de los datos}{28}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Hipótesis planteadas}{29}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Resultados e interpretación}{29}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Conclusión de la prueba}{30}{subsubsection.2.2.4}%
+\contentsline {section}{\numberline {3}Pregunta 2: Análisis de la Evolución Temporal del Juego}{31}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Ejecución de ANOVA}{31}{subsection.3.1}%
+\contentsline {paragraph}{Homoscedasticidad}{32}{section*.63}%
+\contentsline {subsubsection}{\numberline {3.1.1}Preparación de los datos}{32}{subsubsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.2}Hipótesis estadísticas}{32}{subsection.3.2}%
+\contentsline {paragraph}{Para FG3A/FGA}{33}{section*.64}%
+\contentsline {paragraph}{Para PTS}{33}{section*.65}%
+\contentsline {subsection}{\numberline {3.3}Resultados del ANOVA}{33}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Conclusión}{33}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Regresión lineal para el análisis temporal (Pregunta 2)}{33}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Evaluación de los supuestos del modelo}{34}{subsubsection.3.5.1}%
+\contentsline {paragraph}{Linealidad}{34}{section*.66}%
+\contentsline {paragraph}{Independencia de los errores}{34}{section*.67}%
+\contentsline {paragraph}{Normalidad de los residuos}{34}{section*.68}%
+\contentsline {paragraph}{Homoscedasticidad}{34}{section*.69}%
+\contentsline {subsubsection}{\numberline {3.5.2}Justificación del uso de regresión}{34}{subsubsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.3}Evaluación de los supuestos del modelo}{35}{subsubsection.3.5.3}%
+\contentsline {paragraph}{Linealidad}{35}{section*.70}%
+\contentsline {paragraph}{Independencia de los errores}{35}{section*.71}%
+\contentsline {paragraph}{Normalidad de los residuos}{35}{section*.72}%
+\contentsline {paragraph}{Homoscedasticidad}{35}{section*.73}%
+\contentsline {subsubsection}{\numberline {3.5.4}Preparación de los datos}{35}{subsubsection.3.5.4}%
+\contentsline {subsubsection}{\numberline {3.5.5}Especificación del modelo}{36}{subsubsection.3.5.5}%
+\contentsline {subsubsection}{\numberline {3.5.6}Hipótesis estadísticas}{36}{subsubsection.3.5.6}%
+\contentsline {subsection}{\numberline {3.6}Resultados e interpretación de la regresión lineal (Pregunta 2)}{36}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}Hipótesis estadísticas}{36}{subsubsection.3.6.1}%
+\contentsline {subsubsection}{\numberline {3.6.2}Resultados del modelo para PTS}{37}{subsubsection.3.6.2}%
+\contentsline {subsubsection}{\numberline {3.6.3}Resultados del modelo para FG3A/FGA}{37}{subsubsection.3.6.3}%
+\contentsline {subsubsection}{\numberline {3.6.4}Conclusión metodológica}{37}{subsubsection.3.6.4}%
+\contentsline {section}{\numberline {4}Pregunta 3: Análisis de Predictores del Diferencial de Puntos}{38}{section.4}%
+\contentsline {subsubsection}{\numberline {4.0.1}Justificación de la Regresión Múltiple}{38}{subsubsection.4.0.1}%
+\contentsline {subsubsection}{\numberline {4.0.2}Modelo Estadístico}{38}{subsubsection.4.0.2}%
+\contentsline {subsubsection}{\numberline {4.0.3}Hipótesis Estadísticas}{38}{subsubsection.4.0.3}%
+\contentsline {subsection}{\numberline {4.1}Resultados (Pregunta 3)}{39}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Métricas Globales del Modelo}{39}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Coeficientes de Regresión}{39}{subsubsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.2}Análisis e Interpretación (Pregunta 3)}{40}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Interpretación de los Coeficientes}{40}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Análisis de Significancia Estadística}{40}{subsubsection.4.2.2}%
+\contentsline {paragraph}{Significancia Individual}{40}{section*.77}%
+\contentsline {paragraph}{Significancia Global}{40}{section*.78}%
+\contentsline {subsubsection}{\numberline {4.2.3}Poder Explicativo del Modelo}{41}{subsubsection.4.2.3}%
+\contentsline {section}{\numberline {5}Conclusiones Finales}{41}{section.5}%

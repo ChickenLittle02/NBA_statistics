@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1769417769.63867 "c:/Users/marti/OneDrive/Documents/SCUL/estadistica1.19.2026/NBA_statistics/proyecto.tex" "build/proyecto.pdf" "proyecto" 1769417779.11167 0
+["pdflatex"] 1769526103.20225 "c:/Users/marti/OneDrive/Documents/SCUL/estadistica1.19.2026/NBA_statistics/proyecto.tex" "build/proyecto.pdf" "proyecto" 1769526125.22899 0
   "C:/Users/marti/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1769062998 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/marti/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcbx1200.pk" 1768894120 15080 bf4c6e107576238154ce2a73414184dd ""
   "C:/Users/marti/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk" 1764268998 14064 f16ea6412b500bb66344b8f2fbdab0b0 ""
@@ -73,6 +73,7 @@
   "C:/Users/marti/AppData/Local/Programs/MiKTeX/tex/latex/base/atbegshi-ltx.sty" 1705273578 3045 273c666a54e60b9f730964f431a56c1b ""
   "C:/Users/marti/AppData/Local/Programs/MiKTeX/tex/latex/base/atveryend-ltx.sty" 1705273579 2462 6bc53756156dbd71c1ad550d30a3b93f ""
   "C:/Users/marti/AppData/Local/Programs/MiKTeX/tex/latex/base/inputenc.sty" 1705273578 5048 425739d70251273bf93e3d51f3c40048 ""
+  "C:/Users/marti/AppData/Local/Programs/MiKTeX/tex/latex/base/omscmr.fd" 1705273579 2469 74341109f164f230581718c66211c718 ""
   "C:/Users/marti/AppData/Local/Programs/MiKTeX/tex/latex/base/size12.clo" 1705273578 8449 f07039d8e4e89f21078d9b5137579bfc ""
   "C:/Users/marti/AppData/Local/Programs/MiKTeX/tex/latex/booktabs/booktabs.sty" 1579093635 6253 f1cb470c9199e7110a27851508ed7a5c ""
   "C:/Users/marti/AppData/Local/Programs/MiKTeX/tex/latex/caption/caption.sty" 1696169587 56128 c2ccf1a29d78c33bc553880402e4fb9a ""
@@ -113,10 +114,10 @@
   "C:/Users/marti/AppData/Local/Programs/MiKTeX/tex/latex/tools/longtable.sty" 1700599895 12935 94a3291359b5f73ff1b19345a6983105 ""
   "C:/Users/marti/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/marti/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "build/proyecto.aux" 1769417778 26340 33431dd0a2c2a237711e5b5a3dffd952 "pdflatex"
-  "build/proyecto.out" 1769417778 16505 415f81f3c81d79f9697d7f23e3af0ae2 "pdflatex"
-  "build/proyecto.toc" 1769417778 8413 af75c665cd667b1dfb913aaca9f34b94 "pdflatex"
-  "c:/Users/marti/OneDrive/Documents/SCUL/estadistica1.19.2026/NBA_statistics/proyecto.tex" 1769417747 98910 505dfd1624ff56b7c7fbee41c37511ea ""
+  "build/proyecto.aux" 1769526123 22309 f88ebdb5831ccc0252c25f4fbd444b14 "pdflatex"
+  "build/proyecto.out" 1769526123 10898 6b415cecd52539d09ded9322e614dab6 "pdflatex"
+  "build/proyecto.toc" 1769526123 5599 f694127077040b2ba20cb0b51d7f9172 "pdflatex"
+  "c:/Users/marti/OneDrive/Documents/SCUL/estadistica1.19.2026/NBA_statistics/proyecto.tex" 1769526086 88205 4690f2194a9039b921f35f46c1114424 ""
   "images/boxplots/boxplot_AST.png" 1769341301 53936 022cc8f95e32b536a530248320f5b4a8 ""
   "images/boxplots/boxplot_BLK.png" 1769341302 54012 97e7caddf4ab7d3d4b83ac919c94298a ""
   "images/boxplots/boxplot_FG3A.png" 1769341301 52234 a666feea2453797d3a83061688e763a5 ""
@@ -148,7 +149,9 @@
   "images/poligono_acumulado_pts.png" 1769272000 124463 0b2b453086eb21898300abeccaee64b2 ""
   "images/poligono_acumulado_reb.png" 1769272005 122541 4501ff7475d5c7f37eb5f138d718ba00 ""
   "images/poligono_acumulado_stl.png" 1769272006 126354 ad81effbb50c7857409ff89dc652443c ""
-  "proyecto.tex" 1769417747 98910 505dfd1624ff56b7c7fbee41c37511ea ""
+  "latex_tables/mann_whitney_fg3m.tex" 1769520646 661 1a8f91ba93651db0c8ed959ecf815bf4 ""
+  "latex_tables/resultados_logit.tex" 1769521517 1478 8608977ee616c7be349101241a30ddd4 ""
+  "proyecto.tex" 1769526086 88205 4690f2194a9039b921f35f46c1114424 ""
   (generated)
   "build/proyecto.aux"
   "build/proyecto.log"

@@ -1,0 +1,65 @@
+La correlación de Spearman entre FG3M y FG\_PCT fue $\rho = 0.280$ con un valor-p de $p = 0.0000$.
+
+\begin{table}[H]
+\centering
+\caption{Factores de Inflación de la Varianza (VIF)}
+\label{tab:vif}
+\begin{tabular}{lr}
+\toprule
+Variable & VIF \\
+\midrule
+const & 69.646 \\
+FG3M & 1.096 \\
+FG\_PCT & 1.096 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\caption{Coeficientes del modelo Logit}
+\label{tab:logit_coef}
+\begin{tabular}{lrrrr}
+\toprule
+ & Coeficiente & Std.Error & z & p-value \\
+\midrule
+const & -9.4013 & 0.1272 & -73.9209 & 0.0000 \\
+FG3M & 0.0496 & 0.0031 & 16.1441 & 0.0000 \\
+FG\_PCT & 19.3723 & 0.2787 & 69.5131 & 0.0000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\caption{Odds Ratios e intervalos de confianza al 95\%}
+\label{tab:odds_ratios}
+\begin{tabular}{lrrr}
+\toprule
+ & OR & CI 2.5\textbackslash \% & CI 97.5\textbackslash \% \\
+\midrule
+const & 0.0001 & 0.0001 & 0.0001 \\
+FG3M & 1.0508 & 1.0445 & 1.0572 \\
+FG\_PCT & 258998289.0146 & 149995784.2750 & 447213326.9393 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\caption{Métricas de ajuste del modelo}
+\label{tab:metricas}
+\begin{tabular}{lr}
+\toprule
+Métrica & Valor \\
+\midrule
+Pseudo \$R\textasciicircum 2\$ (McFadden) & 0.1683 \\
+Log-Likelihood & -19206.1154 \\
+AIC & 38418.2308 \\
+N Observaciones & 33316.0000 \\
+\bottomrule
+\end{tabular}
+\end{table}
