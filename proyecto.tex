@@ -1243,26 +1243,21 @@ conjunto de datos en múltiples grupos independientes, mientras que las variable
 comparar medias entre más de dos grupos, evitando la realización de múltiples contrastes
 bivariados que incrementarían el riesgo de error tipo I.
 
-La aplicación del ANOVA está respaldada por el análisis exploratorio previo. Los boxplots y
+Los boxplots y
 estadísticos descriptivos mostraron que, a nivel agregado por temporada, las distribuciones
 de PTS y FG3A/FGA presentan rangos intercuartílicos moderados y una variabilidad relativamente
-estable entre temporadas. Además, el elevado tamaño muestral por grupo permite invocar el
-teorema del límite central, de modo que las medias muestrales pueden considerarse
-aproximadamente normales, aun cuando los datos a nivel de partido no sigan estrictamente una
-distribución normal. Esta característica confiere robustez al ANOVA frente a desviaciones
-moderadas de normalidad.
+estable entre temporadas. Esta estabilidad sugiere que el supuesto de homogeneidad de
+varianzas se cumple de forma aproximada, sin evidencia de heterocedasticidad severa entre
+grupos como para invalidar el ANOVA, pues esta prueba es conocida por su robustez 
+ante heterocedasticidad moderada cuando los tamaños muestrales son grandes y balanceados.
 
-\paragraph{Homoscedasticidad}
+Asimismo, el elevado tamaño muestral por temporada permite invocar el teorema del límite
+central, de modo que las medias muestrales pueden considerarse aproximadamente normales,
+aun cuando los datos a nivel de partido no sigan estrictamente una distribución normal.
+Esta combinación de tamaños muestrales grandes y varianzas comparables confiere robustez al
+ANOVA frente a desviaciones moderadas de los supuestos clásicos, justificando su uso para
+evaluar diferencias globales entre temporadas.
 
-El supuesto de homogeneidad de varianzas implica que la dispersión de la variable respuesta
-sea comparable entre temporadas. La inspección gráfica mediante boxplots por temporada
-mostró rangos intercuartílicos relativamente estables, sin evidencia de varianzas
-extremadamente desiguales entre grupos.
-
-Si bien pueden existir diferencias leves en la variabilidad entre temporadas, estas no son
-suficientemente pronunciadas como para invalidar el ANOVA, el cual es conocido por su
-robustez ante heterocedasticidad moderada cuando los tamaños muestrales son grandes y
-balanceados.
 
 
 \subsubsection{Preparación de los datos}
@@ -1310,78 +1305,97 @@ Para cada variable dependiente se plantearon las siguientes hipótesis:
 \end{itemize}
 
 \subsection{Resultados del ANOVA}
+\input{latex_tables/anova_desc_fg3.tex}
 
-%\input{latex_tables/anova_descriptivos_fg3a_fga.tex}
+\input{latex_tables/anova_desc_pts.tex}
 
-%\input{latex_tables/anova_descriptivos_pts.tex}
+\input{latex_tables/anova_fg3.tex}
 
-%\input{latex_tables/anova_fg3a_fga.tex}
+\input{latex_tables/anova_pts.tex}
 
-%\input{latex_tables/anova_pts.tex}
+Los estadísticos descriptivos por temporada para la proporción de tiros de tres puntos
+intentados (FG3A/FGA) y para los puntos por partido (PTS) se presentan en las Tablas
+\ref{tab:anova-desc-fg3} y \ref{tab:anova-desc-pts}, respectivamente. En ambos casos se
+observa una evolución temporal clara: la media de FG3A/FGA muestra un incremento sostenido
+desde la temporada 2010--11 hasta 2023--24, mientras que la media de PTS presenta una
+tendencia general creciente, especialmente a partir de la segunda mitad del período
+analizado.
 
-Los resultados del ANOVA se presentan en las Tablas \ref{tab:anova-fg3} y \ref{tab:anova-pts}.
+El contraste formal mediante ANOVA de una vía confirma que estas diferencias descriptivas
+entre temporadas son estadísticamente significativas. Para la variable FG3A/FGA, el
+estadístico obtenido fue $F = 1950.55$ con un valor-p prácticamente nulo ($p < 0.001$), como
+se muestra en la Tabla \ref{tab:anova-fg3}. Este resultado proporciona evidencia muy fuerte
+para rechazar la hipótesis nula de igualdad de medias, indicando que la proporción de tiros
+de tres puntos intentados ha cambiado de manera significativa entre temporadas.
 
-Para la variable FG3A/FGA, el estadístico F obtenido es $F = 1950.55$ con un valor-p prácticamente nulo ($p < 0.001$). Esto proporciona evidencia estadística muy fuerte para rechazar la hipótesis nula, indicando que la proporción de triples ha cambiado significativamente entre temporadas.
+De forma análoga, el ANOVA aplicado a la variable PTS arrojó un estadístico
+$F = 647.86$ con $p < 0.001$ (Tabla \ref{tab:anova-pts}), lo que indica la existencia de
+diferencias estadísticamente significativas en la media de puntos por partido a lo largo de
+las distintas temporadas de la NBA.
 
-De manera análoga, para la variable PTS se obtuvo un estadístico $F = 647.86$ con $p < 0.001$, lo que indica diferencias estadísticamente significativas en la media de puntos por partido entre temporadas.
-
-Estos resultados son coherentes con los estadísticos descriptivos, donde se observa un incremento progresivo tanto en la proporción de triples como en la cantidad de puntos anotados a lo largo del tiempo.
-
-
-\subsection{Conclusión}
-
-En conclusión, los resultados del ANOVA muestran evidencia estadística contundente de que tanto la proporción de lanzamientos de tres puntos como la cantidad de puntos anotados por partido han variado significativamente entre temporadas. A pesar de que los supuestos de normalidad y homocedasticidad no se cumplen estrictamente según las pruebas formales, el gran tamaño de la muestra y el balance entre grupos permiten considerar válidas las conclusiones obtenidas.
-
-Estos hallazgos respaldan la idea de una evolución estructural del juego en la NBA, caracterizada por un aumento sostenido del uso del tiro de tres puntos y del ritmo ofensivo a lo largo del tiempo.
+En conjunto, los resultados del ANOVA corroboran desde un punto de vista inferencial lo
+observado en los estadísticos descriptivos: tanto el volumen ofensivo medido a través de
+PTS como la orientación hacia el tiro de tres puntos, capturada por FG3A/FGA, han
+experimentado cambios estructurales significativos a lo largo del tiempo. No obstante,
+aunque el ANOVA confirma la existencia de diferencias entre temporadas, no permite
+cuantificar la dirección ni la magnitud del cambio temporal, lo que motiva el uso de la
+regresión lineal como análisis complementario.
 
 
 
 \subsection{Regresión lineal para el análisis temporal (Pregunta 2)}
 \label{subsec:pregunta2-regresion}
 
-Con el objetivo de cuantificar la evolución temporal observada en el análisis descriptivo y confirmada por el ANOVA, se aplicó un modelo de regresión lineal simple para evaluar la relación entre el tiempo (temporadas) y las variables de interés.
+\subsection{Regresión lineal para el análisis temporal (Pregunta 2)}
+\label{subsec:pregunta2-regresion}
 
-\subsubsection{Evaluación de los supuestos del modelo}
+Con el objetivo de cuantificar de manera formal la evolución temporal identificada en el
+análisis descriptivo y confirmada mediante el ANOVA, se ajustó un modelo de regresión lineal
+simple que relaciona el tiempo, representado por las temporadas, con las variables de
+interés. Mientras que el ANOVA permitió establecer la existencia de diferencias
+estadísticamente significativas entre temporadas, la regresión lineal posibilita estimar la
+dirección y magnitud promedio del cambio a lo largo del período analizado.
 
-El modelo de regresión lineal se apoya en cuatro supuestos principales:
+La idoneidad del modelo se sustenta, en primer lugar, en la evidencia empírica obtenida a
+partir de los gráficos exploratorios. Los promedios por temporada, así como los boxplots,
+muestran una tendencia claramente monotónica y aproximadamente lineal en el tiempo, sin
+cambios abruptos de régimen ni comportamientos cíclicos pronunciados. Esta estructura
+justifica el supuesto de linealidad como una aproximación razonable para describir la
+tendencia media de las variables, incluso cuando existen variaciones intra-temporada a nivel
+de partido.
 
-\paragraph{Linealidad}
-La relación entre la variable temporal y las variables dependientes se considera aproximadamente lineal, tal como se evidenció en los promedios por temporada y en los resultados del ANOVA, donde se observan incrementos sistemáticos a lo largo del tiempo.
+En relación con la independencia de los errores, cada observación corresponde a un partido distinto, 
+lo que reduce la probabilidad de dependencia directa entre observaciones. Adicionalmente, la matriz de 
+correlación presentada en la Tabla \ref{tab:corr-temporal} muestra que las asociaciones relevantes se 
+concentran entre la variable temporal y las medias de las variables de interés, mientras que las correlaciones 
+entre las propias variables de resultado son de magnitud moderada. Este patrón es consistente con una 
+evolución estructural entre temporadas y no con una dependencia secuencial fuerte a nivel de partido. 
+Dado que el objetivo del modelo es capturar una tendencia global promedio entre temporadas, y no realizar 
+predicción temporal de corto plazo, la posible existencia de dependencias débiles intra-temporada no compromete 
+la validez del modelo lineal para inferencia sobre la media condicional.
 
-\paragraph{Independencia de los errores}
-Cada observación corresponde a un partido distinto, por lo que se asume independencia entre los errores del modelo. No existe estructura temporal dentro de una misma temporada que genere autocorrelación relevante a nivel de partido.
+\input{latex_tables/preg2/correlation_matrix.tex}
 
-\paragraph{Normalidad de los residuos}
-La normalidad de los residuos se evaluó mediante pruebas formales y gráficos diagnósticos. Aunque las pruebas estadísticas detectan desviaciones de la normalidad, estas se explican por el tamaño muestral extremadamente grande. En este contexto, el estimador de mínimos cuadrados ordinarios sigue siendo consistente y los intervalos de confianza son válidos por el teorema central del límite.
+El análisis de los histogramas de las variables y de los residuos indica desviaciones de la
+normalidad, principalmente asociadas a asimetrías leves y colas pesadas. Sin embargo, estas
+características ya se evidencian en los análisis descriptivos previos y están directamente
+relacionadas con el tamaño muestral muy elevado. En este contexto, las pruebas formales de
+normalidad tienden a ser excesivamente sensibles, mientras que el teorema central del límite
+garantiza la validez asintótica de los estimadores y de la inferencia basada en mínimos
+cuadrados ordinarios.
 
-\paragraph{Homoscedasticidad}
-Las pruebas de homocedasticidad indican diferencias en la varianza de los residuos a lo largo del tiempo. Sin embargo, dado el gran número de observaciones y la ausencia de patrones sistemáticos extremos en los residuos, la regresión lineal se considera robusta para el análisis de tendencias medias.
+De manera similar, los boxplots y los análisis de dispersión de los residuos sugieren cierta
+heterogeneidad en la varianza a lo largo del tiempo, consistente con los cambios
+estructurales del juego observados en el análisis previo. No obstante, dicha
+heteroscedasticidad no presenta patrones extremos ni compromete la estimación de la
+tendencia media, por lo que el modelo lineal sigue siendo una herramienta adecuada para el
+objetivo del estudio.
 
-\subsubsection{Justificación del uso de regresión}
-
-A pesar de que algunos supuestos clásicos no se cumplen estrictamente desde un punto de vista formal, la regresión lineal es apropiada en este estudio debido a:
-\begin{itemize}
-    \item el gran tamaño muestral,
-    \item el balance entre temporadas,
-    \item la robustez del estimador OLS ante desviaciones moderadas,
-    \item y el objetivo descriptivo e inferencial centrado en la tendencia promedio.
-\end{itemize}
-
-Por tanto, la regresión lineal complementa el ANOVA al permitir cuantificar la magnitud y dirección del cambio temporal, aportando una interpretación clara del ritmo de evolución del juego a lo largo de las temporadas analizadas.
-
-\subsubsection{Evaluación de los supuestos del modelo}
-
-\paragraph{Linealidad}
-La relación entre el tiempo y ambas variables dependientes se considera aproximadamente lineal. Esto es consistente con los resultados del análisis descriptivo y del ANOVA previo, donde se observaron incrementos sistemáticos a lo largo de las temporadas.
-
-\paragraph{Independencia de los errores}
-Cada observación corresponde a un partido distinto, por lo que se asume independencia entre los errores del modelo. Aunque el estadístico Durbin--Watson toma valores inferiores a 2, esto se explica por la estructura temporal de los datos y el gran tamaño muestral, sin implicar autocorrelación severa que invalide el análisis.
-
-\paragraph{Normalidad de los residuos}
-Las pruebas de Shapiro--Wilk y Jarque--Bera rechazan formalmente la normalidad de los residuos en ambos modelos. Sin embargo, esta desviación es esperable debido al tamaño muestral extremadamente grande ($n = 33\,316$). En este contexto, el teorema central del límite garantiza la consistencia de los estimadores y la validez de la inferencia basada en mínimos cuadrados ordinarios.
-
-\paragraph{Homoscedasticidad}
-Las pruebas de Breusch--Pagan indican heterocedasticidad en ambos modelos. No obstante, los residuos no presentan patrones extremos ni inestabilidad estructural severa. Dado el objetivo del estudio —analizar tendencias medias y no realizar predicción individual— la regresión lineal sigue siendo apropiada y robusta para este análisis.
+En conjunto, la evidencia gráfica, descriptiva y estadística obtenida en las etapas
+anteriores respalda el uso de la regresión lineal como un modelo robusto para
+el análisis temporal. Así, la regresión no sustituye al ANOVA, sino que lo complementa,
+permitiendo traducir las diferencias entre temporadas en una estimación cuantitativa del
+ritmo de evolución del juego a lo largo del período analizado.
 
 
 
@@ -1404,9 +1418,9 @@ Para la implementación del modelo de regresión se realizaron los siguientes pa
 
 Esta preparación permite interpretar directamente los coeficientes estimados como el cambio promedio por temporada en cada variable.
 
+\subsubsection{Detalles del modelo}
 
-
-\subsubsection{Especificación del modelo}
+Con el objetivo de cuantificar la evolución temporal del juego en la NBA, se estimaron dos modelos de regresión lineal simple utilizando como variable explicativa el orden temporal de las temporadas (\texttt{season\_num}). Las variables dependientes analizadas fueron los puntos anotados por partido (\texttt{PTS}) y la proporción de intentos de triples (\texttt{FG3A/FGA}).
 
 Para cada variable dependiente se estimó el siguiente modelo:
 
@@ -1422,54 +1436,36 @@ donde:
     \item $\varepsilon_i$ es el término de error aleatorio.
 \end{itemize}
 
-\subsubsection{Hipótesis estadísticas}
-
-Para cada modelo se plantearon las siguientes hipótesis:
+El cual con el objetivo de evaluar si el tiempo tiene un efecto sistemático sobre las variables analizadas
+plantea las siguientes hipótesis:
 
 \begin{itemize}
     \item $H_0$: $\beta_1 = 0$ (no existe tendencia temporal significativa).
     \item $H_1$: $\beta_1 \neq 0$ (existe una tendencia temporal significativa).
 \end{itemize}
 
-\subsection{Resultados e interpretación de la regresión lineal (Pregunta 2)}
+\subsection{Análisis de los resultados del modelo}
 \label{subsec:pregunta2-resultados}
 
-Con el objetivo de cuantificar la evolución temporal del juego en la NBA, se estimaron dos modelos de regresión lineal simple utilizando como variable explicativa el orden temporal de las temporadas (\texttt{season\_num}). Las variables dependientes analizadas fueron los puntos anotados por partido (\texttt{PTS}) y la proporción de intentos de triples (\texttt{FG3A/FGA}).
+\input{latex_tables/preg2/regression_fg3_ratio.tex}
 
-\subsubsection{Hipótesis estadísticas}
-
-Para cada uno de los modelos se plantearon las siguientes hipótesis:
-
-\begin{itemize}
-    \item $H_0$: $\beta_1 = 0$ (no existe una tendencia temporal significativa).
-    \item $H_1$: $\beta_1 \neq 0$ (existe una tendencia temporal significativa).
-\end{itemize}
-
-Estas hipótesis permiten evaluar si el tiempo tiene un efecto sistemático sobre las variables analizadas.
+\input{latex_tables/preg2/regression_pts.tex}
 
 \subsubsection{Resultados del modelo para PTS}
 
-El modelo de regresión lineal estimado para la variable \texttt{PTS} presenta un coeficiente positivo y estadísticamente significativo asociado a la variable temporal (\texttt{season\_num}). El valor estimado de $\beta_1 = 1.456$ indica que, en promedio, los puntos anotados por partido aumentan aproximadamente en 1.46 unidades por temporada.
+Los resultados de la regresión lineal para la variable \texttt{PTS}, presentados en la Tabla \ref{tab:reg-pts}, evidencian una relación positiva y estadísticamente significativa entre el tiempo y la cantidad de puntos anotados por partido. El coeficiente estimado para la variable temporal es $\beta_1 = 0.1071$ ($p < 0.001$), lo que indica que, en promedio, los puntos por partido aumentan aproximadamente en 0.11 unidades por cada temporada considerada en el orden cronológico del análisis.
 
-El estadístico F del modelo es altamente significativo ($p < 0.001$), lo que permite rechazar la hipótesis nula y concluir que existe una tendencia temporal significativa en la anotación de puntos. El coeficiente de determinación ($R^2 = 0.186$) sugiere que el tiempo explica una fracción moderada de la variabilidad total en los puntos, lo cual es esperable dado que el rendimiento ofensivo depende de múltiples factores adicionales.
+El estadístico F del modelo resulta altamente significativo, lo que permite rechazar la hipótesis nula de ausencia de relación temporal y confirmar la existencia de una tendencia creciente en la anotación de puntos a lo largo del período analizado. El coeficiente de determinación obtenido ($R^2 = 0.186$) sugiere que el tiempo explica cerca del 19% de la variabilidad observada en los puntos por partido. Este valor, aunque moderado, es consistente con la naturaleza multifactorial del rendimiento ofensivo, el cual depende además de variables tácticas, contextuales y de composición de plantillas que no se incorporan explícitamente en el modelo.
 
 \subsubsection{Resultados del modelo para FG3A/FGA}
 
-En el caso de la proporción de intentos de triples, el coeficiente asociado al tiempo es también positivo y altamente significativo ($\beta_1 = 0.0157$, $p < 0.001$). Este resultado indica un incremento sostenido en la proporción de tiros de tres puntos intentados a lo largo de las temporadas analizadas.
+En el caso de la proporción de intentos de triples, los resultados mostrados en la Tabla \ref{tab:reg-fg3_ratio} revelan una relación temporal aún más marcada. El coeficiente asociado a la variable \texttt{season\_num} es positivo y altamente significativo, con un valor estimado de $\beta_1 = 0.0157$ ($p < 0.001$). Este resultado indica que, en promedio, la proporción de tiros de tres puntos intentados aumenta aproximadamente en 0.016 unidades por temporada, reflejando un cambio sostenido en la estrategia ofensiva de los equipos a lo largo del tiempo.
 
-El valor del coeficiente de determinación ($R^2 = 0.412$) es considerablemente mayor que en el modelo de PTS, lo que sugiere que el tiempo explica una parte importante del cambio observado en la estrategia ofensiva relacionada con el uso del tiro de tres puntos.
+El coeficiente de determinación del modelo ($R^2 = 0.412$) es considerablemente mayor que el obtenido para la variable PTS, lo que sugiere que el paso del tiempo explica una fracción sustancial de la variabilidad observada en el uso del tiro de tres puntos. Este hallazgo es coherente con la evidencia descriptiva y con los resultados del ANOVA, y confirma que la adopción progresiva del tiro exterior constituye uno de los principales motores de la evolución ofensiva del juego durante el período analizado.
 
-\subsubsection{Conclusión metodológica}
+\subsubsection{Conclusión de la prueba}
 
-A partir de los coeficientes estimados, los valores de significancia estadística y los estadísticos globales del modelo, se concluye que:
-
-\begin{itemize}
-    \item Existe una tendencia temporal positiva y significativa tanto en los puntos anotados como en el uso del tiro de tres puntos.
-    \item La regresión lineal permite cuantificar claramente la magnitud de estos cambios a lo largo del tiempo.
-    \item Aunque algunos supuestos clásicos no se cumplen estrictamente, el gran tamaño muestral y la estabilidad de los coeficientes justifican plenamente el uso del modelo.
-\end{itemize}
-
-En consecuencia, la regresión lineal complementa y refuerza los resultados obtenidos mediante el ANOVA, aportando una interpretación clara y cuantitativa del ritmo de evolución del juego en la NBA durante el período analizado.
+\subsection{Conclusion General de la pregunta}
 
 \section{Pregunta 3: Análisis de Predictores del Diferencial de Puntos}
 \label{subsec:pregunta3-analisis}
