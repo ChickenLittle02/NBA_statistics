@@ -31,10 +31,10 @@
 \contentsline {subsubsection}{\numberline {3.6.3}Conclusión de la prueba}{39}{subsubsection.3.6.3}%
 \contentsline {subsection}{\numberline {3.7}Conclusion General de la pregunta}{39}{subsection.3.7}%
 \contentsline {section}{\numberline {4}Pregunta 3: Análisis de Predictores del Diferencial de Puntos}{39}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Preparación de los datos}{41}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.1}Preparación de los datos}{42}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Análisis gráfico de relaciones lineales con \texttt {PLUS\_MINUS}}{42}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Análisis de Componentes Principales y regresión}{46}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.3}Análisis de Componentes Principales y regresión}{47}{subsection.4.3}%
 \contentsline {subsubsection}{\numberline {4.3.1}Modelo Estadístico}{48}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Hipótesis Estadísticas}{48}{subsubsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.4}Análisis del funcionamiento del modelo de regresión}{48}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Conclusiones}{50}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.3.2}Hipótesis Estadísticas}{49}{subsubsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.4}Análisis del funcionamiento del modelo de regresión}{49}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Conclusiones}{51}{subsection.4.5}%

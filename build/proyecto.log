@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.27)  28 JAN 2026 06:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.27)  28 JAN 2026 07:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -500,7 +500,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.39 ... modelo de regresión}{48}{subsection.4.4}
+l.39 ... modelo de regresión}{49}{subsection.4.4}
                                                   % [1])
 \tf@toc=\write4
 \openout4 = `proyecto.toc'.
@@ -728,62 +728,59 @@ Overfull \hbox (8.66293pt too wide) in paragraph at lines 1324--1330
 \OT1/cmr/m/n/12 crip-ti-vas en-tre tem-po-ra-das son es-tad^^S^^Psti-ca-men-te sig-ni-fi-ca-ti-vas. Pa-ra la va-ria-ble FG3A/FGA,
  []
 
-[34] (latex_tables/preg2/correlation_matrix.tex) [35] [36] (latex_tables/preg2/regression_fg3_ratio.tex) (latex_tables/preg2/regression_pts.tex) [37] [38] [39] (latex_tables/preg3/correlaciones.tex
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) [40] [41]
+[34] (latex_tables/preg2/correlation_matrix.tex) [35] [36] (latex_tables/preg2/regression_fg3_ratio.tex) (latex_tables/preg2/regression_pts.tex) [37] [38] [39] [40] (latex_tables/preg3/correlaciones.tex) [41]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 1509.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 1511.
 <images/dispersion/disp_AST_plus_minus.png, id=526, 433.62pt x 289.08pt>
 File: images/dispersion/disp_AST_plus_minus.png Graphic file (type png)
 <use images/dispersion/disp_AST_plus_minus.png>
-Package pdftex.def Info: images/dispersion/disp_AST_plus_minus.png  used on input line 1515.
+Package pdftex.def Info: images/dispersion/disp_AST_plus_minus.png  used on input line 1517.
 (pdftex.def)             Requested size: 317.07614pt x 211.39275pt.
-<images/dispersion/disp_BLK_plus_minus.png, id=527, 433.62pt x 289.08pt>
+ [42]
+<images/dispersion/disp_BLK_plus_minus.png, id=532, 433.62pt x 289.08pt>
 File: images/dispersion/disp_BLK_plus_minus.png Graphic file (type png)
 <use images/dispersion/disp_BLK_plus_minus.png>
-Package pdftex.def Info: images/dispersion/disp_BLK_plus_minus.png  used on input line 1524.
+Package pdftex.def Info: images/dispersion/disp_BLK_plus_minus.png  used on input line 1526.
 (pdftex.def)             Requested size: 317.07614pt x 211.39275pt.
- [42 <./images/dispersion/disp_AST_plus_minus.png>]
-<images/dispersion/disp_FG_PCT_plus_minus.png, id=535, 433.62pt x 289.08pt>
+<images/dispersion/disp_FG_PCT_plus_minus.png, id=533, 433.62pt x 289.08pt>
 File: images/dispersion/disp_FG_PCT_plus_minus.png Graphic file (type png)
 <use images/dispersion/disp_FG_PCT_plus_minus.png>
-Package pdftex.def Info: images/dispersion/disp_FG_PCT_plus_minus.png  used on input line 1533.
+Package pdftex.def Info: images/dispersion/disp_FG_PCT_plus_minus.png  used on input line 1535.
 (pdftex.def)             Requested size: 317.07614pt x 211.39275pt.
-<images/dispersion/disp_FG3_PCT_plus_minus.png, id=536, 433.62pt x 289.08pt>
+ [43 <./images/dispersion/disp_AST_plus_minus.png> <./images/dispersion/disp_BLK_plus_minus.png>]
+<images/dispersion/disp_FG3_PCT_plus_minus.png, id=542, 433.62pt x 289.08pt>
 File: images/dispersion/disp_FG3_PCT_plus_minus.png Graphic file (type png)
 <use images/dispersion/disp_FG3_PCT_plus_minus.png>
-Package pdftex.def Info: images/dispersion/disp_FG3_PCT_plus_minus.png  used on input line 1542.
+Package pdftex.def Info: images/dispersion/disp_FG3_PCT_plus_minus.png  used on input line 1544.
 (pdftex.def)             Requested size: 317.07614pt x 211.39275pt.
- [43 <./images/dispersion/disp_BLK_plus_minus.png> <./images/dispersion/disp_FG_PCT_plus_minus.png>]
-<images/dispersion/disp_FT_PCT_plus_minus.png, id=545, 433.62pt x 289.08pt>
+ [44 <./images/dispersion/disp_FG_PCT_plus_minus.png> <./images/dispersion/disp_FG3_PCT_plus_minus.png>]
+<images/dispersion/disp_FT_PCT_plus_minus.png, id=551, 433.62pt x 289.08pt>
 File: images/dispersion/disp_FT_PCT_plus_minus.png Graphic file (type png)
 <use images/dispersion/disp_FT_PCT_plus_minus.png>
-Package pdftex.def Info: images/dispersion/disp_FT_PCT_plus_minus.png  used on input line 1551.
+Package pdftex.def Info: images/dispersion/disp_FT_PCT_plus_minus.png  used on input line 1553.
 (pdftex.def)             Requested size: 317.07614pt x 211.39275pt.
 
-Underfull \hbox (badness 1472) in paragraph at lines 1552--1552
+Underfull \hbox (badness 1472) in paragraph at lines 1554--1554
 []\OT1/cmr/m/n/12 Figura 28: |Re-la-ci^^Son en-tre por-cen-ta-je de ti-ros li-bres es-tan-da-ri-za-do (FT[]PCT) y
  []
 
-<images/dispersion/disp_REB_plus_minus.png, id=546, 433.62pt x 289.08pt>
+<images/dispersion/disp_REB_plus_minus.png, id=552, 433.62pt x 289.08pt>
 File: images/dispersion/disp_REB_plus_minus.png Graphic file (type png)
 <use images/dispersion/disp_REB_plus_minus.png>
-Package pdftex.def Info: images/dispersion/disp_REB_plus_minus.png  used on input line 1560.
+Package pdftex.def Info: images/dispersion/disp_REB_plus_minus.png  used on input line 1562.
 (pdftex.def)             Requested size: 317.07614pt x 211.39275pt.
-[44 <./images/dispersion/disp_FG3_PCT_plus_minus.png> <./images/dispersion/disp_FT_PCT_plus_minus.png>]
-<images/dispersion/disp_STL_plus_minus.png, id=555, 433.62pt x 289.08pt>
+[45 <./images/dispersion/disp_FT_PCT_plus_minus.png> <./images/dispersion/disp_REB_plus_minus.png>]
+<images/dispersion/disp_STL_plus_minus.png, id=561, 433.62pt x 289.08pt>
 File: images/dispersion/disp_STL_plus_minus.png Graphic file (type png)
 <use images/dispersion/disp_STL_plus_minus.png>
-Package pdftex.def Info: images/dispersion/disp_STL_plus_minus.png  used on input line 1569.
+Package pdftex.def Info: images/dispersion/disp_STL_plus_minus.png  used on input line 1571.
 (pdftex.def)             Requested size: 317.07614pt x 211.39275pt.
-<images/dispersion/disp_TOV_plus_minus.png, id=556, 433.62pt x 289.08pt>
+<images/dispersion/disp_TOV_plus_minus.png, id=562, 433.62pt x 289.08pt>
 File: images/dispersion/disp_TOV_plus_minus.png Graphic file (type png)
 <use images/dispersion/disp_TOV_plus_minus.png>
-Package pdftex.def Info: images/dispersion/disp_TOV_plus_minus.png  used on input line 1578.
+Package pdftex.def Info: images/dispersion/disp_TOV_plus_minus.png  used on input line 1580.
 (pdftex.def)             Requested size: 317.07614pt x 211.39275pt.
- [45 <./images/dispersion/disp_REB_plus_minus.png> <./images/dispersion/disp_STL_plus_minus.png>] (latex_tables/preg3/pca_varianza.tex) [46 <./images/dispersion/disp_TOV_plus_minus.png>] (latex_tables/preg3/pca_cargas.tex) [47] (latex_tables/preg3/regresion_pca.tex [48]) [49] [50] (c:\Users\marti\OneDrive\Documents\SCUL\estadistica1.19.2026\NBA_statistics\build\proyecto.aux
+ [46 <./images/dispersion/disp_STL_plus_minus.png> <./images/dispersion/disp_TOV_plus_minus.png>] (latex_tables/preg3/pca_varianza.tex) (latex_tables/preg3/pca_cargas.tex) [47] [48] (latex_tables/preg3/regresion_pca.tex [49]) [50] [51] (c:\Users\marti\OneDrive\Documents\SCUL\estadistica1.19.2026\NBA_statistics\build\proyecto.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -802,17 +799,17 @@ Package rerunfilecheck Info: File `proyecto.out' has not changed.
 (rerunfilecheck)             Checksum: 09C998478D4885E014C45B3CDABE0718;9297.
  ) 
 Here is how much of TeX's memory you used:
- 15065 strings out of 474486
- 251456 string characters out of 5743754
+ 15066 strings out of 474486
+ 251463 string characters out of 5743754
  1943542 words of memory out of 5000000
  36937 multiletter control sequences out of 15000+600000
  566160 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,10n,79p,1143b,781s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on c:\Users\marti\OneDrive\Documents\SCUL\estadistica1.19.2026\NBA_statistics\build\proyecto.pdf (51 pages, 4245085 bytes).
+Output written on c:\Users\marti\OneDrive\Documents\SCUL\estadistica1.19.2026\NBA_statistics\build\proyecto.pdf (52 pages, 4246772 bytes).
 PDF statistics:
- 673 PDF objects out of 1000 (max. 8388607)
- 173 named destinations out of 1000 (max. 500000)
+ 677 PDF objects out of 1000 (max. 8388607)
+ 174 named destinations out of 1000 (max. 500000)
  492 words of extra memory for PDF output out of 10000 (max. 10000000)
 
