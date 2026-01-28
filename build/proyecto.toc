@@ -31,24 +31,10 @@
 \contentsline {subsubsection}{\numberline {3.6.3}Conclusión de la prueba}{39}{subsubsection.3.6.3}%
 \contentsline {subsection}{\numberline {3.7}Conclusion General de la pregunta}{39}{subsection.3.7}%
 \contentsline {section}{\numberline {4}Pregunta 3: Análisis de Predictores del Diferencial de Puntos}{39}{section.4}%
-\contentsline {subsubsection}{\numberline {4.0.1}Justificación de la Regresión Múltiple}{39}{subsubsection.4.0.1}%
-\contentsline {subsubsection}{\numberline {4.0.2}Modelo Estadístico}{39}{subsubsection.4.0.2}%
-\contentsline {subsubsection}{\numberline {4.0.3}Hipótesis Estadísticas}{39}{subsubsection.4.0.3}%
-\contentsline {subsection}{\numberline {4.1}Resultados (Pregunta 3)}{40}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Métricas Globales del Modelo}{40}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Coeficientes de Regresión}{40}{subsubsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.2}Análisis e Interpretación (Pregunta 3)}{41}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Interpretación de los Coeficientes}{41}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Análisis de Significancia Estadística}{41}{subsubsection.4.2.2}%
-\contentsline {paragraph}{Significancia Individual}{41}{section*.75}%
-\contentsline {paragraph}{Significancia Global}{41}{section*.76}%
-\contentsline {subsubsection}{\numberline {4.2.3}Poder Explicativo del Modelo}{42}{subsubsection.4.2.3}%
-\contentsline {section}{\numberline {5}Conclusiones Finales}{42}{section.5}%
-\contentsline {section}{\numberline {6}Pregunta 3 new}{42}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Preparación de los datos}{44}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Análisis gráfico de relaciones lineales con \texttt {PLUS\_MINUS}}{45}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Análisis de Componentes Principales y regresión}{50}{subsection.6.3}%
-\contentsline {subsubsection}{\numberline {6.3.1}Modelo Estadístico}{51}{subsubsection.6.3.1}%
-\contentsline {subsubsection}{\numberline {6.3.2}Hipótesis Estadísticas}{52}{subsubsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.4}Análisis del funcionamiento del modelo de regresión}{52}{subsection.6.4}%
-\contentsline {section}{\numberline {7}Conclusiones}{54}{section.7}%
+\contentsline {subsection}{\numberline {4.1}Preparación de los datos}{41}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Análisis gráfico de relaciones lineales con \texttt {PLUS\_MINUS}}{42}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Análisis de Componentes Principales y regresión}{46}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Modelo Estadístico}{48}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Hipótesis Estadísticas}{48}{subsubsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.4}Análisis del funcionamiento del modelo de regresión}{48}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Conclusiones}{50}{subsection.4.5}%

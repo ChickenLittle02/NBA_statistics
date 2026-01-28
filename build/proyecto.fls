@@ -458,7 +458,6 @@ INPUT latex_tables\preg2\regression_fg3_ratio.tex
 INPUT .\latex_tables\preg2\regression_pts.tex
 INPUT .\latex_tables\preg2\regression_pts.tex
 INPUT latex_tables\preg2\regression_pts.tex
-INPUT C:\Users\marti\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcbx1200.tfm
 INPUT .\latex_tables\preg3\correlaciones.tex
 INPUT .\latex_tables\preg3\correlaciones.tex
 INPUT latex_tables\preg3\correlaciones.tex
@@ -531,8 +530,6 @@ INPUT latex_tables\preg3\regresion_pca.tex
 INPUT c:\Users\marti\OneDrive\Documents\SCUL\estadistica1.19.2026\NBA_statistics\build\proyecto.aux
 INPUT c:\Users\marti\OneDrive\Documents\SCUL\estadistica1.19.2026\NBA_statistics\build\proyecto.out
 INPUT c:\Users\marti\OneDrive\Documents\SCUL\estadistica1.19.2026\NBA_statistics\build\proyecto.out
-INPUT C:\Users\marti\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcbx1200.pk
-INPUT C:\Users\marti\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcbx1200.pk
 INPUT C:\Users\marti\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk
 INPUT C:\Users\marti\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk
 INPUT C:\Users\marti\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
@@ -549,8 +546,6 @@ INPUT C:\Users\marti\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\marti\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
 INPUT C:\Users\marti\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\marti\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
-INPUT C:\Users\marti\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
-INPUT C:\Users\marti\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
 INPUT C:\Users\marti\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti12.pfb
 INPUT C:\Users\marti\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti12.pfb
 INPUT C:\Users\marti\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt12.pfb

@@ -1,10 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1769600595.22102 "c:/Users/marti/OneDrive/Documents/SCUL/estadistica1.19.2026/NBA_statistics/proyecto.tex" "build/proyecto.pdf" "proyecto" 1769600608.45132 0
+["pdflatex"] 1769600880.91152 "c:/Users/marti/OneDrive/Documents/SCUL/estadistica1.19.2026/NBA_statistics/proyecto.tex" "build/proyecto.pdf" "proyecto" 1769600892.92576 0
   "C:/Users/marti/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1769062998 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
-  "C:/Users/marti/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcbx1200.pk" 1768894120 15080 bf4c6e107576238154ce2a73414184dd ""
   "C:/Users/marti/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk" 1764268998 14064 f16ea6412b500bb66344b8f2fbdab0b0 ""
   "C:/Users/marti/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1764268636 24225047 302043b249b88f1a4c32602dcb7c6e49 ""
-  "C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcbx1200.tfm" 993062480 1460 c2cb5e454e8738f66affedaaf44788d5 ""
   "C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm1200.tfm" 993062508 1444 95ffe0f19b974d50849790c8225c7ef7 ""
   "C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -34,7 +32,6 @@
   "C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1247596667 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1247596667 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
-  "C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1247596667 32626 5abc8bb2f28aa647d4c70f8ea38cc0d3 ""
   "C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb" 1247596667 36118 fad905eba93cff5bce1e185fe980a177 ""
   "C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb" 1247596666 24252 1e4e051947e12dfb50fee0b7f4e26e3a ""
   "C:/Users/marti/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
@@ -114,10 +111,10 @@
   "C:/Users/marti/AppData/Local/Programs/MiKTeX/tex/latex/tools/longtable.sty" 1700599895 12935 94a3291359b5f73ff1b19345a6983105 ""
   "C:/Users/marti/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/marti/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "build/proyecto.aux" 1769600607 27725 7e915fbe655a0206ffb5b1fae82cb8a6 "pdflatex"
-  "build/proyecto.out" 1769600607 11799 e5e378bf6262d2a125ba76d98d7ff51b "pdflatex"
-  "build/proyecto.toc" 1769600607 5369 a7d8e4942fec4eb4723e67227607e2ac "pdflatex"
-  "c:/Users/marti/OneDrive/Documents/SCUL/estadistica1.19.2026/NBA_statistics/proyecto.tex" 1769600580 111155 ac153b766d47f103562ab19cccfe1378 ""
+  "build/proyecto.aux" 1769600892 23572 d9779e085aa33f946499fc0268b89440 "pdflatex"
+  "build/proyecto.out" 1769600892 9297 09c998478d4885e014c45b3cdabe0718 "pdflatex"
+  "build/proyecto.toc" 1769600892 4041 a5b40ede45c776b5faf25ad2d86e9b54 "pdflatex"
+  "c:/Users/marti/OneDrive/Documents/SCUL/estadistica1.19.2026/NBA_statistics/proyecto.tex" 1769600870 104342 7be69a3734c88c99bc870c532baedaa5 ""
   "images/boxplots/boxplot_AST.png" 1769587709 80855 509e783c6fd9eba20ce9ad5a69dd009e ""
   "images/boxplots/boxplot_BLK.png" 1769587711 75847 968745a2b1f1ac6836562d3e72fb09a9 ""
   "images/boxplots/boxplot_FG3A.png" 1769587709 77850 60fc4f89b06f4a217e8cfb5cded005ee ""
@@ -170,7 +167,7 @@
   "latex_tables/preg3/pca_varianza.tex" 1769598634 528 ed732aae465205ebcec38c051b40e17b ""
   "latex_tables/preg3/regresion_pca.tex" 1769598634 2581 bf7f7bd3e8219bd503defed02fa37997 ""
   "latex_tables/resultados_logit.tex" 1769547968 1478 8608977ee616c7be349101241a30ddd4 ""
-  "proyecto.tex" 1769600580 111155 ac153b766d47f103562ab19cccfe1378 ""
+  "proyecto.tex" 1769600870 104342 7be69a3734c88c99bc870c532baedaa5 ""
   (generated)
   "build/proyecto.aux"
   "build/proyecto.log"
