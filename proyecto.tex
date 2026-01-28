@@ -1612,4 +1612,186 @@ FG\_PCT & 73.388 & 0.498 & 147.39 & < 0.001 & 72.411 & 74.365 \\
     \item Los hallazgos proporcionan \textbf{evidencia cuantitativa sólida} para decisiones estratégicas en baloncesto profesional
 \end{enumerate}
 
+
+\section{Pregunta 3 new}
+
+\vspace{0.3cm}
+
+¿Que combinación de estadísticas de juego (por ejemplo, asistencias AST, rebotes REB, robos STL, porcentaje de tiros FG\_PCT) predice de manera más robusta la diferencia de puntos (PLUS\_MINUS) en un partido?
+
+\vspace{0.3cm}
+
+La pregunta planteada busca identificar qué combinación de estadísticas de juego predice de manera más robusta el diferencial de puntos (PLUS\_MINUS) en un partido. Dado que la variable respuesta es cuantitativa continua y que se dispone de múltiples variables predictoras también cuantitativas, la regresión lineal múltiple constituye una herramienta metodológicamente adecuada para este objetivo. Este enfoque permite estimar de forma simultánea la contribución marginal de cada estadística del box score, controlando el efecto del resto de variables, y evaluar tanto la dirección como la magnitud de su asociación con el impacto neto del equipo en el marcador.
+
+La aplicabilidad del modelo se sustenta en la verificación razonable de sus supuestos básicos. En primer lugar, se asume una relación aproximadamente lineal entre las variables explicativas y el diferencial de puntos. El análisis descriptivo previo muestra que PLUS\_MINUS presenta una distribución perfectamente simétrica, centrada en cero y con una forma aproximadamente normal, lo que sugiere que puede responder de manera lineal a variaciones en métricas de rendimiento colectivo. De igual forma, variables como asistencias, rebotes, pérdidas de balón y porcentajes de tiro exhiben comportamientos estables y continuos, coherentes con relaciones lineales esperables en el contexto del baloncesto.
+
+El supuesto de independencia de las observaciones también resulta razonable, dado que cada registro corresponde a un partido distinto y no se observa una estructura jerárquica ni dependencia temporal explícita entre los encuentros analizados. En cuanto a la homocedasticidad, la dispersión simétrica del diferencial de puntos y la ausencia de concentraciones extremas en regiones específicas sugieren una varianza de los errores aproximadamente constante a lo largo del rango de valores predichos, lo cual puede ser confirmado posteriormente mediante el análisis de residuos.
+
+Respecto a la normalidad de los errores, la distribución centrada y simétrica de PLUS\_MINUS favorece la obtención de residuos aproximadamente normales. Aunque algunas variables predictoras, como robos y bloqueos, presentan asimetrías propias de variables de conteo con límite inferior en cero, esta característica no invalida el modelo, ya que la normalidad se exige a los residuos y no a las variables explicativas.
+
+El supuesto más delicado del modelo corresponde a la ausencia de multicolinealidad severa entre los predictores. Dado que varias métricas del box score describen dimensiones relacionadas del juego, como la eficiencia ofensiva, el control del balón y la intensidad defensiva, resulta necesario evaluar empíricamente el grado de asociación lineal entre las variables explicativas. Con este objetivo, se construyó la matriz de correlaciones entre las variables estandarizadas, presentada en la Tabla \ref{tab:correlaciones}, como una herramienta diagnóstica preliminar para identificar posibles relaciones lineales elevadas que pudieran comprometer la estabilidad del modelo de regresión.
+
+El análisis de la matriz de correlaciones revela que, en general, las asociaciones entre los predictores son de magnitud baja a moderada. Las correlaciones más altas se observan entre AST y FG\_PCT (0.559), así como entre FG\_PCT y FG3\_PCT (0.490), y entre AST y FG3\_PCT (0.374). Estos valores reflejan una relación esperable entre métricas vinculadas a la eficiencia ofensiva y al movimiento del balón, sin alcanzar niveles considerados problemáticos desde el punto de vista de la multicolinealidad severa.
+
+El resto de las correlaciones presentan magnitudes reducidas, cercanas a cero, como ocurre entre STL y BLK (0.009), BLK y FG\_PCT (0.043), o FT\_PCT con el resto de las variables, cuyos coeficientes no superan en valor absoluto el 0.045. Asimismo, las correlaciones negativas observadas, como la existente entre REB y FG\_PCT (-0.171) o entre AST y TOV (-0.062), son de baja magnitud y no sugieren dependencias lineales fuertes.
+
+En conjunto, estos resultados indican que, si bien existen asociaciones conceptualmente coherentes entre algunas métricas ofensivas, no se detectan correlaciones extremadamente altas que indiquen la presencia de multicolinealidad severa. No obstante, la coexistencia de relaciones moderadas entre variables relacionadas con la eficiencia ofensiva justifica la consideración de técnicas complementarias, como el análisis de componentes principales, para mejorar la estabilidad de los coeficientes y facilitar la interpretación global del modelo.
+
+\input{latex_tables/preg3/correlaciones.tex}
+
+A pesar de esta limitación, la regresión lineal múltiple resulta útil para abordar el problema planteado, ya que permite identificar qué estadísticas están asociadas de forma significativa a un diferencial de puntos positivo y distinguir entre métricas estructurales del rendimiento colectivo y métricas más dependientes del contexto del partido. No obstante, para mitigar los efectos de la multicolinealidad y mejorar la robustez del modelo, resulta metodológicamente pertinente aplicar un análisis de componentes principales (PCA) como paso previo a la regresión.
+
+La aplicación de componentes principales permite reducir la dimensionalidad del conjunto de predictores sin una pérdida sustancial de información, condensando la variabilidad compartida de las estadísticas del box score en un número reducido de componentes no correlacionados entre sí. Este procedimiento elimina la multicolinealidad, garantiza el cumplimiento del supuesto de independencia entre predictores y mejora la estabilidad de las estimaciones. Además, los componentes obtenidos pueden interpretarse como dimensiones latentes del juego, asociadas a la producción ofensiva, la eficiencia de tiro, el control del balón y la intensidad defensiva, lo que aporta una lectura táctica coherente del modelo.
+
+
+\subsection{Preparación de los datos}
+
+La preparación de los datos comienza con la selección de las variables relevantes para el análisis, considerando como variable respuesta el diferencial de puntos del equipo en el partido (\texttt{PLUS\_MINUS}) y como variables explicativas un conjunto de estadísticas del box score asociadas al rendimiento ofensivo y defensivo. Con el fin de garantizar la coherencia del análisis multivariante, se eliminan aquellas observaciones que presentan valores faltantes en cualquiera de las variables consideradas, asegurando así una base de datos completa y consistente para la aplicación del análisis de componentes principales y la regresión lineal.
+
+Antes de aplicar el análisis de componentes principales, todas las variables explicativas son sometidas a un proceso de estandarización mediante el método de puntuaciones tipificadas. Este procedimiento transforma cada variable restando su media y dividiéndola por su desviación estándar, de modo que todas queden expresadas en una escala común con media cero y varianza unitaria. La estandarización es necesaria debido a que las métricas analizadas se encuentran originalmente en escalas heterogéneas, lo que podría provocar que aquellas con mayor varianza dominen artificialmente la extracción de componentes principales.
+
+La estandarización utilizada corresponde al escalado clásico implementado por el algoritmo \texttt{StandardScaler}, el cual preserva la forma de las distribuciones originales y las relaciones lineales entre variables, limitándose a una transformación de escala. Este enfoque resulta especialmente adecuado tanto para el análisis de componentes principales, que se basa en la estructura de varianzas y covarianzas, como para la regresión lineal posterior, ya que mejora la estabilidad numérica del modelo y facilita la interpretación de las relaciones entre variables.
+
+\subsection{Análisis gráfico de relaciones lineales con \texttt{PLUS\_MINUS}}
+
+Una vez estandarizadas las variables explicativas, se procede a evaluar de forma exploratoria la relación lineal entre cada predictor y el diferencial de puntos mediante gráficos de dispersión. En todos los casos, las variables explicativas representadas en el eje horizontal han sido previamente estandarizadas, con media cero y desviación estándar unitaria, lo cual facilita la comparación directa de la intensidad y dirección de las relaciones observadas entre distintas métricas de juego.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/dispersion/disp_AST_plus_minus.png}
+    \caption{Relación entre asistencias estandarizadas (AST) y \texttt{PLUS\_MINUS}.}
+    \label{fig:disp_ast}
+\end{figure}
+
+En el caso de las asistencias (AST), se aprecia una relación positiva moderada con el \texttt{PLUS\_MINUS}. A medida que aumenta el valor estandarizado de las asistencias, el diferencial de puntos tiende a incrementarse. La nube de puntos presenta una dispersión relativamente contenida alrededor de una tendencia ascendente, lo que sugiere que el juego colectivo y la creación de oportunidades para los compañeros se asocian de manera consistente con un mayor impacto positivo en el marcador.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/dispersion/disp_BLK_plus_minus.png}
+    \caption{Relación entre bloqueos estandarizados (BLK) y \texttt{PLUS\_MINUS}.}
+    \label{fig:disp_blk}
+\end{figure}
+
+El gráfico correspondiente a los bloqueos (BLK) muestra una relación débil o prácticamente neutra con el \texttt{PLUS\_MINUS}. La distribución de los puntos se concentra en columnas verticales, reflejando la naturaleza discreta de esta estadística. Aunque la protección del aro es un aspecto defensivo relevante, un mayor número de tapones individuales no se traduce necesariamente en un diferencial de puntos favorable.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/dispersion/disp_FG_PCT_plus_minus.png}
+    \caption{Relación entre porcentaje de tiros de campo estandarizado (FG\_PCT) y \texttt{PLUS\_MINUS}.}
+    \label{fig:disp_fgpct}
+\end{figure}
+
+La efectividad en tiros de campo (FG\_PCT) presenta una de las relaciones más claras y robustas con el \texttt{PLUS\_MINUS}. El gráfico evidencia una tendencia lineal positiva bien definida, con una diagonal pronunciada y relativamente poca dispersión. Esto indica que una mayor eficiencia ofensiva se asocia de manera directa con un impacto positivo en el marcador.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/dispersion/disp_FG3_PCT_plus_minus.png}
+    \caption{Relación entre porcentaje de triples estandarizado (FG3\_PCT) y \texttt{PLUS\_MINUS}.}
+    \label{fig:disp_fg3pct}
+\end{figure}
+
+El porcentaje de triples (FG3\_PCT) muestra una relación positiva con el \texttt{PLUS\_MINUS}, aunque con una dispersión mayor que la observada en el porcentaje total de tiros de campo. Esta variabilidad indica que el triple es una herramienta ofensiva potente pero volátil, cuyo impacto depende en gran medida del contexto general del juego y del desempeño en otras áreas.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/dispersion/disp_FT_PCT_plus_minus.png}
+    \caption{Relación entre porcentaje de tiros libres estandarizado (FT\_PCT) y \texttt{PLUS\_MINUS}.}
+    \label{fig:disp_ftpct}
+\end{figure}
+
+El gráfico de los tiros libres (FT\_PCT) presenta una relación positiva general con el \texttt{PLUS\_MINUS}, aunque con una concentración de observaciones en valores extremadamente bajos del eje horizontal. Estas observaciones corresponden probablemente a jugadores con un volumen muy reducido de intentos desde la línea, que tras la estandarización adquieren valores extremos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/dispersion/disp_REB_plus_minus.png}
+    \caption{Relación entre rebotes estandarizados (REB) y \texttt{PLUS\_MINUS}.}
+    \label{fig:disp_reb}
+\end{figure}
+
+El análisis de los rebotes totales (REB) revela una correlación positiva sólida con el \texttt{PLUS\_MINUS}. La nube de puntos presenta una tendencia ascendente clara, lo que refuerza la idea de que el control de las posesiones constituye un factor determinante para mantener un diferencial de puntos favorable.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/dispersion/disp_STL_plus_minus.png}
+    \caption{Relación entre robos estandarizados (STL) y \texttt{PLUS\_MINUS}.}
+    \label{fig:disp_stl}
+\end{figure}
+
+Los robos de balón (STL) muestran una relación ligeramente positiva pero altamente dispersa con el \texttt{PLUS\_MINUS}. Aunque un robo genera una oportunidad inmediata, la elevada variabilidad sugiere que intentar robar el balón en exceso puede comprometer el balance defensivo.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/dispersion/disp_TOV_plus_minus.png}
+    \caption{Relación entre pérdidas de balón estandarizadas (TOV) y \texttt{PLUS\_MINUS}.}
+    \label{fig:disp_tov}
+\end{figure}
+
+Finalmente, el gráfico correspondiente a las pérdidas de balón (TOV) muestra una relación aparentemente neutra o ligeramente negativa con el \texttt{PLUS\_MINUS}. Este patrón refleja que los jugadores con mayor responsabilidad ofensiva tienden a acumular más pérdidas, pero también compensan estos errores con una mayor contribución global al rendimiento del equipo.
+
+En conjunto, el análisis visual sugiere que la eficiencia en el tiro de campo, el control del rebote y la generación de asistencias destacan como los predictores más consistentes del impacto positivo en el marcador, lo que justifica el uso posterior de modelos de regresión multivariante y análisis de componentes principales.
+
+
+
+\subsection{Análisis de Componentes Principales y regresión}
+
+Dado que el análisis gráfico y la matriz de correlaciones evidencian la existencia de relaciones moderadas entre varias variables explicativas, se emplea el Análisis de Componentes Principales (PCA) como una técnica de reducción de dimensionalidad previa a la estimación del modelo de regresión. El objetivo principal del PCA en este contexto es transformar el conjunto original de variables correlacionadas en un nuevo conjunto de componentes ortogonales, eliminando la dependencia lineal entre predictores y mejorando la estabilidad del modelo.
+
+El algoritmo se aplica sobre las variables previamente estandarizadas, garantizando que todas contribuyan de forma equilibrada a la construcción de los componentes. A partir de la descomposición espectral de la matriz de covarianzas, se obtienen los autovalores y las cargas factoriales que describen la importancia relativa de cada componente y la contribución de las variables originales a su definición.
+
+Los resultados del PCA muestran que el primer componente principal explica el 24.73\% de la varianza total del conjunto de datos, mientras que los cinco primeros componentes acumulan aproximadamente el 78.03\% de la variabilidad total, tal como se observa en la Tabla \ref{tab:pca_varianza}. Este criterio de varianza acumulada justifica la retención de un subconjunto reducido de componentes que conserva la mayor parte de la información original, evitando el uso directo de todas las variables iniciales.
+\input{latex_tables/preg3/pca_varianza.tex}
+
+El análisis de las cargas factoriales, presentado en la Tabla \ref{tab:pca_cargas}, permite interpretar conceptualmente los componentes principales. El primer componente está dominado por las variables asociadas a la eficiencia ofensiva y al juego colectivo, destacándose el porcentaje de tiros de campo (FG\_PCT), las asistencias (AST) y el porcentaje de triples (FG3\_PCT), todas con cargas positivas elevadas. El segundo componente refleja principalmente el control del rebote y la protección del aro, con contribuciones relevantes de REB y BLK, mientras que el tercer componente está fuertemente asociado a las acciones defensivas y de presión, particularmente los robos de balón (STL) y las pérdidas (TOV).
+\input{latex_tables/preg3/pca_cargas.tex}
+
+A partir de los componentes seleccionados, se estima un modelo de regresión lineal utilizando como predictores los componentes principales retenidos y como variable respuesta el diferencial de puntos (\texttt{PLUS\_MINUS}). Este enfoque permite capturar la relación entre el rendimiento global del equipo y las dimensiones latentes del juego identificadas por el PCA, evitando problemas de multicolinealidad y facilitando una interpretación más estructurada del impacto conjunto de las estadísticas del box score.
+
+\subsubsection{Modelo Estadístico}
+\label{subsubsec:modelo-estadistico}
+
+Una vez realizado el Análisis de Componentes Principales y seleccionados los componentes que explican al menos el 80\% de la varianza total, se especifica el modelo de regresión lineal múltiple en función de dichos componentes como:
+\[
+\text{PLUS\_MINUS} = \beta_0 + \beta_1 \cdot \text{CP}_1 + \beta_2 \cdot \text{CP}_2 + \beta_3 \cdot \text{CP}_3 + \beta_4 \cdot \text{CP}_4 + \beta_5 \cdot \text{CP}_5 + \beta_6 \cdot \text{CP}_6 + \epsilon
+\]
+donde:
+\begin{itemize}
+    \item $\beta_0$ representa el término constante del modelo
+    \item $\beta_1, \beta_2, \ldots, \beta_6$ son los coeficientes asociados a cada componente principal retenido
+    \item $\text{CP}_i$ denota el $i$-ésimo componente principal obtenido a partir de las variables explicativas estandarizadas
+    \item $\epsilon$ es el término de error aleatorio
+\end{itemize}
+
+\subsubsection{Hipótesis Estadísticas}
+\label{subsubsec:hipotesis-estadisticas}
+
+El contraste de significancia global del modelo se plantea mediante las siguientes hipótesis:
+\begin{itemize}
+    \item $H_0$: $\beta_1 = \beta_2 = \cdots = \beta_6 = 0$ (los componentes principales no tienen efecto sobre PLUS\_MINUS)
+    \item $H_1$: Existe al menos un $\beta_i \neq 0$ (al menos un componente principal influye en PLUS\_MINUS)
+\end{itemize}
+
+
+
+
+\subsection{Análisis del funcionamiento del modelo de regresión}
+
+El modelo de regresión lineal estimado mediante mínimos cuadrados ordinarios presenta un desempeño global moderadamente elevado, considerando la naturaleza agregada y multicausal del fenómeno analizado. El coeficiente de determinación obtenido es $R^2 = 0.466$, valor que indica que aproximadamente el 46.6\% de la variabilidad observada en la variable dependiente es explicada por el conjunto de variables incluidas en el modelo. El hecho de que el $R^2$ ajustado coincida numéricamente con el $R^2$ sugiere que el modelo no está sobreajustado y que las variables explicativas aportan información relevante de forma consistente.
+\input{latex_tables/preg3/regresion_pca.tex}
+
+La significancia global del modelo queda confirmada a través del estadístico F, cuyo valor asciende a 4838 con una probabilidad asociada prácticamente nula. Este resultado permite rechazar de manera contundente la hipótesis nula de que todos los coeficientes de pendiente sean simultáneamente iguales a cero, evidenciando que el modelo posee capacidad explicativa conjunta. Este comportamiento es reforzado por el tamaño muestral elevado, con un total de 33316 observaciones, lo que contribuye a una estimación estable y precisa de los parámetros.
+
+El análisis individual de los coeficientes revela que todas las variables explicativas incluidas en el modelo resultan estadísticamente significativas al nivel usual de significancia, con valores p inferiores a 0.001 en todos los casos. Los coeficientes estimados presentan magnitudes y signos coherentes con la interpretación esperada del fenómeno. En particular, los predictores asociados a efectos positivos sobre la variable respuesta muestran coeficientes elevados, como ocurre con $x_1$, cuyo coeficiente estimado es 5.3381, y con $x_6$, que presenta un valor de 4.1456. Por el contrario, las variables con impacto negativo exhiben coeficientes negativos bien definidos, como $x_3$ con un valor de -0.8788 y $x_5$ con -2.1615, lo que indica una relación inversa clara con la variable dependiente.
+
+Los intervalos de confianza al 95\% para todos los coeficientes excluyen el valor cero, lo que refuerza la evidencia estadística de su relevancia individual dentro del modelo. Además, el término constante resulta no significativo, con un coeficiente cercano a cero y un valor p igual a uno, lo cual es consistente con el hecho de que las variables explicativas han sido previamente estandarizadas.
+
+Desde el punto de vista del diagnóstico de residuos, el estadístico de Durbin-Watson presenta un valor de 0.853, lo que sugiere la posible existencia de autocorrelación positiva en los errores. No obstante, dado el carácter transversal del conjunto de datos y el elevado tamaño muestral, este resultado no invalida la utilidad predictiva del modelo, aunque sí debe tenerse en cuenta en la interpretación inferencial. Las pruebas de normalidad de los residuos, como Omnibus y Jarque-Bera, rechazan la hipótesis de normalidad estricta, si bien los valores de asimetría (-0.155) y curtosis (3.175) indican desviaciones moderadas respecto a la normalidad teórica.
+
+Finalmente, el número de condición reportado es 1.56, valor bajo que confirma la ausencia de problemas de multicolinealidad severa entre los predictores utilizados. Este resultado es consistente con el proceso previo de preparación de los datos y respalda la estabilidad numérica de los coeficientes estimados. En conjunto, estos indicadores permiten concluir que el modelo presenta un funcionamiento estadísticamente sólido, con capacidad explicativa relevante y coeficientes interpretables, dentro de las limitaciones inherentes al enfoque lineal adoptado.
+
+\section{Conclusiones}
+
+Los resultados muestran que el diferencial de puntos se explica de forma más sólida mediante una combinación de métricas que reflejan eficiencia ofensiva, generación de juego colectivo y control de las posesiones. En particular, el porcentaje de tiros de campo (\texttt{FG\_PCT}) y el porcentaje de triples (\texttt{FG3\_PCT}) destacan como los predictores más robustos del \texttt{PLUS\_MINUS}, reforzados por el aporte consistente de las asistencias (\texttt{AST}). Los rebotes totales (\texttt{REB}) contribuyen positivamente al rendimiento global, mientras que las pérdidas de balón (\texttt{TOV}) ejercen un efecto negativo significativo. Por el contrario, las métricas defensivas individuales como los robos (\texttt{STL}) y los bloqueos (\texttt{BLK}) presentan un impacto más limitado y menos estable. En conjunto, la combinación de eficiencia en el tiro, creación ofensiva y dominio del rebote constituye la base más consistente para explicar y predecir el impacto de un jugador o equipo en el marcador.
+
+
+
 \end{document}
